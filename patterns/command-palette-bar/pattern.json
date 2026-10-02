@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/pattern.schema.json",
+  "id": "pat:command-palette-bar",
+  "name": "全局指令调色板 (Command Palette Bar)",
+  "category": "navigation",
+  "description": "专为桌面端与 Pro 工具打造的快捷指令搜索输入条，支持 ⌘K 触发与即时过滤。",
+  "author": "Setup Center Design Lab",
+  "tags": ["快捷搜索", "CommandPalette", "键盘优先", "Pro工具"],
+  "codeSnippet": "<div class=\"cmd-palette-bar\">\n  <span class=\"cmd-icon\">⌘K</span>\n  <input type=\"text\" placeholder=\"搜索命令或资产... (按 ↑↓ 选择，↵ 执行)\" />\n  <kbd>ESC</kbd>\n</div>",
+  "cssRules": ".cmd-palette-bar {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  background: var(--surface-raised);\n  border: 1px solid var(--line-strong);\n  border-radius: 8px;\n  padding: 8px 12px;\n  box-shadow: 0 4px 16px rgba(0,0,0,0.12);\n}\n.cmd-palette-bar input {\n  flex: 1;\n  background: transparent;\n  border: none;\n  outline: none;\n  color: var(--text-strong);\n  font-size: 13px;\n}\n.cmd-palette-bar kbd {\n  font-size: 10px;\n  font-family: monospace;\n  padding: 2px 6px;\n  border-radius: 4px;\n  background: var(--surface-inset);\n  border: 1px solid var(--line-subtle);\n}",
+  "usage": "适用于所有需要高频键盘操作的桌面应用或高级后台。",
+  "targetStyles": ["default", "spatial-glass", "swiss-editorial", "nordic-frost"],
+  "updatedAt": "2026-10-03"
+}

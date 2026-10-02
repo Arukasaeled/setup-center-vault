@@ -79,7 +79,7 @@
   {
     "id": "res:vault:refero",
     "name": "Refero",
-    "category: "frontend",
+    "category": "frontend",
     "description": "收录数千款优质真实 Web 与 iOS 应用的像素级界面与真实交互流截图。",
     "recommendedReason": "按具体页面类型（Onboarding、Pricing、Settings、Table）检索设计参考。",
     "author": "Refero Team",
@@ -91,7 +91,7 @@
   {
     "id": "res:vault:magic-ui",
     "name": "Magic UI",
-    "category: "frontend",
+    "category": "frontend",
     "description": "专为打造令人惊叹的现代 Landing Page 构建的 React + Tailwind 高表现力组件库。",
     "recommendedReason": "一键复制光束边框、流光文字、拟物网格与平滑卡片，显著提升产品吸睛度。",
     "author": "Dillion Verma",
@@ -104,7 +104,7 @@
   {
     "id": "res:vault:aceternity-ui",
     "name": "Aceternity UI",
-    "category: "frontend",
+    "category": "frontend",
     "description": "当下最热门的高风格化前端动效组件库，包含未来主义背景、悬停卡片与先锋排版。",
     "recommendedReason": "为开发者提供开箱即用的高阶 Framer Motion 与 Tailwind 交互组件，直接复制源码。",
     "author": "Manu Arora",
@@ -117,7 +117,7 @@
   {
     "id": "res:vault:bentogrids",
     "name": "Bento Grids",
-    "category: "frontend",
+    "category": "frontend",
     "description": "精选 Apple、Linear 风格便当盒栅格布局（Bento Grid）案例库。",
     "recommendedReason": "现代 SaaS 官网特性展示与仪表板信息架构必学的卡片排布规范。",
     "author": "Bento Grids Curators",

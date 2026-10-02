@@ -1,5 +1,7 @@
 {
   "releaseVersion": "2026.10.03.2",
+  "commitSha": "3af10e32fefbb4b0ae27e37c9daf35bc4378ecbe",
+  "snapshotTag": "v2026.10.03.2",
   "publishedAt": "2026-10-03T02:30:00Z",
   "summary": "Design Inspiration & Gallery Redesign Release",
   "changes": [

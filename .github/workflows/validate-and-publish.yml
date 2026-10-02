@@ -1,0 +1,46 @@
+name: Validate and Tag Vault Release
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "releases/latest.json"
+      - "manifest.json"
+      - "resources/**"
+      - "styles/**"
+      - "patterns/**"
+      - "templates/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate-and-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Validate Vault Integrity & Zero Dead Content
+        run: node scripts/validate.mjs
+
+      - name: Auto Tag Immutable Release
+        run: |
+          VERSION=$(node -e "console.log(JSON.parse(require('fs').readFileSync('releases/latest.json')).releaseVersion)")
+          TAG="v$VERSION"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git rev-parse "$TAG" >/dev/null 2>&1; then
+            git tag -a "$TAG" -m "Vault Release $VERSION"
+            git push origin "$TAG"
+            echo "Tagged and pushed $TAG"
+          else
+            echo "Tag $TAG already exists, skipping tag creation."
+          fi

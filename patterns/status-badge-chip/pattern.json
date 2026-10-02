@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/pattern.schema.json",
+  "id": "pat:status-badge-chip",
+  "name": "状态指示微标徽章 (Status Indicator Chip)",
+  "category": "feedback",
+  "description": "带有活体呼吸脉冲微点与微弱外发光的紧凑型状态指示徽章，用于实时呈现运行健康度。",
+  "author": "Setup Center Design Lab",
+  "tags": ["状态微标", "呼吸脉冲", "健康度指示", "可访问性"],
+  "codeSnippet": "<span class=\"status-chip status-ok\">\n  <span class=\"pulse-dot\"></span>\n  <span class=\"status-text\">在线就绪</span>\n</span>",
+  "cssRules": ".status-chip {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  padding: 2px 8px;\n  border-radius: 9999px;\n  font-size: 11px;\n  font-family: monospace;\n  border: 1px solid currentColor;\n}\n.status-chip.status-ok {\n  color: #10b981;\n  background: rgba(16, 185, 129, 0.1);\n}\n.pulse-dot {\n  width: 6px;\n  height: 6px;\n  border-radius: 50%;\n  background: currentColor;\n  box-shadow: 0 0 6px currentColor;\n  animation: pulse 2s infinite;\n}\n@keyframes pulse {\n  0%, 100% { opacity: 1; transform: scale(1); }\n  50% { opacity: 0.4; transform: scale(0.85); }\n}",
+  "usage": "用于软件安装状态、服务器连通性检测与环境依赖就绪度呈现。",
+  "targetStyles": ["terminal-crt", "industrial-console", "cyber-neon", "academic-lab"],
+  "updatedAt": "2026-10-03"
+}

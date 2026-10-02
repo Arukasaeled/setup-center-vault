@@ -152,7 +152,7 @@
     },
     "patterns": {
       "version": "1.0.0",
-      "count": 3,
+      "count": 7,
       "items": [
         {
           "id": "pat:hard-shadow-tactile-card",
@@ -171,6 +171,30 @@
           "name": "高透光空间玻璃面板",
           "path": "patterns/spatial-glass-detail-panel/pattern.json",
           "updatedAt": "2026-10-02"
+        },
+        {
+          "id": "pat:command-palette-bar",
+          "name": "全局指令调色板",
+          "path": "patterns/command-palette-bar/pattern.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "pat:segmented-control-tabs",
+          "name": "流体分段胶囊控制台",
+          "path": "patterns/segmented-control-tabs/pattern.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "pat:status-badge-chip",
+          "name": "状态指示微标徽章",
+          "path": "patterns/status-badge-chip/pattern.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "pat:split-detail-drawer",
+          "name": "侧滑深度抽屉面板",
+          "path": "patterns/split-detail-drawer/pattern.json",
+          "updatedAt": "2026-10-03"
         }
       ]
     },

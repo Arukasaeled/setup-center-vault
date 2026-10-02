@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/pattern.schema.json",
+  "id": "pat:segmented-control-tabs",
+  "name": "流体分段胶囊控制台 (Segmented Control Tabs)",
+  "category": "navigation",
+  "description": "具有温润背景胶囊滑块与触觉反馈的分段标签切换控件，避免传统 Tab 的突兀闪烁。",
+  "author": "Setup Center Design Lab",
+  "tags": ["分段控制", "胶囊滑块", "平滑过渡", "触觉反馈"],
+  "codeSnippet": "<div class=\"segmented-control\" role=\"tablist\">\n  <button class=\"segment-pill active\" role=\"tab\">推荐</button>\n  <button class=\"segment-pill\" role=\"tab\">最新</button>\n  <button class=\"segment-pill\" role=\"tab\">已收藏</button>\n</div>",
+  "cssRules": ".segmented-control {\n  display: inline-flex;\n  padding: 3px;\n  background: var(--surface-sunken);\n  border-radius: 8px;\n  border: 1px solid var(--line-subtle);\n  gap: 2px;\n}\n.segment-pill {\n  padding: 4px 12px;\n  font-size: 12px;\n  font-weight: 500;\n  border-radius: 6px;\n  color: var(--text-secondary);\n  transition: all 0.15s ease;\n  border: none;\n  background: transparent;\n  cursor: pointer;\n}\n.segment-pill.active {\n  background: var(--surface-raised);\n  color: var(--text-strong);\n  box-shadow: 0 1px 3px rgba(0,0,0,0.1);\n  font-weight: 600;\n}",
+  "usage": "用于页面分类过滤、多视图模式切换（如卡片/列表）与状态筛选。",
+  "targetStyles": ["soft-product-minimal", "spatial-glass", "nordic-frost"],
+  "updatedAt": "2026-10-03"
+}

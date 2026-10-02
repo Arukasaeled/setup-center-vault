@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/pattern.schema.json",
+  "id": "pat:split-detail-drawer",
+  "name": "侧滑深度抽屉面板 (Slide-Over Detail Drawer)",
+  "category": "layout",
+  "description": "从右侧平滑滑出的深度检视抽屉，适用于在不跳离当前工作流的情况下查看配置或历史日志。",
+  "author": "Setup Center Design Lab",
+  "tags": ["侧滑抽屉", "无跳离检视", "工作流保持", "平滑过渡"],
+  "codeSnippet": "<div class=\"detail-drawer open\">\n  <div class=\"drawer-header\">\n    <h3>详细信息</h3>\n    <button class=\"close-btn\">✕</button>\n  </div>\n  <div class=\"drawer-body\">\n    <p>深度配置与变更记录...</p>\n  </div>\n</div>",
+  "cssRules": ".detail-drawer {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  width: 420px;\n  background: var(--surface-raised);\n  border-left: 1px solid var(--line-strong);\n  box-shadow: -10px 0 30px rgba(0,0,0,0.3);\n  transform: translateX(100%);\n  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);\n  z-index: 40;\n}\n.detail-drawer.open {\n  transform: translateX(0);\n}",
+  "usage": "用于 Transfer Inbox 外部收件箱、安装历史时间线与详细环境检测报告展板。",
+  "targetStyles": ["default", "spatial-glass", "swiss-editorial"],
+  "updatedAt": "2026-10-03"
+}
