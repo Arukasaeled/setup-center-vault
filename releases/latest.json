@@ -1,0 +1,17 @@
+{
+  "releaseVersion": "2026.10.03.2",
+  "publishedAt": "2026-10-03T02:30:00Z",
+  "summary": "Design Inspiration & Gallery Redesign Release",
+  "changes": [
+    "收录 The Webby Awards、FWA、SiteInspire 等世界顶尖设计奖项与前沿画廊",
+    "收录 SaaS Interfaces、Refero、Magic UI、Aceternity UI 先锋组件与设计参考",
+    "全面适配客户端画廊网格与 DetailShell 详情弹层体系",
+    "建立 Release-Gated 双通道版本门禁，保证资产批次稳定性"
+  ],
+  "collections": {
+    "styles": 4,
+    "resources": 90,
+    "templates": 4,
+    "patterns": 3
+  }
+}

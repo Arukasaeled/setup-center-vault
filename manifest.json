@@ -1,10 +1,10 @@
 {
   "$schema": "./schemas/vault-manifest.schema.json",
   "schemaVersion": "1.0.0",
-  "contentVersion": "2026.10.03.1",
+  "contentVersion": "2026.10.03.2",
   "name": "Setup Center Remote Vault",
   "description": "Decoupled remote content vault holding developer tools, design systems, templates, patterns, and creative resources.",
-  "updatedAt": "2026-10-03T00:40:00Z",
+  "updatedAt": "2026-10-03T02:30:00Z",
   "maintainer": "arukas0623-ai",
   "repository": "https://github.com/arukas0623-ai/setup-center-vault",
   "collections": {
