@@ -1,0 +1,194 @@
+{
+  "$schema": "./schemas/vault-manifest.schema.json",
+  "schemaVersion": "1.0.0",
+  "contentVersion": "2026.10.03.1",
+  "name": "Setup Center Remote Vault",
+  "description": "Decoupled remote content vault holding developer tools, design systems, templates, patterns, and creative resources.",
+  "updatedAt": "2026-10-03T00:40:00Z",
+  "maintainer": "arukas0623-ai",
+  "repository": "https://github.com/arukas0623-ai/setup-center-vault",
+  "collections": {
+    "styles": {
+      "version": "1.0.0",
+      "count": 4,
+      "items": [
+        {
+          "id": "blueprint",
+          "name": "工程制图蓝图",
+          "path": "styles/blueprint/manifest.json",
+          "cssPath": "styles/blueprint/blueprint.css",
+          "updatedAt": "2026-10-02"
+        },
+        {
+          "id": "y2k-digital",
+          "name": "千禧数码未来",
+          "path": "styles/y2k-digital/manifest.json",
+          "cssPath": "styles/y2k-digital/y2k-digital.css",
+          "updatedAt": "2026-10-02"
+        },
+        {
+          "id": "newspaper-editorial",
+          "name": "经典新闻铅印",
+          "path": "styles/newspaper-editorial/manifest.json",
+          "cssPath": "styles/newspaper-editorial/newspaper-editorial.css",
+          "updatedAt": "2026-10-02"
+        },
+        {
+          "id": "cyber-neon",
+          "name": "赛博霓虹脉冲",
+          "path": "styles/cyber-neon/manifest.json",
+          "cssPath": "styles/cyber-neon/cyber-neon.css",
+          "updatedAt": "2026-10-03"
+        }
+      ]
+    },
+    "resources": {
+      "version": "1.0.0",
+      "count": 18,
+      "categories": [
+        "frontend",
+        "components",
+        "tools",
+        "ai",
+        "templates",
+        "fonts",
+        "icons",
+        "animation",
+        "learning",
+        "collections"
+      ],
+      "items": [
+        {
+          "id": "frontend",
+          "name": "设计灵感与系统",
+          "path": "resources/frontend.json",
+          "updatedAt": "2026-10-02"
+        },
+        {
+          "id": "components",
+          "name": "现代组件库",
+          "path": "resources/components.json",
+          "updatedAt": "2026-10-02"
+        },
+        {
+          "id": "tools",
+          "name": "开发效率工具",
+          "path": "resources/tools.json",
+          "updatedAt": "2026-10-02"
+        },
+        {
+          "id": "ai",
+          "name": "AI 智能开发",
+          "path": "resources/ai.json",
+          "updatedAt": "2026-10-02"
+        },
+        {
+          "id": "templates",
+          "name": "工程模板与脚手架",
+          "path": "resources/templates.json",
+          "updatedAt": "2026-10-02"
+        },
+        {
+          "id": "fonts",
+          "name": "字体与排印工坊",
+          "path": "resources/fonts.json",
+          "updatedAt": "2026-10-02"
+        },
+        {
+          "id": "icons",
+          "name": "矢量图标体系",
+          "path": "resources/icons.json",
+          "updatedAt": "2026-10-02"
+        },
+        {
+          "id": "animation",
+          "name": "动效与三维交互",
+          "path": "resources/animation.json",
+          "updatedAt": "2026-10-02"
+        },
+        {
+          "id": "learning",
+          "name": "学习路径与技能树",
+          "path": "resources/learning.json",
+          "updatedAt": "2026-10-02"
+        },
+        {
+          "id": "collections",
+          "name": "精选开源清单",
+          "path": "resources/collections.json",
+          "updatedAt": "2026-10-02"
+        }
+      ]
+    },
+    "templates": {
+      "version": "1.0.0",
+      "count": 4,
+      "items": [
+        {
+          "id": "tpl:tauri-v2-react",
+          "name": "Tauri v2 + React 桌面端脚手架",
+          "path": "templates/tauri-v2-react/template.json",
+          "updatedAt": "2026-10-02"
+        },
+        {
+          "id": "tpl:create-t3-app",
+          "name": "T3 Stack 全栈脚手架",
+          "path": "templates/create-t3-app/template.json",
+          "updatedAt": "2026-10-02"
+        },
+        {
+          "id": "tpl:rust-cli-starter",
+          "name": "Rust 现代命令行工具脚手架",
+          "path": "templates/rust-cli-starter/template.json",
+          "updatedAt": "2026-10-02"
+        },
+        {
+          "id": "tpl:python-uv-fastapi",
+          "name": "Python uv + FastAPI 微服务工程",
+          "path": "templates/python-uv-fastapi/template.json",
+          "updatedAt": "2026-10-02"
+        }
+      ]
+    },
+    "patterns": {
+      "version": "1.0.0",
+      "count": 3,
+      "items": [
+        {
+          "id": "pat:hard-shadow-tactile-card",
+          "name": "硬阴影触感卡片",
+          "path": "patterns/hard-shadow-tactile-card/pattern.json",
+          "updatedAt": "2026-10-02"
+        },
+        {
+          "id": "pat:editorial-section-header",
+          "name": "排印分栏标题栏",
+          "path": "patterns/editorial-section-header/pattern.json",
+          "updatedAt": "2026-10-02"
+        },
+        {
+          "id": "pat:spatial-glass-detail-panel",
+          "name": "高透光空间玻璃面板",
+          "path": "patterns/spatial-glass-detail-panel/pattern.json",
+          "updatedAt": "2026-10-02"
+        }
+      ]
+    },
+    "skills": {
+      "version": "1.0.0",
+      "count": 1,
+      "items": [
+        {
+          "id": "skill:transfer-resource",
+          "name": "Transfer External Resource to Setup Vault",
+          "path": "skills/transfer-resource.json",
+          "updatedAt": "2026-10-02"
+        }
+      ]
+    },
+    "inbox": {
+      "version": "1.0.0",
+      "count": 2
+    }
+  }
+}

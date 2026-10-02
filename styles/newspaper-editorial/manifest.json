@@ -1,0 +1,34 @@
+{
+  "$schema": "../../schemas/style.schema.json",
+  "id": "newspaper-editorial",
+  "name": "经典新闻铅印",
+  "version": "1.0.0",
+  "subtitle": "Broadsheet Newspaper / Ink Editorial",
+  "description": "百年大报报纸排版、古雅衬线字体、多栏细线分隔与黑色油墨铅印质感。",
+  "author": "Setup Center Design Lab",
+  "license": "MIT",
+  "updatedAt": "2026-10-02",
+  "implemented": true,
+  "inspiration": "The New York Times、The Wall Street Journal 头版排版及经典活字铅印报刊",
+  "tags": ["经典报刊", "铅印油墨", "大号衬线", "双栏细线", "新闻头条"],
+  "cssPath": "newspaper-editorial.css",
+  "palette": {
+    "bg": "#f9f8f4",
+    "text": "#111111",
+    "primary": "#8b0000",
+    "surface": "#ffffff",
+    "border": "#222222"
+  },
+  "tokens": {
+    "cardRadius": "0px",
+    "borderWidth": "1px",
+    "shadowDepth": "0px",
+    "fontHeading": "'Georgia', 'Times New Roman', serif",
+    "fontBody": "'Georgia', 'Times New Roman', serif"
+  },
+  "designPrinciples": [
+    "Editorial Dignity — 报业大标题与分栏细线构建庄严内容阵列",
+    "Typography as Structure — 用衬线体笔锋和字级阶梯引导视线阅读",
+    "Physical Paper Quality — 新闻纸米白底色配合高对比墨黑文字"
+  ]
+}

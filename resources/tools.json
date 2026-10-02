@@ -1,0 +1,32 @@
+[
+  {
+    "id": "res:vault:astral-uv",
+    "name": "Astral uv",
+    "category": "tools",
+    "description": "极速 Python 包与虚拟环境管理器，使用 Rust 编写，提速 10-100 倍。",
+    "recommendedReason": "现代 Python 项目依赖解析与多版本 Python 解释器无缝切换的终极方案。",
+    "author": "Astral",
+    "tags": ["Python", "Rust", "包管理", "性能神兵"],
+    "actionType": "github",
+    "repository": "https://github.com/astral-sh/uv",
+    "homepage": "https://docs.astral.sh/uv",
+    "stars": "42k+",
+    "featured": true,
+    "updatedAt": "2026-10-02"
+  },
+  {
+    "id": "res:vault:starship-prompt",
+    "name": "Starship Prompt",
+    "category": "tools",
+    "description": "极速、极简、高可定制的跨 shell 统一命令提示符。",
+    "recommendedReason": "无论在 PowerShell、Bash 还是 Zsh，都能获得一致优雅的 Git 与环境状态感知。",
+    "author": "Starship Contributors",
+    "tags": ["终端美化", "CLI", "Shell", "跨平台"],
+    "actionType": "github",
+    "repository": "https://github.com/starship/starship",
+    "homepage": "https://starship.rs",
+    "stars": "45k+",
+    "featured": false,
+    "updatedAt": "2026-10-02"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/pattern.schema.json",
+  "id": "pat:editorial-section-header",
+  "name": "排印分栏标题栏 (Editorial Section Header)",
+  "category": "header",
+  "description": "融合了瑞士国际主义与百年报刊双细线装订特征的内容分块标头。",
+  "author": "Setup Center Design Lab",
+  "tags": ["瑞士排版", "衬线标题", "双细线", "网格结构"],
+  "codeSnippet": "<header class=\"editorial-header\">\n  <div class=\"editorial-meta\">\n    <span class=\"editorial-index\">SECTION 01</span>\n    <span class=\"editorial-date\">VOL. 2026</span>\n  </div>\n  <h2 class=\"editorial-title\">排印叙事与系统结构</h2>\n  <div class=\"editorial-rule\"></div>\n</header>",
+  "cssRules": ".editorial-header {\n  border-bottom: 2px solid currentColor;\n  padding-bottom: 8px;\n  margin-bottom: 20px;\n}\n.editorial-meta {\n  display: flex;\n  justify-content: space-between;\n  font-family: monospace;\n  font-size: 11px;\n  letter-spacing: 0.1em;\n  opacity: 0.7;\n}\n.editorial-title {\n  font-size: 24px;\n  font-weight: 800;\n  margin-top: 4px;\n  letter-spacing: -0.02em;\n}",
+  "usage": "用于各类杂志排版、深度文章阅读或高质量内容模块的引言标题。",
+  "targetStyles": ["swiss-editorial", "newspaper-editorial"],
+  "updatedAt": "2026-10-02"
+}

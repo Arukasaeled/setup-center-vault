@@ -1,0 +1,32 @@
+[
+  {
+    "id": "res:vault:shadcn-ui",
+    "name": "shadcn/ui",
+    "category": "components",
+    "description": "设计精美、代码直接复制到工程内部的无头与可定制 React 组件集。",
+    "recommendedReason": "彻底颠覆传统黑盒 npm 组件库，将设计与控制权完整归还给开发者。",
+    "author": "shadcn",
+    "tags": ["React", "Tailwind", "Radix", "可复制源码"],
+    "actionType": "github",
+    "repository": "https://github.com/shadcn-ui/ui",
+    "homepage": "https://ui.shadcn.com",
+    "stars": "75k+",
+    "featured": true,
+    "updatedAt": "2026-10-02"
+  },
+  {
+    "id": "res:vault:radix-primitives",
+    "name": "Radix Primitives",
+    "category": "components",
+    "description": "完全无样式、符合 WAI-ARIA 无障碍可访问性规范的底层 UI 原语库。",
+    "recommendedReason": "构建企业级私有设计系统与复杂弹窗、下拉、无障碍键盘焦点的坚实地基。",
+    "author": "WorkOS",
+    "tags": ["无头组件", "无障碍", "ARIA", "设计系统基石"],
+    "actionType": "github",
+    "repository": "https://github.com/radix-ui/primitives",
+    "homepage": "https://www.radix-ui.com/primitives",
+    "stars": "16k+",
+    "featured": false,
+    "updatedAt": "2026-10-02"
+  }
+]

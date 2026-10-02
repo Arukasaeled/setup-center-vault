@@ -1,0 +1,83 @@
+/* ==========================================================================
+   STYLE SPECIMEN: y2k-digital (千禧数码 Y2K)
+   ========================================================================== */
+
+:root[data-style="y2k-digital"] {
+  --surface-base: #090d18;
+  --surface-raised: #131b2e;
+  --surface-overlay: rgba(19, 27, 46, 0.98);
+  --surface-overlay-soft: rgba(23, 34, 58, 0.94);
+  --surface-sunken: #060810;
+  --surface-hover: rgba(6, 182, 212, 0.1);
+  --surface-active: #06b6d4;
+  --surface-inset: #1a253d;
+
+  --text-strong: #ffffff;
+  --text-primary: #f0f6ff;
+  --text-secondary: #c3d3ee;
+  --text-tertiary: #8fa5cb;
+  --text-quiet: #617397;
+  --text-inverse: #090d18;
+
+  --line-subtle: #212f4d;
+  --line-default: #324773;
+  --line-strong: #06b6d4;
+
+  --status-ok: #06b6d4;
+  --status-warn: #fbbf24;
+  --status-bad: #f43f5e;
+  --status-accent: #06b6d4;
+  --status-accent-soft: rgba(6, 182, 212, 0.18);
+
+  --radius-panel: 14px;
+  --radius-control: 8px;
+}
+
+/* Nav */
+[data-style="y2k-digital"] nav[aria-label="导航"] {
+  border-right: 1.5px solid #2a3a5e;
+  background: var(--surface-base);
+}
+
+[data-style="y2k-digital"] nav[aria-label="导航"] button[aria-current="page"] {
+  background: linear-gradient(180deg, #1e2c4a 0%, #111a2e 100%) !important;
+  color: #06b6d4 !important;
+  border: 1.5px solid #06b6d4 !important;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.3) !important;
+  font-weight: 700;
+}
+
+/* Y2K Gadget module software card */
+[data-style="y2k-digital"] [data-software-row] {
+  border: 1.5px solid #2d3e64 !important;
+  background: linear-gradient(180deg, #162035 0%, #101828 100%) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 4px 10px rgba(0, 0, 0, 0.4) !important;
+  border-radius: 12px !important;
+  transition: all 140ms ease;
+}
+
+[data-style="y2k-digital"] [data-software-row]:hover {
+  border-color: #06b6d4 !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 0 14px rgba(6, 182, 212, 0.35) !important;
+}
+
+[data-style="y2k-digital"] [data-software-row][aria-pressed="true"],
+[data-style="y2k-digital"] [data-software-row][aria-expanded="true"] {
+  border-color: #f43f5e !important;
+  box-shadow: 0 0 16px rgba(244, 63, 94, 0.4) !important;
+}
+
+[data-style="y2k-digital"] [data-software-row] .software-row-icon-tray {
+  border: 1px solid #384c70;
+  background: #090e1a;
+  border-radius: 8px !important;
+}
+
+/* Y2K Metallic/Glow Button */
+[data-style="y2k-digital"] button.bg-\[color\:var\(--status-accent\)\] {
+  background: linear-gradient(180deg, #22d3ee 0%, #0891b2 100%) !important;
+  color: #ffffff !important;
+  font-weight: 800;
+  border: 1px solid #67e8f9 !important;
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.4) !important;
+}

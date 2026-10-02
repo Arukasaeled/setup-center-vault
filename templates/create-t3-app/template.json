@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:create-t3-app",
+  "name": "T3 Stack 全栈脚手架",
+  "category": "fullstack",
+  "description": "包含 Next.js App Router、tRPC、Tailwind CSS、Prisma/Drizzle 的端到端强类型全栈起步工程。",
+  "author": "T3 OSS",
+  "license": "MIT",
+  "tags": ["Next.js", "TypeScript", "tRPC", "Prisma", "Tailwind"],
+  "homepage": "https://create.t3.gg",
+  "repository": "https://github.com/t3-oss/create-t3-app",
+  "scaffold": {
+    "type": "command",
+    "command": "npx create-t3-app@latest {{projectName}}",
+    "defaultDir": "my-t3-app",
+    "postInstallNotice": "运行 `npm run dev` 启动 Next.js 极速开发服务。"
+  },
+  "requirements": ["Node.js 18.17+"],
+  "featured": true,
+  "updatedAt": "2026-10-02"
+}

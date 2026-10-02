@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SetupCenterPatternSchema",
+  "description": "Schema definition for reusable UI components and architectural patterns in Vault",
+  "type": "object",
+  "required": ["id", "name", "category", "description", "codeSnippet", "cssRules"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "category": { "type": "string" },
+    "description": { "type": "string" },
+    "author": { "type": "string" },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "codeSnippet": { "type": "string" },
+    "cssRules": { "type": "string" },
+    "usage": { "type": "string" },
+    "targetStyles": { "type": "array", "items": { "type": "string" } },
+    "updatedAt": { "type": "string" }
+  }
+}

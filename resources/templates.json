@@ -1,0 +1,31 @@
+[
+  {
+    "id": "res:vault:create-t3-app",
+    "name": "Create T3 App",
+    "category": "templates",
+    "description": "以类型安全为核心的 Next.js 全栈脚手架（Next.js + tRPC + Tailwind + Prisma）。",
+    "recommendedReason": "从数据库模式到前端界面输入校验的全链路端到端严密类型提示。",
+    "author": "Theo & T3 OSS",
+    "tags": ["Next.js", "TypeScript", "tRPC", "Prisma"],
+    "actionType": "github",
+    "repository": "https://github.com/t3-oss/create-t3-app",
+    "homepage": "https://create.t3.gg",
+    "stars": "25k+",
+    "featured": true,
+    "updatedAt": "2026-10-02"
+  },
+  {
+    "id": "res:vault:tauri-v2-template",
+    "name": "Tauri v2 App Starter",
+    "category": "templates",
+    "description": "基于 Tauri 2.0 + React + Vite + Tailwind CSS 的轻量级跨平台桌面端模板。",
+    "recommendedReason": "极速启动、包体极小、Rust 后端与现代 React 状态驱动界面的最佳实践。",
+    "author": "Tauri Community",
+    "tags": ["Tauri", "Rust", "React", "Desktop"],
+    "actionType": "github",
+    "repository": "https://github.com/tauri-apps/create-tauri-app",
+    "homepage": "https://v2.tauri.app",
+    "featured": true,
+    "updatedAt": "2026-10-02"
+  }
+]

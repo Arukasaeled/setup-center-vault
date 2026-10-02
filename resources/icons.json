@@ -1,0 +1,32 @@
+[
+  {
+    "id": "res:vault:lucide-icons",
+    "name": "Lucide Icons",
+    "category": "icons",
+    "description": "优美统一、轻量且拥有 1000+ 矢量图标的 Feather Icons 现代社区分支。",
+    "recommendedReason": "现代 Web 应用界面首选图标集，提供 React、Vue 及 Svelte 官方绑定的开箱支持。",
+    "author": "Lucide Contributors",
+    "tags": ["图标库", "矢量", "React", "多格式支持"],
+    "actionType": "github",
+    "repository": "https://github.com/lucide-icons/lucide",
+    "homepage": "https://lucide.dev",
+    "stars": "16k+",
+    "featured": true,
+    "updatedAt": "2026-10-02"
+  },
+  {
+    "id": "res:vault:svgl",
+    "name": "SVGL",
+    "category": "icons",
+    "description": "极具美感且收录全面的世界顶尖科技品牌与开发工具官方 SVG Logo 库。",
+    "recommendedReason": "开发项目文档、工具卡片和产品展示页面官方高清矢量 Logo 的即取即用首选。",
+    "author": "E统一phraim",
+    "tags": ["品牌Logo", "SVG", "科技品牌", "高清矢量"],
+    "actionType": "external",
+    "homepage": "https://svgl.app",
+    "repository": "https://github.com/pheralb/svgl",
+    "stars": "6k+",
+    "featured": true,
+    "updatedAt": "2026-10-02"
+  }
+]

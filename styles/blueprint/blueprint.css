@@ -1,0 +1,105 @@
+/* ==========================================================================
+   STYLE SPECIMEN: blueprint (工程制图蓝图)
+   ========================================================================== */
+
+:root[data-style="blueprint"] {
+  --surface-base: #061527;
+  --surface-raised: #0b223f;
+  --surface-overlay: rgba(11, 34, 63, 0.98);
+  --surface-overlay-soft: rgba(14, 42, 78, 0.94);
+  --surface-sunken: #040e1b;
+  --surface-hover: rgba(100, 255, 218, 0.08);
+  --surface-active: #64ffda;
+  --surface-inset: #0e2b4f;
+
+  --text-strong: #ffffff;
+  --text-primary: #e0f2fe;
+  --text-secondary: #bae6fd;
+  --text-tertiary: #7dd3fc;
+  --text-quiet: #38bdf8;
+  --text-inverse: #061527;
+
+  --line-subtle: #173b66;
+  --line-default: #23548f;
+  --line-strong: #64ffda;
+
+  --status-ok: #64ffda;
+  --status-warn: #fde047;
+  --status-bad: #f87171;
+  --status-accent: #64ffda;
+  --status-accent-soft: rgba(100, 255, 218, 0.16);
+
+  --font-mono: "Courier New", "Cascadia Code", Consolas, monospace;
+  --radius-panel: 2px;
+  --radius-control: 2px;
+}
+
+[data-style="blueprint"] * {
+  border-radius: 2px !important;
+}
+
+/* Blueprint subtle grid on the app field */
+[data-style="blueprint"].app-field,
+[data-style="blueprint"] main {
+  background-image: 
+    linear-gradient(rgba(100, 255, 218, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100, 255, 218, 0.04) 1px, transparent 1px) !important;
+  background-size: 24px 24px !important;
+}
+
+/* Nav */
+[data-style="blueprint"] nav[aria-label="导航"] {
+  border-right: 1px solid #23548f;
+  background: var(--surface-base);
+}
+
+[data-style="blueprint"] nav[aria-label="导航"] button[aria-current="page"] {
+  background: rgba(100, 255, 218, 0.12) !important;
+  color: #64ffda !important;
+  border-left: 3px solid #64ffda !important;
+  font-weight: 700;
+}
+
+/* CAD Blueprint software frame card */
+[data-style="blueprint"] [data-software-row] {
+  border: 1px dashed #2a63a5 !important;
+  background: var(--surface-raised) !important;
+  box-shadow: none !important;
+  position: relative;
+  transition: all 120ms ease;
+}
+
+[data-style="blueprint"] [data-software-row]::after {
+  content: "+";
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  font-size: 11px;
+  color: #38bdf8;
+  font-family: monospace;
+}
+
+[data-style="blueprint"] [data-software-row]:hover {
+  border: 1px solid #64ffda !important;
+  background: #0e2b4f !important;
+}
+
+[data-style="blueprint"] [data-software-row][aria-pressed="true"],
+[data-style="blueprint"] [data-software-row][aria-expanded="true"] {
+  border: 1px solid #64ffda !important;
+  box-shadow: 0 0 0 1px #64ffda, inset 0 0 10px rgba(100, 255, 218, 0.1) !important;
+}
+
+[data-style="blueprint"] [data-software-row] .software-row-icon-tray {
+  border: 1px solid #23548f;
+  background: var(--surface-sunken);
+}
+
+/* Blueprint Action button */
+[data-style="blueprint"] button.bg-\[color\:var\(--status-accent\)\] {
+  background: #64ffda !important;
+  color: #061527 !important;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  border: 1px solid #a7f3d0;
+}

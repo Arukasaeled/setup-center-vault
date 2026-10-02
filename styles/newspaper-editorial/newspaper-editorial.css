@@ -1,0 +1,123 @@
+/* ==========================================================================
+   STYLE SPECIMEN: newspaper-editorial (复古报刊社论)
+   ========================================================================== */
+
+:root[data-style="newspaper-editorial"]:not([data-theme="light"]) {
+  --surface-base: #131210;
+  --surface-raised: #1c1a16;
+  --surface-overlay: rgba(28, 26, 22, 0.98);
+  --surface-overlay-soft: rgba(33, 30, 26, 0.94);
+  --surface-sunken: #0c0b09;
+  --surface-hover: rgba(194, 65, 12, 0.08);
+  --surface-active: #c2410c;
+  --surface-inset: #24211d;
+
+  --text-strong: #ffffff;
+  --text-primary: #f5f0e8;
+  --text-secondary: #cdc5b6;
+  --text-tertiary: #9c9384;
+  --text-quiet: #6d665a;
+  --text-inverse: #131210;
+
+  --line-subtle: #2d2924;
+  --line-default: #474139;
+  --line-strong: #c2410c;
+
+  --status-ok: #15803d;
+  --status-warn: #b45309;
+  --status-bad: #b91c1c;
+  --status-accent: #c2410c;
+  --status-accent-soft: rgba(194, 65, 12, 0.16);
+
+  --font-serif: Georgia, "Noto Serif SC", Cambria, serif;
+  --radius-panel: 3px;
+  --radius-control: 2px;
+}
+
+:root[data-style="newspaper-editorial"][data-theme="light"] {
+  --surface-base: #f5f1e8;
+  --surface-raised: #fdfbf7;
+  --surface-overlay: rgba(253, 251, 247, 0.98);
+  --surface-overlay-soft: rgba(245, 241, 232, 0.94);
+  --surface-sunken: #e9e3d5;
+  --surface-hover: rgba(194, 65, 12, 0.06);
+  --surface-active: #9a3412;
+  --surface-inset: #ede7da;
+
+  --text-strong: #1c1917;
+  --text-primary: #292524;
+  --text-secondary: #57534e;
+  --text-tertiary: #78716c;
+  --text-quiet: #a8a29e;
+  --text-inverse: #ffffff;
+
+  --line-subtle: #ded8cb;
+  --line-default: #b8b09f;
+  --line-strong: #9a3412;
+
+  --status-ok: #15803d;
+  --status-warn: #b45309;
+  --status-bad: #b91c1c;
+  --status-accent: #9a3412;
+  --status-accent-soft: rgba(154, 52, 18, 0.15);
+
+  --font-serif: Georgia, "Noto Serif SC", Cambria, serif;
+  --radius-panel: 3px;
+  --radius-control: 2px;
+}
+
+/* Serif headings */
+[data-style="newspaper-editorial"] h1,
+[data-style="newspaper-editorial"] h2,
+[data-style="newspaper-editorial"] h3 {
+  font-family: var(--font-serif) !important;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Nav */
+[data-style="newspaper-editorial"] nav[aria-label="导航"] {
+  border-right: 1px solid var(--line-default);
+  background: var(--surface-base);
+}
+
+[data-style="newspaper-editorial"] nav[aria-label="导航"] button[aria-current="page"] {
+  background: var(--surface-raised) !important;
+  color: var(--status-accent) !important;
+  border-bottom: 2px solid var(--status-accent) !important;
+  font-weight: 700;
+}
+
+/* Editorial column box */
+[data-style="newspaper-editorial"] [data-software-row] {
+  border: 1px solid var(--line-default) !important;
+  border-top: 2px solid var(--line-strong) !important;
+  background: var(--surface-raised) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) !important;
+  transition: all 120ms ease;
+}
+
+[data-style="newspaper-editorial"] [data-software-row]:hover {
+  border-color: var(--status-accent) !important;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25) !important;
+}
+
+[data-style="newspaper-editorial"] [data-software-row] .software-row-name {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+[data-style="newspaper-editorial"] [data-software-row] .software-row-icon-tray {
+  border: 1px solid var(--line-default);
+  background: var(--surface-sunken);
+}
+
+/* Editorial Button */
+[data-style="newspaper-editorial"] button.bg-\[color\:var\(--status-accent\)\] {
+  background: var(--status-accent) !important;
+  color: #ffffff !important;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  border: 1px solid #7c2d12;
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:tauri-v2-react",
+  "name": "Tauri v2 + React 桌面端脚手架",
+  "category": "desktop",
+  "description": "基于 Tauri 2.0、React 19、Vite 与 Tailwind CSS 构建的高性能、极小包体跨平台桌面应用模板。",
+  "author": "Setup Center Team",
+  "license": "MIT",
+  "tags": ["Tauri v2", "React", "Desktop", "Rust", "Tailwind"],
+  "homepage": "https://v2.tauri.app",
+  "repository": "https://github.com/tauri-apps/create-tauri-app",
+  "scaffold": {
+    "type": "command",
+    "command": "npm create tauri-app@latest {{projectName}} -- --template react-ts",
+    "defaultDir": "my-tauri-app",
+    "postInstallNotice": "进入目录后执行 `npm install`，然后执行 `npm run tauri dev` 启动桌面调试环境。"
+  },
+  "requirements": ["Node.js 18+", "Rust toolchain (cargo, rustc)"],
+  "featured": true,
+  "updatedAt": "2026-10-02"
+}

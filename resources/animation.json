@@ -1,0 +1,17 @@
+[
+  {
+    "id": "res:vault:framer-motion",
+    "name": "Motion (Framer Motion)",
+    "category": "animation",
+    "description": "专为 React 打造的生产级声明式动画与手势交互物理引擎。",
+    "recommendedReason": "极简 API 支持弹簧物理模型、布局过渡排布（layoutId）与复杂手势拖拽。",
+    "author": "Motion Division",
+    "tags": ["React动画", "物理弹簧", "手势交互", "布局过渡"],
+    "actionType": "github",
+    "repository": "https://github.com/motiondivision/motion",
+    "homepage": "https://motion.dev",
+    "stars": "25k+",
+    "featured": true,
+    "updatedAt": "2026-10-02"
+  }
+]

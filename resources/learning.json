@@ -1,0 +1,17 @@
+[
+  {
+    "id": "res:vault:developer-roadmap",
+    "name": "Developer Roadmaps",
+    "category": "learning",
+    "description": "全球开发者社区共同维护的前端、后端、DevOps 及 AI 学习全景路线图。",
+    "recommendedReason": "初学者与进阶工程师梳理技术盲区与成体系系统化学习的必备路线指南。",
+    "author": "roadmap.sh",
+    "tags": ["路线图", "技术指南", "学习路径", "系统成长"],
+    "actionType": "external",
+    "homepage": "https://roadmap.sh",
+    "repository": "https://github.com/kamranahmedse/developer-roadmap",
+    "stars": "290k+",
+    "featured": true,
+    "updatedAt": "2026-10-02"
+  }
+]

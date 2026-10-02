@@ -1,0 +1,34 @@
+{
+  "$schema": "../../schemas/style.schema.json",
+  "id": "y2k-digital",
+  "name": "千禧数码未来",
+  "version": "1.0.0",
+  "subtitle": "Y2K Digital / Frutiger Aero / Early 2000s Web",
+  "description": "晶莹天蓝高光、全息微彩反光、液态果冻圆角与千禧年初期的数码乐观主义界面美学。",
+  "author": "Setup Center Design Lab",
+  "license": "MIT",
+  "updatedAt": "2026-10-02",
+  "implemented": true,
+  "inspiration": "Windows Media Player 9/10 皮肤、早年 Winamp、Sony Vaio 界面与 Frutiger Aero",
+  "tags": ["Y2K", "果冻高光", "全息微彩", "数码乐观主义", "圆润水晶"],
+  "cssPath": "y2k-digital.css",
+  "palette": {
+    "bg": "#0b192e",
+    "text": "#e0f2fe",
+    "primary": "#38bdf8",
+    "surface": "#132d52",
+    "border": "#22d3ee"
+  },
+  "tokens": {
+    "cardRadius": "16px",
+    "borderWidth": "1.5px",
+    "shadowDepth": "4px",
+    "fontHeading": "system-ui, sans-serif",
+    "fontBody": "system-ui, sans-serif"
+  },
+  "designPrinciples": [
+    "Aero Luster — 晶莹高光与液态渐变呈现科技质感",
+    "Digital Optimism — 明亮天空蓝与全息彩斑传递探索生机",
+    "Soft Rounded Silhouettes — 大圆角与柔和阴影消解界面的锐利感"
+  ]
+}

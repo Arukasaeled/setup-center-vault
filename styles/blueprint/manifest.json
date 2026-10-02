@@ -1,0 +1,35 @@
+{
+  "$schema": "../../schemas/style.schema.json",
+  "id": "blueprint",
+  "name": "工程制图蓝图",
+  "version": "1.0.0",
+  "subtitle": "Engineering Blueprint / CAD Drawing",
+  "description": "深海工科蓝底、坐标标尺网格与青白细线条 CAD 制图标注。装配公差符号、十字准星与图纸装订框，洋溢着严密的技术制图之美。",
+  "author": "Setup Center Design Lab",
+  "license": "MIT",
+  "updatedAt": "2026-10-02",
+  "implemented": true,
+  "inspiration": "传统建筑工程蓝图、AutoCAD 技术施工图纸与航空装配图纸",
+  "tags": ["技术蓝图", "CAD网格", "青白细线", "十字准星", "公差标注"],
+  "cssPath": "blueprint.css",
+  "palette": {
+    "bg": "#061527",
+    "text": "#e0f2fe",
+    "primary": "#64ffda",
+    "surface": "#0b223f",
+    "border": "#23548f"
+  },
+  "tokens": {
+    "cardRadius": "2px",
+    "borderWidth": "1px",
+    "shadowDepth": "0px",
+    "fontHeading": "monospace",
+    "fontBody": "system-ui, sans-serif"
+  },
+  "designPrinciples": [
+    "Technical Precision — 以工程制图标准规范界面组件的几何位置",
+    "Coordinate System — 背景网格与标注赋予界面可度量性",
+    "Blueprint Cyan Contrast — 深海蓝底与青白细线构筑高可读对比",
+    "Drafting Annotations — 用轻量角标强化模块身份定位"
+  ]
+}

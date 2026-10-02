@@ -1,0 +1,20 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:python-uv-fastapi",
+  "name": "Python uv + FastAPI 微服务工程",
+  "category": "backend",
+  "description": "基于 Astral uv 超高速包管理器的现代 FastAPI 异步后端模板，包含 Pydantic v2 与热重载。",
+  "author": "Setup Center Team",
+  "license": "MIT",
+  "tags": ["Python", "FastAPI", "uv", "Pydantic", "Async"],
+  "homepage": "https://fastapi.tiangolo.com",
+  "scaffold": {
+    "type": "command",
+    "command": "uv init {{projectName}} --app && cd {{projectName}} && uv add fastapi uvicorn",
+    "defaultDir": "my-fastapi-service",
+    "postInstallNotice": "执行 `uv run uvicorn main:app --reload` 启动极速异步 API 服务与 Swagger 文档。"
+  },
+  "requirements": ["Astral uv (可在 Setup Center 软件库直接安装)"],
+  "featured": true,
+  "updatedAt": "2026-10-02"
+}

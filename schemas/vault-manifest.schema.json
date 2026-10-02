@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SetupCenterVaultManifest",
+  "description": "Top-level manifest specification for Setup Center Content Vault",
+  "type": "object",
+  "required": ["schemaVersion", "contentVersion", "updatedAt", "collections"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "contentVersion": { "type": "string" },
+    "name": { "type": "string" },
+    "description": { "type": "string" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "maintainer": { "type": "string" },
+    "repository": { "type": "string" },
+    "collections": {
+      "type": "object",
+      "required": ["styles", "resources", "templates", "patterns"],
+      "properties": {
+        "styles": {
+          "type": "object",
+          "required": ["version", "count", "items"],
+          "properties": {
+            "version": { "type": "string" },
+            "count": { "type": "integer" },
+            "items": { "type": "array", "items": { "$ref": "#/definitions/VaultItemRef" } }
+          }
+        },
+        "resources": {
+          "type": "object",
+          "required": ["version", "count", "categories"],
+          "properties": {
+            "version": { "type": "string" },
+            "count": { "type": "integer" },
+            "categories": { "type": "array", "items": { "type": "string" } },
+            "items": { "type": "array", "items": { "$ref": "#/definitions/VaultItemRef" } }
+          }
+        },
+        "templates": {
+          "type": "object",
+          "required": ["version", "count", "items"],
+          "properties": {
+            "version": { "type": "string" },
+            "count": { "type": "integer" },
+            "items": { "type": "array", "items": { "$ref": "#/definitions/VaultItemRef" } }
+          }
+        },
+        "patterns": {
+          "type": "object",
+          "required": ["version", "count", "items"],
+          "properties": {
+            "version": { "type": "string" },
+            "count": { "type": "integer" },
+            "items": { "type": "array", "items": { "$ref": "#/definitions/VaultItemRef" } }
+          }
+        },
+        "skills": {
+          "type": "object",
+          "properties": {
+            "version": { "type": "string" },
+            "count": { "type": "integer" },
+            "items": { "type": "array", "items": { "$ref": "#/definitions/VaultItemRef" } }
+          }
+        },
+        "inbox": {
+          "type": "object",
+          "properties": {
+            "version": { "type": "string" },
+            "count": { "type": "integer" }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "VaultItemRef": {
+      "type": "object",
+      "required": ["id", "name", "path"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "path": { "type": "string" },
+        "checksum": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      }
+    }
+  }
+}

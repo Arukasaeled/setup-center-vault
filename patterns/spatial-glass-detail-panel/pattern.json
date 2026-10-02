@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/pattern.schema.json",
+  "id": "pat:spatial-glass-detail-panel",
+  "name": "高透光空间玻璃面板 (Spatial Glass Panel)",
+  "category": "panel",
+  "description": "带有 24px 背景多重模糊、1px 亚克力边缘微高光与半透明景深感的高阶悬浮面板。",
+  "author": "Setup Center Design Lab",
+  "tags": ["空间计算", "毛玻璃", "亚克力高光", "景深"],
+  "codeSnippet": "<div class=\"spatial-panel\">\n  <div class=\"spatial-glow\"></div>\n  <div class=\"spatial-content\">\n    <h4>空间计算浮层</h4>\n    <p>自适应融合底层复杂色彩背景，保留极高文字辨识度。</p>\n  </div>\n</div>",
+  "cssRules": ".spatial-panel {\n  background: rgba(255, 255, 255, 0.08);\n  backdrop-filter: blur(24px) saturate(180%);\n  -webkit-backdrop-filter: blur(24px) saturate(180%);\n  border: 1px solid rgba(255, 255, 255, 0.18);\n  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);\n  border-radius: 16px;\n  padding: 24px;\n}",
+  "usage": "用于详情弹窗、半透明侧边浮层与沉浸式卡片展示。",
+  "targetStyles": ["spatial-glass", "y2k-digital"],
+  "updatedAt": "2026-10-02"
+}

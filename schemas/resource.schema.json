@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SetupCenterResourceSchema",
+  "description": "Schema definition for curated developer and design assets in Vault",
+  "type": "object",
+  "required": ["id", "name", "category", "description", "recommendedReason", "author", "tags", "actionType"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "category": { "type": "string" },
+    "description": { "type": "string" },
+    "recommendedReason": { "type": "string" },
+    "author": { "type": "string" },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "actionType": { "type": "string", "enum": ["github", "external", "download"] },
+    "repository": { "type": "string" },
+    "homepage": { "type": "string" },
+    "downloadUrl": { "type": "string" },
+    "stars": { "type": "string" },
+    "license": { "type": "string" },
+    "version": { "type": "string" },
+    "updatedAt": { "type": "string" },
+    "featured": { "type": "boolean" }
+  }
+}

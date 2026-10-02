@@ -1,0 +1,22 @@
+[
+  {
+    "id": "inbox:20261002-001",
+    "url": "https://github.com/astral-sh/rye",
+    "title": "Rye - Python packaging tool",
+    "note": "Astral experimental python environment manager, consider archiving or pairing with uv",
+    "suggestedType": "resource",
+    "suggestedCategory": "tools",
+    "capturedAt": "2026-10-02T12:00:00Z",
+    "status": "pending"
+  },
+  {
+    "id": "inbox:20261002-002",
+    "url": "https://github.com/shadcn/taxonomy",
+    "title": "Taxonomy App",
+    "note": "Open source Next.js 14 application template with server components and auth",
+    "suggestedType": "template",
+    "suggestedCategory": "fullstack",
+    "capturedAt": "2026-10-02T14:30:00Z",
+    "status": "pending"
+  }
+]

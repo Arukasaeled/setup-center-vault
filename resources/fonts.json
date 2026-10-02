@@ -1,0 +1,31 @@
+[
+  {
+    "id": "res:vault:cascadia-code",
+    "name": "Cascadia Code",
+    "category": "fonts",
+    "description": "微软出品的高质量代码等宽字体，支持精美编程连字与 Powerline 符号。",
+    "recommendedReason": "Windows Terminal、VS Code 默认推荐编程字体，排印清晰且字阶舒适。",
+    "author": "Microsoft",
+    "tags": ["等宽字体", "代码字体", "连字", "开源"],
+    "actionType": "github",
+    "repository": "https://github.com/microsoft/cascadia-code",
+    "stars": "24k+",
+    "featured": true,
+    "updatedAt": "2026-10-02"
+  },
+  {
+    "id": "res:vault:nerd-fonts",
+    "name": "Nerd Fonts",
+    "category": "fonts",
+    "description": "为各大主流开发字体注入大量开发者图标（Font Awesome、Devicons、Octicons）。",
+    "recommendedReason": "美化命令行终端、Neovim 与 Tmux 状态行不可或缺的符号库与字模补丁。",
+    "author": "Ryan L McIntyre",
+    "tags": ["终端图标", "字体补丁", "Powerline", "CLI美化"],
+    "actionType": "external",
+    "homepage": "https://www.nerdfonts.com",
+    "repository": "https://github.com/ryanoasis/nerd-fonts",
+    "stars": "53k+",
+    "featured": true,
+    "updatedAt": "2026-10-02"
+  }
+]

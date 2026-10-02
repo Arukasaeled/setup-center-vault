@@ -1,0 +1,11 @@
+{
+  "$schema": "../../schemas/skill.schema.json",
+  "id": "skill:transfer-resource",
+  "name": "Transfer External Resource to Setup Vault",
+  "description": "Agent recipe for fetching an external URL, extracting metadata (name, description, author, license, repo, stars), classifying category, and generating a normalized resource entry.",
+  "author": "Setup Center Agent Guide",
+  "tags": ["agent", "transfer", "resource", "normalization"],
+  "prompt": "When given a URL to transfer into Setup Center:\n1. Fetch the webpage content or GitHub repository metadata.\n2. Extract: name, description (concise Chinese translation/summary), author, license, stars, tags, actionType.\n3. Write a recommendedReason highlighting why this tool is indispensable.\n4. Save as a JSON entry adhering to schemas/resource.schema.json.\n5. Append to the corresponding category JSON and update manifest.json.",
+  "tools": ["read_url_content", "write_to_file"],
+  "updatedAt": "2026-10-02"
+}

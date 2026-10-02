@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SetupCenterTemplateSchema",
+  "description": "Schema definition for starter project templates and scaffolds in Vault",
+  "type": "object",
+  "required": ["id", "name", "category", "description", "scaffold", "author", "tags"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "category": { "type": "string" },
+    "description": { "type": "string" },
+    "author": { "type": "string" },
+    "license": { "type": "string" },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "repository": { "type": "string" },
+    "homepage": { "type": "string" },
+    "scaffold": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "type": "string", "enum": ["git-clone", "command", "archive-extract"] },
+        "command": { "type": "string" },
+        "gitUrl": { "type": "string" },
+        "archiveUrl": { "type": "string" },
+        "defaultDir": { "type": "string" },
+        "postInstallNotice": { "type": "string" }
+      }
+    },
+    "requirements": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "featured": { "type": "boolean" },
+    "updatedAt": { "type": "string" }
+  }
+}

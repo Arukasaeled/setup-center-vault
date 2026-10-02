@@ -1,0 +1,17 @@
+[
+  {
+    "id": "res:vault:awesome-selfhosted",
+    "name": "Awesome-Selfhosted",
+    "category": "collections",
+    "description": "收录数千款可在个人服务器、NAS 或私有云上独立部署的顶级网络服务与软件清单。",
+    "recommendedReason": "搭建私有云盘、代码托管平台、密码库与个人生产力服务的最全索引集。",
+    "author": "Awesome-Selfhosted Community",
+    "tags": ["自建服务", "私有云", "Docker", "开源清单"],
+    "actionType": "github",
+    "repository": "https://github.com/awesome-selfhosted/awesome-selfhosted",
+    "homepage": "https://awesome-selfhosted.net",
+    "stars": "180k+",
+    "featured": true,
+    "updatedAt": "2026-10-02"
+  }
+]

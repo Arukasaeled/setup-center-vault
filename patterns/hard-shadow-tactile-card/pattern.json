@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/pattern.schema.json",
+  "id": "pat:hard-shadow-tactile-card",
+  "name": "硬阴影触感卡片 (Tactile Hard Shadow Card)",
+  "category": "card",
+  "description": "带有坚实质感位移与纯黑硬边框的实体物理按压卡片，常用于新丑风（Neo-Brutalism）与波普风（Pop Manga）。",
+  "author": "Setup Center Design Lab",
+  "tags": ["新丑风", "硬阴影", "实体触感", "微交互"],
+  "codeSnippet": "<div class=\"tactile-card\">\n  <h3 class=\"font-bold text-lg\">可交互实体卡片</h3>\n  <p class=\"text-sm text-gray-700\">点击或悬浮时带有自然的物理压下效果与硬阴影位移。</p>\n</div>",
+  "cssRules": ".tactile-card {\n  background: #ffffff;\n  border: 2px solid #000000;\n  box-shadow: 4px 4px 0px #000000;\n  border-radius: 4px;\n  padding: 16px;\n  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);\n}\n.tactile-card:hover {\n  transform: translate(-2px, -2px);\n  box-shadow: 6px 6px 0px #000000;\n}\n.tactile-card:active {\n  transform: translate(2px, 2px);\n  box-shadow: 2px 2px 0px #000000;\n}",
+  "usage": "适用于仪表盘核心指标卡片、功能入口按钮与强调操作。",
+  "targetStyles": ["neo-brutalism", "phantom-comic", "bauhaus"],
+  "updatedAt": "2026-10-02"
+}

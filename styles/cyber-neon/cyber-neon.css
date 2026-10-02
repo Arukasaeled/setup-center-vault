@@ -1,0 +1,111 @@
+/* ==========================================================================
+   STYLE SPECIMEN: cyber-neon (赛博霓虹脉冲)
+   ========================================================================== */
+
+:root[data-style="cyber-neon"] {
+  --surface-base: #080910;
+  --surface-raised: #10121f;
+  --surface-overlay: rgba(16, 18, 31, 0.96);
+  --surface-overlay-soft: rgba(22, 25, 44, 0.92);
+  --surface-sunken: #040508;
+  --surface-hover: rgba(0, 240, 255, 0.1);
+  --surface-active: #00f0ff;
+  --surface-inset: #141729;
+
+  --text-strong: #ffffff;
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+  --text-quiet: #475569;
+  --text-inverse: #080910;
+
+  --line-subtle: #1c2035;
+  --line-default: #2d3356;
+  --line-strong: #00f0ff;
+
+  --status-ok: #00f0ff;
+  --status-warn: #ffbe0b;
+  --status-bad: #ff0055;
+  --status-accent: #ff007f;
+  --status-accent-soft: rgba(255, 0, 127, 0.15);
+
+  --font-mono: "Rajdhani", "Cascadia Code", Consolas, monospace;
+  --radius-panel: 4px;
+  --radius-control: 4px;
+}
+
+[data-style="cyber-neon"] * {
+  border-radius: 4px !important;
+}
+
+/* Subtle cyber-grid background */
+[data-style="cyber-neon"].app-field,
+[data-style="cyber-neon"] main {
+  background-image: 
+    linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 0, 127, 0.03) 1px, transparent 1px) !important;
+  background-size: 32px 32px !important;
+}
+
+/* Nav */
+[data-style="cyber-neon"] nav[aria-label="导航"] {
+  border-right: 1px solid #2d3356;
+  background: var(--surface-base);
+}
+
+[data-style="cyber-neon"] nav[aria-label="导航"] button[aria-current="page"] {
+  background: rgba(0, 240, 255, 0.12) !important;
+  color: #00f0ff !important;
+  border-left: 3px solid #00f0ff !important;
+  box-shadow: inset 0 0 12px rgba(0, 240, 255, 0.2) !important;
+  font-weight: 700;
+}
+
+/* Primary buttons with neon glow */
+[data-style="cyber-neon"] button.btn-primary,
+[data-style="cyber-neon"] button[data-variant="primary"] {
+  background: #00f0ff !important;
+  color: #080910 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.5) !important;
+  border: 1px solid #00f0ff !important;
+  transition: all 0.2s ease !important;
+}
+
+[data-style="cyber-neon"] button.btn-primary:hover,
+[data-style="cyber-neon"] button[data-variant="primary"]:hover {
+  background: #38bdf8 !important;
+  box-shadow: 0 0 18px rgba(0, 240, 255, 0.8) !important;
+}
+
+/* Software row */
+[data-style="cyber-neon"] [data-software-row] {
+  border: 1px solid #22263d !important;
+  background: #0e101c !important;
+  transition: all 0.15s ease !important;
+}
+
+[data-style="cyber-neon"] [data-software-row]:hover {
+  border-color: #00f0ff !important;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.25) !important;
+}
+
+/* Resource cards */
+[data-style="cyber-neon"] [data-resource-card] {
+  border: 1px solid #252a45 !important;
+  background: #111424 !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+[data-style="cyber-neon"] [data-resource-card]:hover {
+  border-color: #ff007f !important;
+  box-shadow: 0 0 16px rgba(255, 0, 127, 0.3) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Badges */
+[data-style="cyber-neon"] [data-tag-pill] {
+  border: 1px solid #2d3356 !important;
+  background: rgba(0, 240, 255, 0.08) !important;
+  color: #00f0ff !important;
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:rust-cli-starter",
+  "name": "Rust 现代命令行工具脚手架",
+  "category": "cli",
+  "description": "集成了 Clap v4、Color-Eyre、Tracing 日志和 Tokio 异步运行时的专业级 Rust CLI 模版工程。",
+  "author": "Setup Center Team",
+  "license": "MIT",
+  "tags": ["Rust", "Clap", "CLI", "Tokio", "Tracing"],
+  "homepage": "https://github.com/rust-cli/template",
+  "repository": "https://github.com/rust-cli/template",
+  "scaffold": {
+    "type": "command",
+    "command": "cargo generate --git https://github.com/rust-cli/template --name {{projectName}}",
+    "defaultDir": "my-rust-cli",
+    "postInstallNotice": "执行 `cargo run -- --help` 查看自动生成的 CLI 帮助与参数解析。"
+  },
+  "requirements": ["Rust toolchain (cargo, rustc 1.74+)"],
+  "featured": false,
+  "updatedAt": "2026-10-02"
+}

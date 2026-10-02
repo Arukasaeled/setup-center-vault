@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SetupCenterSkillSchema",
+  "description": "Schema definition for Agent prompts, skills, and recipes in Vault",
+  "type": "object",
+  "required": ["id", "name", "description", "prompt"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "description": { "type": "string" },
+    "author": { "type": "string" },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "prompt": { "type": "string" },
+    "tools": { "type": "array", "items": { "type": "string" } },
+    "updatedAt": { "type": "string" }
+  }
+}

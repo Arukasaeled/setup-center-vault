@@ -1,0 +1,32 @@
+[
+  {
+    "id": "res:vault:ollama",
+    "name": "Ollama",
+    "category": "ai",
+    "description": "本地快速运行 Llama 3、DeepSeek、Qwen 等开源大模型的极简工具。",
+    "recommendedReason": "开箱即用的本地模型推理、REST API 与无限制私有模型试验场。",
+    "author": "Ollama Team",
+    "tags": ["本地LLM", "模型运行", "隐私安全", "CLI"],
+    "actionType": "external",
+    "homepage": "https://ollama.com",
+    "repository": "https://github.com/ollama/ollama",
+    "stars": "100k+",
+    "featured": true,
+    "updatedAt": "2026-10-02"
+  },
+  {
+    "id": "res:vault:open-webui",
+    "name": "Open WebUI",
+    "category": "ai",
+    "description": "界面美观、功能极为强大的全功能可自托管 AI Web 工作台。",
+    "recommendedReason": "支持模型竞技场、多知识库 RAG、语音交互与多用户权限管理的私有部署首选。",
+    "author": "Open WebUI Team",
+    "tags": ["自托管", "WebUI", "RAG", "知识库"],
+    "actionType": "github",
+    "repository": "https://github.com/open-webui/open-webui",
+    "homepage": "https://openwebui.com",
+    "stars": "58k+",
+    "featured": true,
+    "updatedAt": "2026-10-02"
+  }
+]

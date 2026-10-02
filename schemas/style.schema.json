@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SetupCenterStyleSchema",
+  "description": "Schema definition for a Setup Center visual design system manifest in Vault",
+  "type": "object",
+  "required": ["id", "name", "version", "description", "palette", "tokens", "cssPath"],
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "version": { "type": "string" },
+    "description": { "type": "string" },
+    "author": { "type": "string" },
+    "license": { "type": "string" },
+    "updatedAt": { "type": "string" },
+    "implemented": { "type": "boolean" },
+    "inspiration": { "type": "string" },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "cssPath": { "type": "string" },
+    "palette": {
+      "type": "object",
+      "required": ["bg", "text", "primary", "surface", "border"],
+      "properties": {
+        "bg": { "type": "string" },
+        "text": { "type": "string" },
+        "primary": { "type": "string" },
+        "surface": { "type": "string" },
+        "border": { "type": "string" }
+      }
+    },
+    "tokens": {
+      "type": "object",
+      "properties": {
+        "cardRadius": { "type": "string" },
+        "borderWidth": { "type": "string" },
+        "shadowDepth": { "type": "string" },
+        "fontHeading": { "type": "string" },
+        "fontBody": { "type": "string" }
+      }
+    },
+    "designPrinciples": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}
