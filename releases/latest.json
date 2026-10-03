@@ -1,21 +1,23 @@
 {
-  "releaseVersion": "2026.10.03.3",
-  "commitSha": "44d6ecc1e28a70c9e1c1bbd8c6362bbdf41e491b",
-  "snapshotTag": "v2026.10.03.3",
-  "publishedAt": "2026-10-03T02:45:00Z",
-  "summary": "Transfer & Setup Runtime Mega Release: 21 Patterns, 12 Templates, 10 Skills, and Actionable Learning Resources",
+  "releaseVersion": "2026.10.04.1",
+  "commitSha": "b3163d048f3af4dbb1316f7759e979fe1e836f0d",
+  "snapshotTag": "v2026.10.04.1",
+  "publishedAt": "2026-10-04T00:00:00Z",
+  "summary": "Experience Contract V2: 34 patterns, 28 templates, 21 skills, and a declarative layout grammar published to clients without a rebuild",
   "changes": [
-    "大规模扩充至 21 套可复用 UI 架构模式（Diff对比、终端流、胶囊云、时间线、空状态、统计指标、代码语法框、进度条、主从分割视窗等）",
-    "大规模扩充至 12 套生产级全栈脚手架（Next.js 15, Astro 5, Vite 6 + React 19, Hono Workers, SvelteKit 2, Rust Axum, Python Typer, R3F 3D）",
-    "收录 10 套高自主权 Agent & Developer 提示词与审计技能规范",
-    "扩充 12 项世界级计算机科学公开课与核心知识体系（MIT Missing Semester, System Design Primer, Full Stack Open, CS-Notes, Visualizing Git）",
-    "建立通用可执行 SetupAction 协议，消除全部 Dead Content，所有资产具备明确的迁移与安装路径"
+    "发布 Style Contract V2：风格可声明 experience 版式语法（shell / navigation / detail / card / composition / density / motion / typography / ornament / tweakable / locked / runtimeCapability），旧 V1 清单继续兼容并通过校验器明确标记为 reskin tier",
+    "版式语法轴全部为封闭枚举，并与客户端实现同步校验——客户端未实现的语法会在发布阶段被拦截，而不是发布后渲染成无样式默认外观",
+    "扩充至 34 套结构化 UI 模式（指令工作台、IDE 布局、检查器面板、可拖动分割视图、桌面窗口、diff 审阅线程、数据浏览器、图谱画布、知识浏览器、活动流、时间轴、编辑索引页、应用坞、命令菜单等）",
+    "扩充至 28 套生产级工程模板（Astro Starlight、Docusaurus、Deno Fresh、Electron Forge、FastAPI 全栈、Laravel、NestJS、Nuxt、Remix、SolidStart、Turborepo、Vitesse、VS Code 扩展等），全部携带可 clone 仓库",
+    "扩充至 21 套 Agent 与工程技能规范（可访问性审计、CLI 工具编写、数据库迁移、设计令牌抽取、模糊测试、国际化、LLM 成本与性能剖析、日志取证、可观测性事故响应、原地重构、发布工程）",
+    "全部资源分类扩充至 172 条真实条目，保持零 Dead Content（每条至少具备仓库 / 官网 / 下载地址之一）",
+    "修正 cyber-neon 与 y2k-digital 的清单：与客户端的版式语法对齐，并提供新的元组式阴影令牌，使旧版单值 shadowDepth 不再污染阴影模型"
   ],
   "collections": {
     "styles": 4,
-    "resources": 110,
-    "templates": 12,
-    "patterns": 21,
-    "skills": 10
+    "resources": 172,
+    "templates": 28,
+    "patterns": 34,
+    "skills": 21
   }
 }
