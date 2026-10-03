@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:electron-vite-react",
+  "name": "Electron + Vite + React 桌面模板 (Electron Vite React)",
+  "category": "desktop",
+  "description": "Electron 与 Vite 结合的最小可运行桌面模板，主进程／预加载／渲染进程三端分工清晰，热更新开箱可用。",
+  "author": "electron-vite",
+  "license": "MIT",
+  "tags": ["Electron", "Vite", "React", "桌面应用", "热更新"],
+  "homepage": "https://electron-vite.org",
+  "repository": "https://github.com/electron-vite/electron-vite-react",
+  "scaffold": {
+    "type": "git-clone",
+    "gitUrl": "https://github.com/electron-vite/electron-vite-react.git",
+    "command": "git clone https://github.com/electron-vite/electron-vite-react.git my-desktop && cd my-desktop && npm install",
+    "defaultDir": "my-desktop",
+    "postInstallNotice": "运行 `npm run dev` 同时启动 Vite 与 Electron 窗口。"
+  },
+  "requirements": ["node", "npm"],
+  "featured": true,
+  "updatedAt": "2026-10-04"
+}

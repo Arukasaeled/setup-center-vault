@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:vscode-extension-sample",
+  "name": "VS Code 扩展示例集 (VS Code Extension Samples)",
+  "category": "cli-tool",
+  "description": "微软官方 VS Code 扩展示例仓库，覆盖命令、语言服务、Webview、TreeView、调试适配器等完整扩展能力样例。",
+  "author": "Microsoft",
+  "license": "MIT",
+  "tags": ["VS Code", "扩展开发", "Language Server", "Webview", "TypeScript"],
+  "homepage": "https://code.visualstudio.com/api",
+  "repository": "https://github.com/microsoft/vscode-extension-samples",
+  "scaffold": {
+    "type": "git-clone",
+    "gitUrl": "https://github.com/microsoft/vscode-extension-samples.git",
+    "command": "git clone https://github.com/microsoft/vscode-extension-samples.git && cd vscode-extension-samples",
+    "defaultDir": "vscode-extension-samples",
+    "postInstallNotice": "每个子目录是一个独立扩展，进入所需样例后执行 `npm install`，按 F5 启动扩展开发宿主。"
+  },
+  "requirements": ["node", "npm", "VS Code"],
+  "featured": false,
+  "updatedAt": "2026-10-04"
+}

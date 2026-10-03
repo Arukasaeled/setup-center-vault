@@ -2,12 +2,12 @@
   "$schema": "../../schemas/style.schema.json",
   "id": "newspaper-editorial",
   "name": "经典新闻铅印",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "subtitle": "Broadsheet Newspaper / Ink Editorial",
-  "description": "百年大报报纸排版、古雅衬线字体、多栏细线分隔与黑色油墨铅印质感。",
+  "description": "百年大报报纸排版、报头刊头、多栏细线分栏与黑色油墨铅印质感。内容以头条层级组织，而不是以卡片组织。",
   "author": "Setup Center Design Lab",
   "license": "MIT",
-  "updatedAt": "2026-10-02",
+  "updatedAt": "2026-10-04",
   "implemented": true,
   "inspiration": "The New York Times、The Wall Street Journal 头版排版及经典活字铅印报刊",
   "tags": ["经典报刊", "铅印油墨", "大号衬线", "双栏细线", "新闻头条"],
@@ -25,6 +25,34 @@
     "shadowDepth": "0px",
     "fontHeading": "'Georgia', 'Times New Roman', serif",
     "fontBody": "'Georgia', 'Times New Roman', serif"
+  },
+  "experience": {
+    "tier": "experience",
+    "shell": "editorial",
+    "navigation": "topbar",
+    "detail": "sheet",
+    "card": "editorial-block",
+    "composition": "news-columns",
+    "density": "compact",
+    "motion": "reduced",
+    "typography": {
+      "headingFamily": "\"Songti SC\", \"Source Han Serif SC\", Georgia, \"Times New Roman\", serif",
+      "headingScale": 1.1,
+      "headingWeight": 700,
+      "headingTracking": "-0.01em",
+      "bodyLeading": 1.7
+    },
+    "ornament": { "rule": "double", "corner": "square", "decoration": "none", "chrome": "full" },
+    "tweakable": ["accent", "text", "density", "headingScale", "bodyScale"],
+    "locked": {
+      "panelRadius": "报纸版面以直角与细线分栏，圆角会消解版面结构。",
+      "controlRadius": "同上：印刷版面没有圆角控件。"
+    },
+    "specimenNote": "报头压顶、多栏正文、双线分栏——条目是版面，不是卡片。"
+  },
+  "preview": {
+    "note": "报头 + 多栏新闻版面；详情以整版下拉的 sheet 呈现。",
+    "swatches": ["#f9f8f4", "#ffffff", "#8b0000", "#111111"]
   },
   "designPrinciples": [
     "Editorial Dignity — 报业大标题与分栏细线构建庄严内容阵列",

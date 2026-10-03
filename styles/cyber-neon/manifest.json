@@ -2,12 +2,12 @@
   "$schema": "../../schemas/style.schema.json",
   "id": "cyber-neon",
   "name": "赛博霓虹脉冲",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "subtitle": "Cyber Neon Pulse / Synthwave HUD",
   "description": "深邃午夜暗黑背景、极光霓虹电光青与脉冲洋红光晕。高对比 HUD 边框与暗夜荧光质感，充满次时代赛博美学张力。",
   "author": "Setup Center Design Lab",
   "license": "MIT",
-  "updatedAt": "2026-10-03",
+  "updatedAt": "2026-10-04",
   "implemented": true,
   "inspiration": "Cyberpunk 2077 HUD、Synthwave 80s 极光与夜之城全息霓虹广告",
   "tags": ["赛博朋克", "荧光脉冲", "霓虹光晕", "HUD界面", "午夜极光"],
@@ -25,6 +25,32 @@
     "shadowDepth": "4px",
     "fontHeading": "'Rajdhani', system-ui, sans-serif",
     "fontBody": "system-ui, sans-serif"
+  },
+  "experience": {
+    "tier": "composition",
+    "shell": "topbar",
+    "navigation": "command-bar",
+    "detail": "modal",
+    "card": "floating-surface",
+    "composition": "solid-grid",
+    "density": "normal",
+    "motion": "expressive",
+    "ornament": { "rule": "hairline", "corner": "rounded", "decoration": "grid", "chrome": "none" },
+    "tokens": {
+      "shadow": {
+        "offsetX": "0px",
+        "offsetY": "0px",
+        "blur": "16px",
+        "spread": "0px",
+        "color": "rgba(0, 240, 255, 0.2)"
+      }
+    },
+    "tweakable": ["panelRadius", "controlRadius", "accent", "accentSecondary", "surface", "motion"],
+    "specimenNote": "顶部状态条 + 自发光面板浮在网格上；详情是一块占屏诊断层。"
+  },
+  "preview": {
+    "note": "顶栏状态条取代侧栏，自发光面板浮在网格上；详情是一块占屏的诊断层，而不是常驻侧栏。",
+    "swatches": ["#090a12", "#121422", "#2a2d48", "#00f0ff"]
   },
   "designPrinciples": [
     "High Voltage Contrast — 纯粹暗夜背景下激活激光电光色",

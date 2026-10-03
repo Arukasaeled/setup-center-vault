@@ -1,0 +1,11 @@
+{
+  "$schema": "../../schemas/skill.schema.json",
+  "id": "skill:design-token-extraction",
+  "name": "Design Token Extraction",
+  "description": "Mine a codebase or design source for colour, spacing, typography and radius values, then emit a normalised three-layer token set with CSS variables.",
+  "author": "Setup Center Agent Guide",
+  "tags": ["design-tokens", "css-variables", "theming", "audit", "design-system"],
+  "prompt": "You are extracting a design-token set from an existing codebase. The goal is a system that explains the values, not a dump of every hex you found.\n1. HARVEST: grep every hard-coded value — hex colours, `rgb()`/`hsl()`/`oklch()`, `px`/`rem` spacing, `font-size`, `font-weight`, `border-radius`, `box-shadow`, `z-index`, and transition durations. Collect frequencies; the design system is hiding in the values that repeat.\n2. CLUSTER: group near-duplicates (`#1a1a1a` and `#1b1b1b` and `#181818` are one token). Report the merge and the count of occurrences each absorbed — a value used once is probably not a token.\n3. THREE LAYERS: emit primitive tokens (raw scale: `--gray-900: #18181b`), semantic tokens (`--surface-base: var(--gray-50)`, `--text-muted: var(--gray-600)`), and component tokens only where a component genuinely diverges. Semantic tokens are what themes swap; components must never reference primitives directly.\n4. NAME BY ROLE, NOT APPEARANCE: `--state-danger` not `--red`. A theme that swaps light for dark must not need to rename tokens.\n5. DARK MODE: express theming by remapping semantic tokens under a selector, never by duplicating component CSS. Verify every semantic token has a dark counterpart and that contrast still passes in both modes.\n6. MIGRATE: give the replacement table (old literal → token name) and the count of replacements per file, ordered by file, so the change can be applied incrementally and reviewed.\n7. EMIT: CSS custom properties in `:root`, plus a JSON manifest of the same tokens for tooling. Report any value you could not confidently tokenise with the reason (one-off layout arithmetic, vendor overrides).",
+  "tools": ["read_file", "grep_search", "write_to_file"],
+  "updatedAt": "2026-10-04"
+}

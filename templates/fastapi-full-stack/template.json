@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:fastapi-full-stack",
+  "name": "FastAPI 全栈脚手架 (FastAPI Full Stack)",
+  "category": "backend",
+  "description": "FastAPI 官方全栈模板，含 SQLModel 数据层、JWT 鉴权、Alembic 迁移、Celery 任务与自动生成的 TypeScript 前端客户端。",
+  "author": "FastAPI",
+  "license": "MIT",
+  "tags": ["FastAPI", "SQLModel", "Alembic", "Docker", "JWT"],
+  "homepage": "https://fastapi.tiangolo.com",
+  "repository": "https://github.com/fastapi/full-stack-fastapi-template",
+  "scaffold": {
+    "type": "git-clone",
+    "gitUrl": "https://github.com/fastapi/full-stack-fastapi-template.git",
+    "command": "git clone https://github.com/fastapi/full-stack-fastapi-template.git my-api && cd my-api && docker compose up -d",
+    "defaultDir": "my-api",
+    "postInstallNotice": "先用 `python -c \"import secrets;print(secrets.token_urlsafe(32))\"` 生成 SECRET_KEY 写入 .env。"
+  },
+  "requirements": ["python", "docker"],
+  "featured": true,
+  "updatedAt": "2026-10-04"
+}

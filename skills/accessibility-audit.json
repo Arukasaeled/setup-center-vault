@@ -1,0 +1,11 @@
+{
+  "$schema": "../../schemas/skill.schema.json",
+  "id": "skill:accessibility-audit",
+  "name": "Accessibility Audit & Remediation",
+  "description": "Audit a UI for WCAG 2.2 AA compliance — keyboard reachability, semantics, contrast, focus management and screen-reader output — then produce concrete patches.",
+  "author": "Setup Center Agent Guide",
+  "tags": ["accessibility", "wcag", "a11y", "keyboard", "screen-reader"],
+  "prompt": "You are performing a WCAG 2.2 AA accessibility audit. For each finding, give the criterion number, the offending code with file and line, and the exact replacement.\n1. SEMANTICS: every interactive thing must be a real button, link, input or select — not a div with onClick. Check for `<div onClick>` and `<span onClick>` and replace with `<button type=\"button\">`. Heading levels must not skip (h1 → h3).\n2. KEYBOARD: tab through every interactive element. Confirm no keyboard trap, visible focus on every stop, and that focus order matches visual order. Custom widgets need `tabIndex={0}` plus arrow-key handling and `role=\"separator\"` / `role=\"listbox\"` / `role=\"menu\"` as appropriate.\n3. NAMES: every control needs an accessible name — visible text, `aria-label`, or `aria-labelledby`. Icon-only buttons are the usual offender. Every `<img>` needs a meaningful `alt` (or `alt=\"\"` for decorative). Form inputs need a real `<label htmlFor>`.\n4. STATE: toggles must expose `aria-pressed` or `aria-checked`; expanders `aria-expanded`; current page `aria-current`; live regions `aria-live=\"polite\"` for async status. Errors must be linked with `aria-describedby` and announced, not just coloured.\n5. CONTRAST: body text needs 4.5:1, large text (≥24px or ≥19px bold) 3:1, and UI boundaries 3:1. Name the exact foreground/background pairs that fail and give a corrected hex for each.\n6. MOTION & TIME: honour `prefers-reduced-motion`; give a pause control for anything auto-playing longer than 5 seconds.\nOutput a severity-ranked table (Critical / Serious / Moderate / Minor), then the patch for each Critical and Serious item. Re-read your patch and confirm it introduces no new focusable-but-unlabelled element.",
+  "tools": ["read_file", "grep_search", "write_to_file"],
+  "updatedAt": "2026-10-04"
+}

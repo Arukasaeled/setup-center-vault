@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:create-t3-turbo",
+  "name": "T3 Turbo 全栈单体仓库 (T3 Turbo Monorepo)",
+  "category": "monorepo",
+  "description": "T3 团队官方 monorepo 模板，Next.js + Expo + tRPC + Prisma 共享类型与业务逻辑，Turborepo 统一调度任务。",
+  "author": "T3 Open Source",
+  "license": "MIT",
+  "tags": ["Turborepo", "tRPC", "Prisma", "Next.js", "monorepo"],
+  "homepage": "https://turbo.t3.gg",
+  "repository": "https://github.com/t3-oss/create-t3-turbo",
+  "scaffold": {
+    "type": "git-clone",
+    "gitUrl": "https://github.com/t3-oss/create-t3-turbo.git",
+    "command": "git clone https://github.com/t3-oss/create-t3-turbo.git my-turbo-app && cd my-turbo-app && pnpm install",
+    "defaultDir": "my-turbo-app",
+    "postInstallNotice": "复制 .env.example 为 .env 并填写 DATABASE_URL 后再运行 `pnpm dev`。"
+  },
+  "requirements": ["node", "pnpm", "postgres"],
+  "featured": true,
+  "updatedAt": "2026-10-04"
+}

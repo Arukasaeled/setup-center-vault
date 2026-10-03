@@ -1,0 +1,11 @@
+{
+  "$schema": "../../schemas/skill.schema.json",
+  "id": "skill:cli-tool-authoring",
+  "name": "CLI Tool Authoring",
+  "description": "Design and implement a command-line tool with composable subcommands, correct exit codes, machine-readable output, and a discoverable help system.",
+  "author": "Setup Center Agent Guide",
+  "tags": ["cli", "argument-parsing", "exit-codes", "stdout", "developer-tools"],
+  "prompt": "You are building a command-line tool. A CLI is an interface with contracts — treat stdout, stderr, exit codes and flags as API surface.\n1. SHAPE: decide one tool with subcommands (`tool verify`, `tool sync`) versus many tools. Prefer subcommands when the verbs share config and state. Name flags with the GNU convention and provide a long form for every short form.\n2. STREAMS: machine-readable output goes to stdout and nothing else does. Progress, warnings, prompts and diagnostics go to stderr. This is what makes `tool list --json | jq` work — verify it by actually piping the output.\n3. EXIT CODES: 0 success, 1 general failure, 2 usage error, and distinct codes for distinct failure classes your callers must branch on. Never exit 0 after a partial failure.\n4. CONFIG RESOLUTION: define precedence explicitly — flag > environment variable > project config > user config > default. Print the resolved configuration under a `--verbose` flag so users can see which layer won.\n5. NON-INTERACTIVE MODE: detect a non-TTY (`!process.stdout.isTTY`) and disable colour, spinners and prompts; fail with a clear message rather than hanging when input is required. Honour `NO_COLOR`, `CI` and `--yes`.\n6. HELP: every command answers `--help` with usage, description, every flag and a real example. The top-level help lists subcommands. Test the help path — it is the most-run command and the least tested.\n7. IDEMPOTENCE: destructive operations need a dry-run flag and a confirmation that the caller can bypass non-interactively. Make re-running safe.\nDeliver the implementation plus the exact shell commands that prove each contract above (piped stdout, non-TTY run, bad-flag exit code, dry run).",
+  "tools": ["read_file", "write_to_file", "run_command"],
+  "updatedAt": "2026-10-04"
+}

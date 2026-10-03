@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:nuxt-starter",
+  "name": "Nuxt 4 起步工程 (Nuxt Starter)",
+  "category": "web-frontend",
+  "description": "Nuxt 官方起步仓库，内置文件路由、自动导入、服务端渲染与 Nitro 服务层，含 TypeScript 与 ESLint 预设。",
+  "author": "Nuxt Team",
+  "license": "MIT",
+  "tags": ["Nuxt", "Vue 3", "SSR", "Nitro", "TypeScript"],
+  "homepage": "https://nuxt.com",
+  "repository": "https://github.com/nuxt/starter",
+  "scaffold": {
+    "type": "git-clone",
+    "gitUrl": "https://github.com/nuxt/starter.git",
+    "command": "git clone https://github.com/nuxt/starter.git nuxt-app && cd nuxt-app && npm install",
+    "defaultDir": "nuxt-app",
+    "postInstallNotice": "运行 `npm run dev` 启动开发服务器：http://localhost:3000"
+  },
+  "requirements": ["node", "npm"],
+  "featured": true,
+  "updatedAt": "2026-10-04"
+}

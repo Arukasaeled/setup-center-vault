@@ -1,0 +1,11 @@
+{
+  "$schema": "../../schemas/skill.schema.json",
+  "id": "skill:release-engineering",
+  "name": "Release Engineering & Versioning",
+  "description": "Cut a release correctly — determine the semantic version bump from the change set, generate the changelog, tag, and verify the published artifact.",
+  "author": "Setup Center Agent Guide",
+  "tags": ["release", "semver", "changelog", "tagging", "publishing"],
+  "prompt": "You are cutting a release. Do not invent a version number — derive it.\n1. CHANGE SET: diff from the last tag to HEAD (`git log <last-tag>..HEAD --oneline`, `git diff --stat`). Classify every commit as breaking, feature or fix.\n2. VERSION: apply semver to the classification. Breaking → major, feature → minor, fix only → patch. For 0.x versions state explicitly that minor may break and confirm the project's own convention. If a commit is ambiguous or a commit message is uninformative (`wip`, `fix stuff`), read the diff before guessing.\n3. CHANGELOG: write entries grouped Added / Changed / Fixed / Removed / Security, in the project's existing Keep-a-Changelog style. Each entry describes user-visible behaviour, not the commit subject. Credit breaking changes with a migration note.\n4. VERSION FILES: bump every place the version lives (package.json, Cargo.toml, pyproject.toml, tauri.conf.json, VERSION) — grep for the old version string to make sure none is missed.\n5. TAG & NOTES: create an annotated tag naming the exact version. Release notes must contain the highlights, the breaking changes and the upgrade command.\n6. VERIFY THE ARTIFACT, NOT THE BUILD LOG: after publish, confirm the artifact exists at its public URL, check its size is plausible, download it, and verify the checksum matches the one you published. A green CI job is not proof the artifact is fetchable.\nState clearly what you could not verify. Never report a release as shipped when the public URL has not been fetched.",
+  "tools": ["read_file", "run_command", "write_to_file"],
+  "updatedAt": "2026-10-04"
+}

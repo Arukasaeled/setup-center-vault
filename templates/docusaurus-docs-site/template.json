@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:docusaurus-docs-site",
+  "name": "Docusaurus 文档与博客站 (Docusaurus Site)",
+  "category": "content-site",
+  "description": "Meta 的 Docusaurus 仓库，把 Markdown／MDX 编译为带版本管理、搜索与博客能力的静态文档站点。",
+  "author": "Meta Open Source",
+  "license": "MIT",
+  "tags": ["Docusaurus", "MDX", "文档站", "版本管理", "React"],
+  "homepage": "https://docusaurus.io",
+  "repository": "https://github.com/facebook/docusaurus",
+  "scaffold": {
+    "type": "git-clone",
+    "gitUrl": "https://github.com/facebook/docusaurus.git",
+    "command": "git clone https://github.com/facebook/docusaurus.git && cd docusaurus",
+    "defaultDir": "docusaurus",
+    "postInstallNotice": "仓库自带官网实例 website/，`cd website && yarn && yarn start` 即可本地预览。"
+  },
+  "requirements": ["node", "yarn"],
+  "featured": false,
+  "updatedAt": "2026-10-04"
+}

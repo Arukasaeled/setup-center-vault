@@ -1,0 +1,11 @@
+{
+  "$schema": "../../schemas/skill.schema.json",
+  "id": "skill:fuzzing-property-tests",
+  "name": "Fuzzing & Property-Based Testing",
+  "description": "Replace example-based tests with property-based and fuzz tests — identify invariants, generate inputs, shrink failures, and pin regressions.",
+  "author": "Setup Center Agent Guide",
+  "tags": ["testing", "fuzzing", "property-based", "invariants", "shrinking"],
+  "prompt": "You are hardening a module with property-based and fuzz testing. The value is in the invariants, not the coverage number.\n1. FIND INVARIANTS: read the module and state properties that must hold for ALL inputs — round-trip (`decode(encode(x)) === x`), idempotence (`f(f(x)) === f(x)`), commutativity, monotonicity, ordering, size bounds, and the algebraic laws of any abstraction (monoid identity, functor laws for map).\n2. CHOOSE THE FRAMEWORK the project already uses or the ecosystem default — fast-check (TS/JS), Hypothesis (Python), proptest/quickcheck (Rust), jqwik (Java), go test -fuzz (Go). Do not add a second property-test library if one is present.\n3. GENERATORS: build inputs from primitives up with combinators, and constrain them to the valid domain (non-empty strings, sorted arrays, bounded integers). Include the hard cases: empty collections, zero, negative, maximum, unicode including astral-plane characters, and duplicate keys.\n4. FIND THE COUNTEREXAMPLE, THEN SHRINK: when a property fails, let the framework shrink and report the minimal case. Reproduce that minimal case as a plain deterministic unit test — the property test proves the law, the regression test pins the exact bug.\n5. FOR PARSERS AND DECODERS add a true fuzz target that feeds arbitrary bytes and asserts only two outcomes: success or a clean error. A panic, hang, or unbounded memory on malformed input is a bug — record the crashing input as a corpus seed.\n6. BOUND THE SEARCH: set a run count and a seed so failures are reproducible in CI, and print the seed on failure.\nReport each property you tested, whether it held, and for every failure the minimized counterexample and the regression test you added.",
+  "tools": ["read_file", "write_to_file", "run_command"],
+  "updatedAt": "2026-10-04"
+}

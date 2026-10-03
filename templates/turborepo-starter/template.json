@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:turborepo-starter",
+  "name": "Turborepo 任务编排工程 (Turborepo Starter)",
+  "category": "monorepo",
+  "description": "Vercel 的 Turborepo 仓库，提供增量构建、远程缓存与多包任务图的 monorepo 工程范式与示例配置。",
+  "author": "Vercel",
+  "license": "MIT",
+  "tags": ["Turborepo", "monorepo", "增量构建", "远程缓存", "Vercel"],
+  "homepage": "https://turborepo.dev/",
+  "repository": "https://github.com/vercel/turborepo",
+  "scaffold": {
+    "type": "git-clone",
+    "gitUrl": "https://github.com/vercel/turborepo.git",
+    "command": "git clone https://github.com/vercel/turborepo.git && cd turborepo",
+    "defaultDir": "turborepo",
+    "postInstallNotice": "仓库包含 docs/、examples/、packages/ 三个工作区，可从 examples/basic 入手。"
+  },
+  "requirements": ["node", "pnpm"],
+  "featured": false,
+  "updatedAt": "2026-10-04"
+}

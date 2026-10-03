@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:vitesse-vue-starter",
+  "name": "Vitesse Vue 精致起步模板 (Vitesse Vue Starter)",
+  "category": "web-frontend",
+  "description": "Anthony Fu 出品的 Vue 3 起步模板，集成 Vite、UnoCSS、Vue Router、Pinia、自动导入与按需组件加载。",
+  "author": "Anthony Fu",
+  "license": "MIT",
+  "tags": ["Vue 3", "Vite", "UnoCSS", "Pinia", "起步模板"],
+  "homepage": "https://github.com/antfu-collective/vitesse",
+  "repository": "https://github.com/antfu-collective/vitesse",
+  "scaffold": {
+    "type": "git-clone",
+    "gitUrl": "https://github.com/antfu-collective/vitesse.git",
+    "command": "git clone https://github.com/antfu-collective/vitesse.git my-vue-app && cd my-vue-app && pnpm install",
+    "defaultDir": "my-vue-app",
+    "postInstallNotice": "运行 `pnpm dev` 启动开发服务器；首次运行会生成类型声明。"
+  },
+  "requirements": ["node", "pnpm"],
+  "featured": true,
+  "updatedAt": "2026-10-04"
+}

@@ -1,10 +1,10 @@
 {
   "$schema": "./schemas/vault-manifest.schema.json",
   "schemaVersion": "1.0.0",
-  "contentVersion": "2026.10.03.3",
+  "contentVersion": "2026.10.04.1",
   "name": "Setup Center Remote Vault",
   "description": "Decoupled remote content vault holding developer tools, design systems, templates, patterns, and creative resources.",
-  "updatedAt": "2026-10-03T02:40:00Z",
+  "updatedAt": "2026-10-04T00:00:00Z",
   "maintainer": "arukas0623-ai",
   "repository": "https://github.com/arukas0623-ai/setup-center-vault",
   "collections": {
@@ -44,7 +44,7 @@
     },
     "resources": {
       "version": "1.0.0",
-      "count": 35,
+      "count": 10,
       "categories": [
         "frontend",
         "components",
@@ -122,7 +122,7 @@
     },
     "templates": {
       "version": "1.0.0",
-      "count": 12,
+      "count": 28,
       "items": [
         {
           "id": "tpl:tauri-v2-react",
@@ -195,12 +195,108 @@
           "name": "React Three Fiber 3D 视觉交互脚手架",
           "path": "templates/threejs-r3f-canvas/template.json",
           "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "tpl:astro-starlight-docs",
+          "name": "Starlight 文档站主题",
+          "path": "templates/astro-starlight-docs/template.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "tpl:cookiecutter-django",
+          "name": "Cookiecutter Django 生产级模板",
+          "path": "templates/cookiecutter-django/template.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "tpl:create-t3-turbo",
+          "name": "T3 Turbo 全栈单体仓库",
+          "path": "templates/create-t3-turbo/template.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "tpl:deno-fresh-app",
+          "name": "Deno Fresh 岛屿架构应用",
+          "path": "templates/deno-fresh-app/template.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "tpl:docusaurus-docs-site",
+          "name": "Docusaurus 文档与博客站",
+          "path": "templates/docusaurus-docs-site/template.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "tpl:electron-forge-app",
+          "name": "Electron Forge 桌面应用",
+          "path": "templates/electron-forge-app/template.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "tpl:electron-vite-react",
+          "name": "Electron + Vite + React 桌面模板",
+          "path": "templates/electron-vite-react/template.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "tpl:fastapi-full-stack",
+          "name": "FastAPI 全栈脚手架",
+          "path": "templates/fastapi-full-stack/template.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "tpl:laravel-app-skeleton",
+          "name": "Laravel 应用骨架",
+          "path": "templates/laravel-app-skeleton/template.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "tpl:nestjs-typescript-api",
+          "name": "NestJS TypeScript 服务骨架",
+          "path": "templates/nestjs-typescript-api/template.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "tpl:nuxt-starter",
+          "name": "Nuxt 4 起步工程",
+          "path": "templates/nuxt-starter/template.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "tpl:remix-fullstack-app",
+          "name": "Remix 全栈应用骨架",
+          "path": "templates/remix-fullstack-app/template.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "tpl:solid-start-app",
+          "name": "SolidStart 应用",
+          "path": "templates/solid-start-app/template.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "tpl:turborepo-starter",
+          "name": "Turborepo 任务编排工程",
+          "path": "templates/turborepo-starter/template.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "tpl:vitesse-vue-starter",
+          "name": "Vitesse Vue 精致起步模板",
+          "path": "templates/vitesse-vue-starter/template.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "tpl:vscode-extension-sample",
+          "name": "VS Code 扩展示例集",
+          "path": "templates/vscode-extension-sample/template.json",
+          "updatedAt": "2026-10-04"
         }
       ]
     },
     "patterns": {
       "version": "1.0.0",
-      "count": 21,
+      "count": 34,
       "items": [
         {
           "id": "pat:hard-shadow-tactile-card",
@@ -321,12 +417,96 @@
           "name": "空间高透亚克力毛玻璃顶栏",
           "path": "patterns/spatial-acrylic-header/pattern.json",
           "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "pat:activity-stream-live",
+          "name": "实时活动事件流",
+          "path": "patterns/activity-stream-live/pattern.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "pat:app-dock",
+          "name": "应用停靠坞",
+          "path": "patterns/app-dock/pattern.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "pat:command-menu-popover",
+          "name": "指令下拉菜单",
+          "path": "patterns/command-menu-popover/pattern.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "pat:command-workspace",
+          "name": "指令工作台",
+          "path": "patterns/command-workspace/pattern.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "pat:data-explorer-table",
+          "name": "数据浏览器表格",
+          "path": "patterns/data-explorer-table/pattern.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "pat:desktop-window-frame",
+          "name": "桌面窗口边框",
+          "path": "patterns/desktop-window-frame/pattern.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "pat:diff-review-thread",
+          "name": "差异行内评审线程",
+          "path": "patterns/diff-review-thread/pattern.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "pat:editorial-index-page",
+          "name": "排印字母索引页",
+          "path": "patterns/editorial-index-page/pattern.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "pat:graph-canvas-network",
+          "name": "关系图谱画布",
+          "path": "patterns/graph-canvas-network/pattern.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "pat:ide-layout",
+          "name": "集成开发环境三区布局",
+          "path": "patterns/ide-layout/pattern.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "pat:inspector-panel",
+          "name": "属性检查器面板",
+          "path": "patterns/inspector-panel/pattern.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "pat:knowledge-browser-wiki",
+          "name": "知识库浏览视图",
+          "path": "patterns/knowledge-browser-wiki/pattern.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "pat:resizable-split-view",
+          "name": "可拖拽分割视窗",
+          "path": "patterns/resizable-split-view/pattern.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "pat:timeline-ruler",
+          "name": "水平时间刻度尺",
+          "path": "patterns/timeline-ruler/pattern.json",
+          "updatedAt": "2026-10-04"
         }
       ]
     },
     "skills": {
       "version": "1.0.0",
-      "count": 10,
+      "count": 21,
       "items": [
         {
           "id": "skill:transfer-resource",
@@ -387,6 +567,72 @@
           "name": "RESTful 与 RPC 接口契约设计规范",
           "path": "skills/api-design-restful.json",
           "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "skill:accessibility-audit",
+          "name": "Accessibility Audit & Remediation",
+          "path": "skills/accessibility-audit.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "skill:cli-tool-authoring",
+          "name": "CLI Tool Authoring",
+          "path": "skills/cli-tool-authoring.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "skill:db-schema-migration",
+          "name": "Database Schema Migration",
+          "path": "skills/db-schema-migration.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "skill:design-token-extraction",
+          "name": "Design Token Extraction",
+          "path": "skills/design-token-extraction.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "skill:fuzzing-property-tests",
+          "name": "Fuzzing & Property-Based Testing",
+          "path": "skills/fuzzing-property-tests.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "skill:i18n-localisation",
+          "name": "Internationalisation & Localisation",
+          "path": "skills/i18n-localisation.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "skill:llm-cost-perf-profiling",
+          "name": "LLM Cost & Performance Profiling",
+          "path": "skills/llm-cost-perf-profiling.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "skill:log-diff-forensics",
+          "name": "Log & Diff Forensics",
+          "path": "skills/log-diff-forensics.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "skill:observability-incident-triage",
+          "name": "Observability & Incident Triage",
+          "path": "skills/observability-incident-triage.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "skill:refactor-in-place",
+          "name": "Refactor In Place",
+          "path": "skills/refactor-in-place.json",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "skill:release-engineering",
+          "name": "Release Engineering & Versioning",
+          "path": "skills/release-engineering.json",
+          "updatedAt": "2026-10-04"
         }
       ]
     },

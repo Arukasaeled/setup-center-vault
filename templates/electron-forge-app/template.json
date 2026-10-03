@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:electron-forge-app",
+  "name": "Electron Forge 桌面应用 (Electron Forge App)",
+  "category": "desktop",
+  "description": "Electron 官方工具链 Forge 仓库，覆盖脚手架、打包、签名与多平台分发流程，是桌面壳工程的起点。",
+  "author": "Electron",
+  "license": "MIT",
+  "tags": ["Electron", "Electron Forge", "桌面应用", "打包", "多平台"],
+  "homepage": "https://electronforge.io",
+  "repository": "https://github.com/electron/forge",
+  "scaffold": {
+    "type": "git-clone",
+    "gitUrl": "https://github.com/electron/forge.git",
+    "command": "git clone https://github.com/electron/forge.git && cd forge",
+    "defaultDir": "forge",
+    "postInstallNotice": "仓库为 monorepo；推荐改用 `npx create-electron-app@latest my-app` 生成独立工程。"
+  },
+  "requirements": ["node", "npm"],
+  "featured": true,
+  "updatedAt": "2026-10-04"
+}

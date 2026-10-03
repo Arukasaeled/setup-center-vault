@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:deno-fresh-app",
+  "name": "Deno Fresh 岛屿架构应用 (Deno Fresh App)",
+  "category": "web-frontend",
+  "description": "Deno 官方 Fresh 框架仓库，默认零客户端 JavaScript，通过岛屿组件按需注水，配合 Deno KV 做边缘数据存储。",
+  "author": "Deno Land",
+  "license": "MIT",
+  "tags": ["Deno", "Fresh", "岛屿架构", "边缘计算", "TypeScript"],
+  "homepage": "https://usefresh.dev",
+  "repository": "https://github.com/freshframework/fresh",
+  "scaffold": {
+    "type": "git-clone",
+    "gitUrl": "https://github.com/freshframework/fresh.git",
+    "command": "git clone https://github.com/freshframework/fresh.git && cd fresh && deno task start",
+    "defaultDir": "fresh",
+    "postInstallNotice": "需要先安装 Deno；仓库自带 demo/ 应用可直接运行，无需 npm install。"
+  },
+  "requirements": ["deno"],
+  "featured": false,
+  "updatedAt": "2026-10-04"
+}

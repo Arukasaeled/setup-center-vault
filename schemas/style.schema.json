@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "SetupCenterStyleSchema",
-  "description": "Schema definition for a Setup Center visual design system manifest in Vault",
+  "description": "Setup Center Style Contract V2. A style manifest describes a whole declarative Experience — palette + tokens (the legacy Tier-1/2 reskin surface) plus an optional `experience` block naming the shell, navigation, detail, card and composition grammar the client renders. Every grammar value is a closed enum the client already implements, which is what lets a release ship a Tier-3/Tier-4 experience with no client rebuild. The V1 fields stay required so an older vault entry keeps validating.",
   "type": "object",
   "required": ["id", "name", "version", "description", "palette", "tokens", "cssPath"],
   "properties": {
@@ -15,6 +15,7 @@
     "implemented": { "type": "boolean" },
     "inspiration": { "type": "string" },
     "tags": { "type": "array", "items": { "type": "string" } },
+    "features": { "type": "array", "items": { "type": "string" } },
     "cssPath": { "type": "string" },
     "palette": {
       "type": "object",
@@ -40,6 +41,127 @@
     "designPrinciples": {
       "type": "array",
       "items": { "type": "string" }
+    },
+
+    "experience": {
+      "description": "Vault Style Contract V2 — the declarative Experience profile. Omit it and the entry is a Tier-1/2 reskin, which the client still renders.",
+      "type": "object",
+      "required": ["tier"],
+      "properties": {
+        "tier": {
+          "description": "How much of the product this experience re-specifies. New entries are expected to be composition or experience.",
+          "enum": ["token", "component", "composition", "experience"]
+        },
+        "shell": {
+          "description": "How the app frame is assembled.",
+          "enum": ["sidebar", "topbar", "dock", "dual-pane", "windowed", "command-centered", "editorial", "canvas", "stacked"]
+        },
+        "navigation": {
+          "description": "Navigation presentation only. The set of entry points never changes with grammar — losing one is a client bug, not a style choice.",
+          "enum": ["sidebar", "topbar", "dock", "tab-strip", "command-bar", "menu-bar", "keyboard-menu"]
+        },
+        "detail": {
+          "description": "Where a selected item's detail physically goes.",
+          "enum": ["rail", "modal", "sheet", "floating-inspector", "window", "inline", "full-page"]
+        },
+        "card": {
+          "description": "The shape a single piece of content takes.",
+          "enum": ["panel", "flat-row", "editorial-block", "poster", "terminal-line", "window", "tile", "index-entry", "floating-surface", "borderless-group", "sticker"]
+        },
+        "composition": {
+          "description": "How a page arranges its content.",
+          "enum": ["solid-grid", "magazine-index", "news-columns", "character-list", "finder-list", "poster-wall", "drafting-index", "floating-panels", "ledger", "roadmap"]
+        },
+        "density": { "enum": ["compact", "normal", "spacious"] },
+        "motion": { "enum": ["reduced", "normal", "expressive"] },
+
+        "typography": {
+          "type": "object",
+          "properties": {
+            "headingFamily": { "type": "string" },
+            "bodyFamily": { "type": "string" },
+            "monoFamily": { "type": "string" },
+            "headingScale": { "type": "number", "minimum": 0.85, "maximum": 1.35 },
+            "bodyScale": { "type": "number", "minimum": 0.9, "maximum": 1.15 },
+            "headingWeight": { "type": "number" },
+            "headingTracking": { "type": "string" },
+            "headingTransform": { "enum": ["none", "uppercase", "lowercase"] },
+            "bodyLeading": { "type": "number" }
+          }
+        },
+        "ornament": {
+          "type": "object",
+          "properties": {
+            "rule": { "enum": ["none", "hairline", "double", "dashed", "ascii", "heavy"] },
+            "corner": { "enum": ["square", "bevel", "notch", "rounded"] },
+            "decoration": { "enum": ["none", "grid", "pinstripe", "scanline", "blueprint", "noise", "halftone"] },
+            "chrome": { "enum": ["none", "title", "menu", "status", "title-menu", "full"] }
+          }
+        },
+
+        "tokens": {
+          "description": "This experience's default values for the runtime tokens. Keys match the client's TokenKey union.",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "panelRadius": { "type": "string" },
+            "controlRadius": { "type": "string" },
+            "borderWidth": { "type": "string" },
+            "shadow": {
+              "type": "object",
+              "required": ["offsetX", "offsetY", "blur", "spread", "color"],
+              "properties": {
+                "offsetX": { "type": "string" },
+                "offsetY": { "type": "string" },
+                "blur": { "type": "string" },
+                "spread": { "type": "string" },
+                "color": { "type": "string" }
+              }
+            },
+            "accent": { "type": "string" },
+            "accentSecondary": { "type": "string" },
+            "surface": { "type": "string" },
+            "text": { "type": "string" },
+            "density": { "enum": ["compact", "normal", "spacious"] },
+            "headingScale": { "type": "number", "minimum": 0.85, "maximum": 1.35 },
+            "bodyScale": { "type": "number", "minimum": 0.9, "maximum": 1.15 },
+            "motion": { "enum": ["reduced", "normal", "expressive"] }
+          }
+        },
+
+        "tweakable": {
+          "description": "The token keys the user may tune. Absent means every token is tunable.",
+          "type": "array",
+          "items": {
+            "enum": ["panelRadius", "controlRadius", "borderWidth", "shadow", "accent", "accentSecondary", "surface", "text", "density", "headingScale", "bodyScale", "motion"]
+          }
+        },
+        "locked": {
+          "description": "key → the sentence shown beside the disabled control. A key locked here must not also appear in `tweakable`: the client renders it disabled with this reason rather than omitting it, so the user sees a rule instead of a missing button.",
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+
+        "runtimeCapability": {
+          "description": "Set only when the experience genuinely cannot be rendered from declarative grammar + CSS + tokens. A client whose EXPERIENCE_RUNTIME_CAPABILITY sorts below this value shows 「需要更新应用」 instead of a broken page. Declarative experiences leave it unset, which is what makes them remotely shippable.",
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+        },
+        "specimenNote": {
+          "description": "One line the gallery specimen shows, so a preview can be honest about what it is showing.",
+          "type": "string"
+        }
+      }
+    },
+
+    "preview": {
+      "description": "Optional gallery preview metadata. The client can render a live specimen from `experience` alone, so this is for hand-authored artwork or a note, not a requirement.",
+      "type": "object",
+      "properties": {
+        "note": { "type": "string" },
+        "imagePath": { "type": "string" },
+        "swatches": { "type": "array", "items": { "type": "string" } }
+      }
     }
   }
 }

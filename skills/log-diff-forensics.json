@@ -1,0 +1,11 @@
+{
+  "$schema": "../../schemas/skill.schema.json",
+  "id": "skill:log-diff-forensics",
+  "name": "Log & Diff Forensics",
+  "description": "Diagnose an unexplained change by forensic comparison — normalise and diff logs, trace a value back through the code, and identify the exact introducing change.",
+  "author": "Setup Center Agent Guide",
+  "tags": ["forensics", "logs", "diff", "regression", "root-cause"],
+  "prompt": "You are doing forensic diagnosis — something changed and nobody knows why. Work from evidence to cause, never cause to evidence.\n1. NORMALISE FIRST: raw log diffing produces noise. Strip timestamps, pids, threads, request ids, durations, memory addresses and ports; sort where order is not meaningful. Only after normalisation is a diff readable.\n2. BISECT THE AXIS: is the change temporal (worked yesterday), environmental (works on my machine), data-dependent (fails on one tenant), or version-dependent? Pick whichever axis is cheapest to bisect and eliminate the others by evidence, not assumption.\n3. VALUE TRACE: take one concrete failing value and trace it backwards — where was it written, what transformed it, where did it first become wrong? Stop at the first point where the value is already incorrect; that is your suspect.\n4. BLAME WITH EVIDENCE: `git log -S'<string>'`, `git log -L:<start>,<end>:<file>` and `git blame` locate the introducing commit. Read that commit's full diff, not just the matching line, and check whether it changed an assumption elsewhere.\n5. ENVIRONMENT DELTA: diff dependency lockfiles, config files and runtime versions between working and failing. A patch-level dependency bump or a changed default is a common cause and is invisible in application code.\n6. STATE YOUR CONFIDENCE: for each conclusion say whether it is proven by a reproduction, supported by a log line, or merely the leading hypothesis. Propose the single experiment that would distinguish the top two hypotheses.\nOutput: the normalised diff excerpt that shows the change, the suspect commit or config delta with evidence, the causal chain, and the one experiment that would confirm it.",
+  "tools": ["read_file", "grep_search", "run_command"],
+  "updatedAt": "2026-10-04"
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:astro-starlight-docs",
+  "name": "Starlight 文档站主题 (Astro Starlight Docs)",
+  "category": "content-site",
+  "description": "Astro 官方文档站主题 Starlight，内置侧栏导航、全文检索、i18n 与深色模式，开箱即用的技术文档骨架。",
+  "author": "Astro Team",
+  "license": "MIT",
+  "tags": ["Astro", "Starlight", "文档站", "全文检索", "i18n"],
+  "homepage": "https://starlight.astro.build",
+  "repository": "https://github.com/withastro/starlight",
+  "scaffold": {
+    "type": "git-clone",
+    "gitUrl": "https://github.com/withastro/starlight.git",
+    "command": "git clone https://github.com/withastro/starlight.git && cd starlight && pnpm install",
+    "defaultDir": "starlight",
+    "postInstallNotice": "仓库为 monorepo，docs/ 内即为 Starlight 官方文档站实例，运行 `pnpm dev` 预览。"
+  },
+  "requirements": ["node", "pnpm"],
+  "featured": false,
+  "updatedAt": "2026-10-04"
+}

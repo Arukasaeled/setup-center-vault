@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:solid-start-app",
+  "name": "SolidStart 应用 (SolidStart App)",
+  "category": "web-frontend",
+  "description": "SolidStart 官方仓库，基于细粒度响应式与流式 SSR 的应用框架，支持文件路由、服务器函数与多种部署适配器。",
+  "author": "SolidJS",
+  "license": "MIT",
+  "tags": ["SolidJS", "SolidStart", "SSR", "响应式", "Vite"],
+  "homepage": "https://start.solidjs.com",
+  "repository": "https://github.com/solidjs/solid-start",
+  "scaffold": {
+    "type": "git-clone",
+    "gitUrl": "https://github.com/solidjs/solid-start.git",
+    "command": "git clone https://github.com/solidjs/solid-start.git solid-app && cd solid-app && npm install",
+    "defaultDir": "solid-app",
+    "postInstallNotice": "运行 `npm run dev` 启动开发服务器。"
+  },
+  "requirements": ["node", "npm"],
+  "featured": false,
+  "updatedAt": "2026-10-04"
+}

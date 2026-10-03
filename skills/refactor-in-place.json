@@ -1,0 +1,11 @@
+{
+  "$schema": "../../schemas/skill.schema.json",
+  "id": "skill:refactor-in-place",
+  "name": "Refactor In Place (Behaviour Preserving)",
+  "description": "Restructure existing code without changing observable behaviour — lock behaviour with tests first, refactor in small verified steps, and prove equivalence.",
+  "author": "Setup Center Agent Guide",
+  "tags": ["refactor", "behaviour-preserving", "tests", "incremental", "safety"],
+  "prompt": "You are refactoring existing working code. The invariant is: observable behaviour does not change. Functionality changes are out of scope — if you find a bug, note it and fix it separately.\n1. LOCK BEHAVIOUR FIRST: before touching the code, ensure tests cover the paths you will move. If coverage is thin, write characterisation tests that record current output — including the current quirks. A refactor that changes a quirk is a behaviour change.\n2. GET A BASELINE: run the full test suite and record the exact result. A refactor that starts from a red suite cannot prove anything.\n3. SMALL STEPS: each step is independently compilable and testable — extract function, introduce parameter, move to module, replace conditional with polymorphism, collapse hierarchy. Do not combine rename + move + signature change in one step.\n4. MECHANICAL TRANSFORMS: prefer the language server / codemod / IDE rename over hand editing. When editing by hand, grep for every reference (including string references, dynamic imports, reflection, serialised names and config files) before renaming.\n5. TEST AFTER EVERY STEP: keep the suite green throughout. If it goes red, revert that one step rather than fixing forward — fixing forward risks silently changing behaviour.\n6. PROVE EQUIVALENCE at the end: run the same tests, the same type check, and the same lint as the baseline. Report bench numbers before/after if the code is on a hot path — a refactor that makes it 3× slower is a regression even if tests pass.\nReport: the baseline result, each step with its position on the hot path or not, the final test/type/lint result, and every reference you had to update manually because a tool could not find it.",
+  "tools": ["read_file", "write_to_file", "run_command"],
+  "updatedAt": "2026-10-04"
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "../../schemas/skill.schema.json",
+  "id": "skill:db-schema-migration",
+  "name": "Database Schema Migration",
+  "description": "Plan and execute a safe, reversible schema migration for a relational database, including backfill strategy, lock analysis and rollback path.",
+  "author": "Setup Center Agent Guide",
+  "tags": ["database", "migration", "sql", "rollback", "zero-downtime"],
+  "prompt": "You are performing a production database schema migration. Work through the following before writing any SQL:\n1. INVENTORY: read the current schema (migrations directory, models, or `\\d+` output). List every table, column, index and foreign key the change touches.\n2. CLASSIFY the change: additive (new nullable column, new table, new index) vs destructive (drop, rename, type narrowing, NOT NULL on existing column). Destructive changes require a multi-step, multi-deploy sequence.\n3. EXPAND/CONTRACT: for anything destructive, split into (a) expand — add the new shape and dual-write, (b) backfill — copy data in bounded batches (LIMIT 1000 with a sleep, never one UPDATE over the whole table), (c) contract — drop the old shape only after the application no longer reads it.\n4. LOCK RISK: state the lock each DDL statement takes. Flag `ALTER TABLE ... SET NOT NULL`, adding a non-concurrent index, and column type changes — on PostgreSQL use CREATE INDEX CONCURRENTLY, add NOT NULL via a CHECK constraint validated separately.\n5. MIGRATION FILE: emit the migration in the project's existing tool (Prisma / Alembic / Knex / Flyway / raw .sql), matching the file naming convention already in the repo.\n6. ROLLBACK: write the down-migration and prove it is the exact inverse. If a step cannot be reversed (dropped column), say so explicitly and propose a backup step instead.\n7. VERIFY: give the exact queries that confirm success — row counts before/after, orphan check for new foreign keys, and a sample SELECT across the new shape.\nOutput the migration file, the rollback file, and a numbered runbook of the deploy steps with the verification query after each step.",
+  "tools": ["read_file", "write_to_file", "run_command"],
+  "updatedAt": "2026-10-04"
+}

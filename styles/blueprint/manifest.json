@@ -2,12 +2,12 @@
   "$schema": "../../schemas/style.schema.json",
   "id": "blueprint",
   "name": "工程制图蓝图",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "subtitle": "Engineering Blueprint / CAD Drawing",
   "description": "深海工科蓝底、坐标标尺网格与青白细线条 CAD 制图标注。装配公差符号、十字准星与图纸装订框，洋溢着严密的技术制图之美。",
   "author": "Setup Center Design Lab",
   "license": "MIT",
-  "updatedAt": "2026-10-02",
+  "updatedAt": "2026-10-04",
   "implemented": true,
   "inspiration": "传统建筑工程蓝图、AutoCAD 技术施工图纸与航空装配图纸",
   "tags": ["技术蓝图", "CAD网格", "青白细线", "十字准星", "公差标注"],
@@ -25,6 +25,34 @@
     "shadowDepth": "0px",
     "fontHeading": "monospace",
     "fontBody": "system-ui, sans-serif"
+  },
+  "experience": {
+    "tier": "experience",
+    "shell": "topbar",
+    "navigation": "command-bar",
+    "detail": "floating-inspector",
+    "card": "tile",
+    "composition": "drafting-index",
+    "density": "compact",
+    "motion": "reduced",
+    "typography": {
+      "headingFamily": "\"JetBrains Mono\", \"Cascadia Code\", Consolas, monospace",
+      "headingScale": 1,
+      "bodyScale": 0.95,
+      "headingWeight": 600,
+      "headingTracking": "0.04em"
+    },
+    "ornament": { "rule": "dashed", "corner": "square", "decoration": "blueprint", "chrome": "status" },
+    "tweakable": ["borderWidth", "accent", "accentSecondary", "text", "density", "motion"],
+    "locked": {
+      "panelRadius": "工程图纸没有圆角——直角是制图规范的一部分。",
+      "controlRadius": "同上：标注线与图框均为直角。"
+    },
+    "specimenNote": "图纸是量出来的：所有间距都落在网格上，直角是规范而不是风格。"
+  },
+  "preview": {
+    "note": "顶栏命令条 + 图纸式索引；详情以浮动检查器浮在画布上。",
+    "swatches": ["#061527", "#0b223f", "#23548f", "#64ffda"]
   },
   "designPrinciples": [
     "Technical Precision — 以工程制图标准规范界面组件的几何位置",

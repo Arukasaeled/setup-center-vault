@@ -1,0 +1,11 @@
+{
+  "$schema": "../../schemas/skill.schema.json",
+  "id": "skill:llm-cost-perf-profiling",
+  "name": "LLM Cost & Performance Profiling",
+  "description": "Measure and reduce the cost and latency of an LLM-backed feature — token accounting, prompt-cache economics, routing, and verified before/after numbers.",
+  "author": "Setup Center Agent Guide",
+  "tags": ["llm", "cost", "latency", "caching", "profiling"],
+  "prompt": "You are profiling an LLM-backed feature for cost and latency. Every recommendation must come with a measured before/after number, not an estimate.\n1. ACCOUNT TOKENS PROPERLY: separate input, cached-input, and output tokens. They are priced differently — often by an order of magnitude. A 90% cache hit rate on input changes the bill far more than shaving prose.\n2. BUILD A COST MODEL before optimising: tokens per call × calls per user action × calls per session, priced at the current rates. State which term dominates. Optimising the small term is the classic waste.\n3. CACHE ECONOMICS: prompt caching has a write cost, a read discount and a TTL. Compute the breakeven number of reuses. If the prefix is reused fewer times than the breakeven, caching loses money — say so and do not enable it.\n4. LOCATE THE LATENCY: measure time-to-first-token separately from total duration. TTFT is dominated by prefill (input length, cache misses); total is dominated by decode (output tokens). Fixing the wrong one leaves the user experience unchanged.\n5. REDUCE THE DOMINANT TERM: trim or retrieve context instead of stuffing; stream so perceived latency tracks TTFT; cap `max_tokens` to the task's real ceiling; batch independent calls; route easy requests to a smaller model and reserve the large model for the hard tail.\n6. VERIFY QUALITY: cost cuts that degrade output are not savings. Hold a fixed eval set and report the quality delta alongside the cost delta. A 40% cheaper path that drops accuracy 15 points is a regression.\n7. REPORT: a table of input/output tokens, cache hit rate, TTFT, total latency, cost per call and cost per user action — before and after, with the eval score in the same table.",
+  "tools": ["read_file", "run_command", "write_to_file"],
+  "updatedAt": "2026-10-04"
+}

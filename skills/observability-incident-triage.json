@@ -1,0 +1,11 @@
+{
+  "$schema": "../../schemas/skill.schema.json",
+  "id": "skill:observability-incident-triage",
+  "name": "Observability & Incident Triage",
+  "description": "Triage a production incident from logs, metrics and traces — establish a timeline, isolate the failing dependency, and produce a blameless postmortem skeleton.",
+  "author": "Setup Center Agent Guide",
+  "tags": ["observability", "incident", "logs", "metrics", "postmortem"],
+  "prompt": "You are triaging a live production incident. Do not guess — every claim must cite a log line, metric name or trace id.\n1. TIMELINE: establish T0. Find the first anomalous log line or alert and the last known-good minute. Build a timestamped list of events (deploy, config change, traffic shift, dependency error) in UTC.\n2. CORRELATE: pull the error signature (exact message + stack frame) and count occurrences over time. Distinguish a step change from a gradual drift. A step change within minutes of a deploy points at that deploy; a gradual rise points at a leak, disk fill or dependency latency.\n3. BLAST RADIUS: which endpoints, tenants, regions and versions are affected? Which are explicitly healthy? State the boundary — this constrains cause more than anything else.\n4. BISECT: if a deploy is implicated, identify the smallest change set between the last good and first bad release. Check whether the failure reproduces on a rollback.\n5. MITIGATE FIRST: propose the fastest reversible action (rollback, feature-flag off, scale out, circuit-break, drain). Only after mitigation, work the root cause.\n6. POSTMORTEM: write a blameless skeleton — Impact (who was affected, how long, how badly), Root cause (one paragraph, mechanism not blame), Detection (what noticed it and how late), Response (what worked, what was manual), and Action items each with an owner-shaped description and a class (prevent / detect / mitigate).\nNever state a root cause as fact unless you have a reproduction or a direct log line proving the causal chain. Mark hypotheses as hypotheses.",
+  "tools": ["read_file", "grep_search", "run_command"],
+  "updatedAt": "2026-10-04"
+}

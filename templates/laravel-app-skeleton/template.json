@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:laravel-app-skeleton",
+  "name": "Laravel 应用骨架 (Laravel Skeleton)",
+  "category": "backend",
+  "description": "Laravel 官方应用骨架，含路由、Eloquent ORM、Blade 模板、队列与 Artisan 命令行，PHP 全栈的第一块地基。",
+  "author": "Laravel",
+  "license": "MIT",
+  "tags": ["Laravel", "PHP", "Eloquent", "Blade", "Artisan"],
+  "homepage": "https://laravel.com",
+  "repository": "https://github.com/laravel/laravel",
+  "scaffold": {
+    "type": "git-clone",
+    "gitUrl": "https://github.com/laravel/laravel.git",
+    "command": "git clone https://github.com/laravel/laravel.git my-laravel-app && cd my-laravel-app && composer install",
+    "defaultDir": "my-laravel-app",
+    "postInstallNotice": "复制 .env.example 为 .env，运行 `php artisan key:generate` 后 `php artisan serve` 启动。"
+  },
+  "requirements": ["php", "composer"],
+  "featured": false,
+  "updatedAt": "2026-10-04"
+}

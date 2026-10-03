@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:cookiecutter-django",
+  "name": "Cookiecutter Django 生产级模板 (Cookiecutter Django)",
+  "category": "backend",
+  "description": "面向生产环境的 Django 项目生成器：自定义用户模型、Docker 化部署、Celery、PostgreSQL 与安全默认配置。",
+  "author": "Cookiecutter Django",
+  "license": "BSD-3-Clause",
+  "tags": ["Django", "Cookiecutter", "PostgreSQL", "Celery", "Docker"],
+  "homepage": "https://cookiecutter-django.readthedocs.io",
+  "repository": "https://github.com/cookiecutter/cookiecutter-django",
+  "scaffold": {
+    "type": "git-clone",
+    "gitUrl": "https://github.com/cookiecutter/cookiecutter-django.git",
+    "command": "git clone https://github.com/cookiecutter/cookiecutter-django.git && pip install cookiecutter && cookiecutter cookiecutter-django",
+    "defaultDir": "cookiecutter-django",
+    "postInstallNotice": "生成后用 `docker compose -f local.yml up` 起本地全栈环境，含 PostgreSQL 与 Redis。"
+  },
+  "requirements": ["python", "docker"],
+  "featured": false,
+  "updatedAt": "2026-10-04"
+}

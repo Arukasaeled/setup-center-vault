@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:remix-fullstack-app",
+  "name": "Remix 全栈应用骨架 (Remix Fullstack App)",
+  "category": "fullstack",
+  "description": "Remix 官方仓库，含嵌套路由、loader／action 数据流、渐进增强表单与服务端渲染的全栈工程结构。",
+  "author": "Remix / Shopify",
+  "license": "MIT",
+  "tags": ["Remix", "React", "全栈", "嵌套路由", "SSR"],
+  "homepage": "https://remix.run",
+  "repository": "https://github.com/remix-run/remix",
+  "scaffold": {
+    "type": "git-clone",
+    "gitUrl": "https://github.com/remix-run/remix.git",
+    "command": "git clone https://github.com/remix-run/remix.git remix-app",
+    "defaultDir": "remix-app",
+    "postInstallNotice": "仓库为 monorepo；示例应用位于 templates/ 目录，进入后运行 `npm install && npm run dev`。"
+  },
+  "requirements": ["node", "npm"],
+  "featured": true,
+  "updatedAt": "2026-10-04"
+}

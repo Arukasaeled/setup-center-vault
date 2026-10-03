@@ -1,0 +1,22 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:nestjs-typescript-api",
+  "name": "NestJS TypeScript 服务骨架 (NestJS Starter)",
+  "category": "backend-api",
+  "description": "NestJS 官方 TypeScript 起步仓库，模块／控制器／服务分层清晰，内置依赖注入、守卫、拦截器与测试脚手架。",
+  "author": "NestJS",
+  "license": "MIT",
+  "tags": ["NestJS", "TypeScript", "依赖注入", "REST", "Node.js"],
+  "homepage": "https://nestjs.com",
+  "repository": "https://github.com/nestjs/typescript-starter",
+  "scaffold": {
+    "type": "git-clone",
+    "gitUrl": "https://github.com/nestjs/typescript-starter.git",
+    "command": "git clone https://github.com/nestjs/typescript-starter.git my-nest-api && cd my-nest-api && npm install",
+    "defaultDir": "my-nest-api",
+    "postInstallNotice": "运行 `npm run start:dev` 启动带热重载的服务：http://localhost:3000"
+  },
+  "requirements": ["node", "npm"],
+  "featured": true,
+  "updatedAt": "2026-10-04"
+}

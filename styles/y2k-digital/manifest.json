@@ -2,12 +2,12 @@
   "$schema": "../../schemas/style.schema.json",
   "id": "y2k-digital",
   "name": "千禧数码未来",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "subtitle": "Y2K Digital / Frutiger Aero / Early 2000s Web",
   "description": "晶莹天蓝高光、全息微彩反光、液态果冻圆角与千禧年初期的数码乐观主义界面美学。",
   "author": "Setup Center Design Lab",
   "license": "MIT",
-  "updatedAt": "2026-10-02",
+  "updatedAt": "2026-10-04",
   "implemented": true,
   "inspiration": "Windows Media Player 9/10 皮肤、早年 Winamp、Sony Vaio 界面与 Frutiger Aero",
   "tags": ["Y2K", "果冻高光", "全息微彩", "数码乐观主义", "圆润水晶"],
@@ -25,6 +25,32 @@
     "shadowDepth": "4px",
     "fontHeading": "system-ui, sans-serif",
     "fontBody": "system-ui, sans-serif"
+  },
+  "experience": {
+    "tier": "component",
+    "shell": "sidebar",
+    "navigation": "sidebar",
+    "detail": "rail",
+    "card": "floating-surface",
+    "composition": "solid-grid",
+    "density": "normal",
+    "motion": "expressive",
+    "ornament": { "rule": "hairline", "corner": "rounded", "decoration": "noise", "chrome": "none" },
+    "tokens": {
+      "shadow": {
+        "offsetX": "0px",
+        "offsetY": "4px",
+        "blur": "12px",
+        "spread": "0px",
+        "color": "rgba(6, 182, 212, 0.25)"
+      }
+    },
+    "tweakable": ["panelRadius", "controlRadius", "accent", "accentSecondary", "density", "motion"],
+    "specimenNote": "大圆角果冻面 + 全息噪点；圆角本身就是这套体验的身份。"
+  },
+  "preview": {
+    "note": "侧栏三栏骨架，卡片换成高光果冻悬浮面。",
+    "swatches": ["#0b192e", "#132d52", "#22d3ee", "#38bdf8"]
   },
   "designPrinciples": [
     "Aero Luster — 晶莹高光与液态渐变呈现科技质感",
