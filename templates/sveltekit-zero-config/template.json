@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:sveltekit-zero-config",
+  "name": "SvelteKit 2 极简响应式全栈",
+  "category": "web-frontend",
+  "description": "基于 Svelte 5 Runes 响应式体系与 SvelteKit 2 的下一代 Web 应用脚手架，极度精简的样板代码与出色的运行效率。",
+  "author": "Svelte Team",
+  "license": "MIT",
+  "tags": ["Svelte 5", "SvelteKit", "Runes", "全栈框架", "极简"],
+  "homepage": "https://svelte.dev",
+  "repository": "https://github.com/sveltejs/kit",
+  "scaffold": {
+    "type": "command",
+    "command": "pnpm create svelte@latest .",
+    "defaultDir": "my-svelte-app",
+    "postInstallNotice": "按引导选择 Skeleton project 与 TypeScript，完成后运行 `pnpm dev`。"
+  },
+  "requirements": ["node", "pnpm"],
+  "featured": false,
+  "updatedAt": "2026-10-03"
+}

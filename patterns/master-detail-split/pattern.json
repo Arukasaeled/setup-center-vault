@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/pattern.schema.json",
+  "id": "pat:master-detail-split",
+  "name": "主从联动分割视窗 (Master Detail Split Layout)",
+  "category": "layout",
+  "description": "左侧列表快速筛选索引、右侧常驻展开选定条目深度元数据与操作的专业桌面端两栏布局。",
+  "author": "Setup Center Design Lab",
+  "tags": ["双栏布局", "主从联动", "桌面端经典", "高效率"],
+  "codeSnippet": "<div class=\"master-detail-split\">\n  <aside class=\"split-master\">列表项...</aside>\n  <main class=\"split-detail\">详细内容...</main>\n</div>",
+  "cssRules": ".master-detail-split {\n  display: flex;\n  height: 100%;\n  overflow: hidden;\n}\n.split-master {\n  width: 320px;\n  flex-shrink: 0;\n  border-right: 1px solid rgba(255, 255, 255, 0.08);\n  overflow-y: auto;\n  padding: 12px;\n}\n.split-detail {\n  flex: 1;\n  overflow-y: auto;\n  padding: 24px;\n  background: rgba(255, 255, 255, 0.01);\n}",
+  "usage": "用于软件管理屏、配置参数设置中心及长文档章节阅读视窗。",
+  "targetStyles": ["retro-mac", "swiss-dark", "academic-lab"],
+  "updatedAt": "2026-10-03"
+}

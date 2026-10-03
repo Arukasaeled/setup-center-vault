@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:nextjs-app-router",
+  "name": "Next.js 15 App Router 全栈脚手架",
+  "category": "web-frontend",
+  "description": "基于 Next.js 15 App Router、React 19、Tailwind CSS 与 TypeScript 的生产级现代全栈工程脚手架。",
+  "author": "Vercel / Community",
+  "license": "MIT",
+  "tags": ["Next.js", "React 19", "App Router", "Tailwind CSS", "TypeScript"],
+  "homepage": "https://nextjs.org",
+  "repository": "https://github.com/vercel/next.js",
+  "scaffold": {
+    "type": "command",
+    "command": "pnpm create next-app@latest . --ts --tailwind --eslint --app --src-dir --import-alias '@/*'",
+    "defaultDir": "my-next-app",
+    "postInstallNotice": "运行 `pnpm dev` 启动本地开发服务：http://localhost:3000"
+  },
+  "requirements": ["node", "pnpm"],
+  "featured": true,
+  "updatedAt": "2026-10-03"
+}

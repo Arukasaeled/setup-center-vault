@@ -1,0 +1,11 @@
+{
+  "$schema": "../../schemas/skill.schema.json",
+  "id": "skill:dependency-upgrade",
+  "name": "依赖安全升级与破坏性改动迁移 (Dependency Upgrade & Migration)",
+  "description": "扫描项目中的过时或存在已知 CVE 漏洞的第三方包，评估重大版本升级破坏性改动并自动生成平滑升级方案。",
+  "author": "Setup Center Agent Guide",
+  "tags": ["依赖审计", "版本升级", "安全漏洞", "破坏性迁移"],
+  "prompt": "对项目的 package.json / Cargo.toml 进行升级与安全性分析：\n1. 检查各依赖包的当前版本与最新稳定版本差值，识别是否存在 Major 跨大版本跃迁。\n2. 阅读主流核心依赖（如 React 19、Vite 6、Tauri v2）官方 Migration Guide，提炼出破损 API 的对应新语法替换表。\n3. 在隔离分支中更新锁文件并运行构建测试套件，确认无构建回归后合并。",
+  "tools": ["run_command", "read_file", "replace_file_content"],
+  "updatedAt": "2026-10-03"
+}

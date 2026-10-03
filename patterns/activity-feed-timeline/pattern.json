@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/pattern.schema.json",
+  "id": "pat:activity-feed-timeline",
+  "name": "活动流水时间线 (Activity Feed Timeline)",
+  "category": "timeline",
+  "description": "竖向连接的审计流与流转流水线，节点带有状态圆点与时间戳，用于展示安装、同步与变更历史。",
+  "author": "Setup Center Design Lab",
+  "tags": ["时间线", "操作流水", "审计追踪", "微指示器"],
+  "codeSnippet": "<div class=\"timeline-feed\">\n  <div class=\"timeline-item done\">\n    <div class=\"timeline-marker\"></div>\n    <div class=\"timeline-content\">\n      <div class=\"timeline-title\">同步 Remote Vault 成功</div>\n      <div class=\"timeline-time\">10:20:54 · v2026.10.03.2</div>\n    </div>\n  </div>\n</div>",
+  "cssRules": ".timeline-feed {\n  position: relative;\n  padding-left: 20px;\n}\n.timeline-feed::before {\n  content: '';\n  position: absolute;\n  left: 6px;\n  top: 6px;\n  bottom: 6px;\n  width: 1px;\n  background: #27272a;\n}\n.timeline-item {\n  position: relative;\n  padding-bottom: 16px;\n}\n.timeline-marker {\n  position: absolute;\n  left: -20px;\n  top: 4px;\n  width: 13px;\n  height: 13px;\n  border-radius: 50%;\n  background: #09090b;\n  border: 2px solid #52525b;\n}\n.timeline-item.done .timeline-marker {\n  border-color: #22c55e;\n  background: #14532d;\n}\n.timeline-title {\n  font-size: 13px;\n  font-weight: 500;\n  color: #e4e4e7;\n}\n.timeline-time {\n  font-size: 11px;\n  color: #71717a;\n  margin-top: 2px;\n}",
+  "usage": "用于 TransferHistory 历史记录屏、安装步骤回放与版本发布变更志。",
+  "targetStyles": ["monochrome-research", "swiss-dark", "academic-lab"],
+  "updatedAt": "2026-10-03"
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "../../schemas/skill.schema.json",
+  "id": "skill:tauri-bundle-optimize",
+  "name": "Tauri 桌面端安装包体积与 CSP 审计 (Tauri Bundle & CSP Audit)",
+  "description": "精简 Tauri 应用的打包体积，检查 Windows NSIS 与 Linux AppImage 构建配置，严格审计 Content Security Policy 与 IPC 权限边界。",
+  "author": "Setup Center Agent Guide",
+  "tags": ["Tauri", "桌面端打包", "体积优化", "CSP安全"],
+  "prompt": "审计 Tauri 桌面端工程架构配置：\n1. 检查 `src-tauri/Cargo.toml` 中 release profile 设置（启用 `lto = true`, `opt-level = 'z'`, `strip = true`）。\n2. 审查 `tauri.conf.json` 中的 `security.csp`，消除过于宽泛的 `*` 允许域，精准限制外部请求白名单。\n3. 检查 NSIS 安装器资源包含规则，避免多余测试 fixtures 或无用静态图打包入最终安装包。",
+  "tools": ["view_file", "replace_file_content"],
+  "updatedAt": "2026-10-03"
+}

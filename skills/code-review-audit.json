@@ -1,0 +1,11 @@
+{
+  "$schema": "../../schemas/skill.schema.json",
+  "id": "skill:code-review-audit",
+  "name": "代码审查与架构坏味道侦测 (Code Review & Architecture Audit)",
+  "description": "自动化走查代码库中的耦合异味、未捕获异常、反模式以及并发/内存安全隐患，输出可执行重构方案。",
+  "author": "Setup Center Agent Guide",
+  "tags": ["代码审查", "架构重构", "异味消除", "工程质量"],
+  "prompt": "作为资深架构师执行代码审查：\n1. 检查是否存在全局状态污染、循环依赖或违反关注点分离（SoC）的设计。\n2. 检查异步流（async/await）是否有未处理的 reject，资源句柄（文件/网络连接）是否有显式释放。\n3. 重点标注魔数、长函数（>60行）、深层嵌套（>3层），给出具体抽取函数或模式重构的 diff 示范。",
+  "tools": ["read_file", "search_code"],
+  "updatedAt": "2026-10-03"
+}

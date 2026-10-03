@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:hono-cloudflare-workers",
+  "name": "Hono 边缘微服务与 API 脚手架",
+  "category": "backend-api",
+  "description": "基于 Hono Web 框架与 Cloudflare Workers 的超轻量边缘计算工程，毫秒级响应、类型安全 RPC 与零冷启动。",
+  "author": "Yusuke Wada (Hono)",
+  "license": "MIT",
+  "tags": ["Hono", "Cloudflare Workers", "边缘计算", "TypeScript", "微服务"],
+  "homepage": "https://hono.dev",
+  "repository": "https://github.com/honojs/hono",
+  "scaffold": {
+    "type": "command",
+    "command": "pnpm create hono@latest . --template cloudflare-workers --install",
+    "defaultDir": "hono-edge-api",
+    "postInstallNotice": "运行 `pnpm dev` 启动 Wrangler 本地 Workers 仿真环境。"
+  },
+  "requirements": ["node", "pnpm"],
+  "featured": true,
+  "updatedAt": "2026-10-03"
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "../../schemas/skill.schema.json",
+  "id": "skill:ui-ux-distill",
+  "name": "前端界面走查与去玩具化精修 (UI/UX Distill & De-Toying)",
+  "description": "系统化消除界面中的廉价 Emoji 堆砌、同质化卡片布局与粗糙内边距，确立严谨字阶、微对比与触感微交互。",
+  "author": "Setup Center Design Lab",
+  "tags": ["UI走查", "去玩具化", "设计系统", "排印节律"],
+  "prompt": "对指定前端页面执行精修审计：\n1. 移除滥用 Emoji 的装饰，替换为语义化微指示器或精细 SVG 状态点。\n2. 检查字阶比例（Type Scale），确保标题、正文、小说明之间字重与对比度明确。\n3. 检查卡片和容器的 Padding 与 Gap 节律（统一采用 4px/8px 网格系统）。\n4. 确认在极端分辨率或长文本下的换行与省略策略，避免破卡与溢出。",
+  "tools": ["read_file", "replace_file_content"],
+  "updatedAt": "2026-10-03"
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/pattern.schema.json",
+  "id": "pat:code-snippet-box",
+  "name": "代码语法框带一键复制 (Code Snippet Box with Copy)",
+  "category": "code",
+  "description": "专为终端命令与配置文件设计的代码块容器，带有右上角快速复制按钮、轻量悬浮反馈与横向优雅滚动。",
+  "author": "Setup Center Design Lab",
+  "tags": ["代码展示", "一键复制", "等宽排版", "命令容器"],
+  "codeSnippet": "<div class=\"code-box\">\n  <pre><code>pnpm add -D tailwindcss @tailwindcss/vite</code></pre>\n  <button class=\"copy-btn\">复制</button>\n</div>",
+  "cssRules": ".code-box {\n  position: relative;\n  background: #090a0f;\n  border: 1px solid #1f2430;\n  border-radius: 6px;\n  padding: 12px 48px 12px 14px;\n  overflow-x: auto;\n}\n.code-box pre {\n  margin: 0;\n  font-family: 'JetBrains Mono', Consolas, monospace;\n  font-size: 12px;\n  color: #e6edf3;\n}\n.copy-btn {\n  position: absolute;\n  right: 8px;\n  top: 8px;\n  font-size: 11px;\n  padding: 3px 8px;\n  border-radius: 4px;\n  background: rgba(255, 255, 255, 0.08);\n  border: 1px solid rgba(255, 255, 255, 0.15);\n  color: #d1d5db;\n  cursor: pointer;\n  transition: all 0.15s;\n}\n.copy-btn:hover {\n  background: rgba(255, 255, 255, 0.16);\n  color: #ffffff;\n}",
+  "usage": "用于详情弹层包管理器安装命令、脚手架创建指令及样板配置展示。",
+  "targetStyles": ["nordic-frost", "swiss-dark", "academic-lab", "dos-utility"],
+  "updatedAt": "2026-10-03"
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/pattern.schema.json",
+  "id": "pat:hero-action-banner",
+  "name": "行动召唤主旗标 (Hero Action Banner)",
+  "category": "hero",
+  "description": "位于画廊或工坊顶部的品牌主标语与关键行动横幅，采用精练排印、微细背景网格与明确的首要操作入口。",
+  "author": "Setup Center Design Lab",
+  "tags": ["首屏横幅", "行动召唤", "视觉焦点", "画廊引导"],
+  "codeSnippet": "<div class=\"hero-banner\">\n  <div class=\"badge\">Setup Runtime 2026</div>\n  <h1 class=\"headline\">Setup Everything Needed to Build.</h1>\n  <p class=\"lead\">将全球开源资产、设计系统与工具链即刻迁移至本机。</p>\n</div>",
+  "cssRules": ".hero-banner {\n  padding: 32px 24px;\n  background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.08), transparent 70%);\n  border-bottom: 1px solid rgba(255, 255, 255, 0.06);\n  margin-bottom: 24px;\n}\n.badge {\n  display: inline-block;\n  font-size: 11px;\n  font-family: monospace;\n  color: #60a5fa;\n  background: rgba(59, 130, 246, 0.12);\n  padding: 2px 8px;\n  border-radius: 4px;\n  margin-bottom: 12px;\n}\n.headline {\n  font-size: 24px;\n  font-weight: 700;\n  color: #f8fafc;\n  letter-spacing: -0.02em;\n  margin: 0 0 8px 0;\n}\n.lead {\n  font-size: 13px;\n  color: #94a3b8;\n  margin: 0;\n  max-width: 600px;\n}",
+  "usage": "用于首页 Welcome 屏、Style 展厅顶栏及新手引导页面头图。",
+  "targetStyles": ["japanese-editorial", "cyber-neon", "nordic-frost"],
+  "updatedAt": "2026-10-03"
+}

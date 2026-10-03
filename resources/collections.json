@@ -12,6 +12,76 @@
     "homepage": "https://awesome-selfhosted.net",
     "stars": "180k+",
     "featured": true,
-    "updatedAt": "2026-10-02"
+    "updatedAt": "2026-10-03"
+  },
+  {
+    "id": "res:vault:awesome-design-systems",
+    "name": "Awesome Design Systems",
+    "category": "collections",
+    "description": "精选全球知名科技企业（Shopify、GitHub、Apple、Google、IBM）公开的设计系统与组件规范精选合集。",
+    "recommendedReason": "做设计系统规范、制定 Design Tokens 与建立组件库时的终极参考百科。",
+    "author": "Alexandre de Oliveira",
+    "tags": ["设计系统", "Design Tokens", "UI规范", "企业级"],
+    "actionType": "github",
+    "repository": "https://github.com/alexpate/awesome-design-systems",
+    "stars": "9.5k+",
+    "featured": true,
+    "updatedAt": "2026-10-03"
+  },
+  {
+    "id": "res:vault:awesome-ai-agents",
+    "name": "Awesome AI Agents",
+    "category": "collections",
+    "description": "整理全球最前沿的自主智能体（Autonomous Agents）、多智能体框架、评估基准与 Agent 开发工具链。",
+    "recommendedReason": "紧跟 AI 智能体前沿论文、商业落地开源框架与生产级 Agent 研发实践。",
+    "author": "E2B & Community",
+    "tags": ["AI智能体", "Autonomous Agents", "LLM工作流", "前沿清单"],
+    "actionType": "github",
+    "repository": "https://github.com/e2b-dev/awesome-ai-agents",
+    "stars": "12k+",
+    "featured": true,
+    "updatedAt": "2026-10-03"
+  },
+  {
+    "id": "res:vault:awesome-rust",
+    "name": "Awesome Rust",
+    "category": "collections",
+    "description": "高质量 Rust 生态库、服务端框架、游戏引擎、数据库客户端与实用 CLI 工具分类聚合清单。",
+    "recommendedReason": "Rust 开发者寻找经过生产检验的成熟第三方 Crates 的首选指南。",
+    "author": "Rust Unofficials",
+    "tags": ["Rust生态", "Crates推荐", "系统编程", "高星库"],
+    "actionType": "github",
+    "repository": "https://github.com/rust-unofficial/awesome-rust",
+    "stars": "45k+",
+    "featured": true,
+    "updatedAt": "2026-10-03"
+  },
+  {
+    "id": "res:vault:awesome-python",
+    "name": "Awesome Python",
+    "category": "collections",
+    "description": "由社区筛选的优质 Python 框架、数据科学计算库、自动化脚本与网络爬虫精选清单。",
+    "recommendedReason": "按领域分类清晰，快速定位 Python 各细分方向最稳定可靠的标准库与第三方库。",
+    "author": "Vinta Software",
+    "tags": ["Python", "数据科学", "Web开发", "经典清单"],
+    "actionType": "github",
+    "repository": "https://github.com/vinta/awesome-python",
+    "stars": "225k+",
+    "featured": false,
+    "updatedAt": "2026-10-03"
+  },
+  {
+    "id": "res:vault:awesome-creative-coding",
+    "name": "Awesome Creative Coding",
+    "category": "collections",
+    "description": "创意编程、生成艺术、WebGL、着色器 Shader、多媒体互动技术与计算美学终极资源合集。",
+    "recommendedReason": "探索代码与艺术边界、开发令人惊艳的网页视觉特效与动态交互的灵感宝库。",
+    "author": "Terence Ge",
+    "tags": ["创意编程", "生成艺术", "Shader", "交互视觉"],
+    "actionType": "github",
+    "repository": "https://github.com/terkelg/awesome-creative-coding",
+    "stars": "14k+",
+    "featured": true,
+    "updatedAt": "2026-10-03"
   }
 ]

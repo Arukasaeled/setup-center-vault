@@ -1,19 +1,21 @@
 {
-  "releaseVersion": "2026.10.03.2",
-  "commitSha": "3af10e32fefbb4b0ae27e37c9daf35bc4378ecbe",
-  "snapshotTag": "v2026.10.03.2",
-  "publishedAt": "2026-10-03T02:30:00Z",
-  "summary": "Design Inspiration & Gallery Redesign Release",
+  "releaseVersion": "2026.10.03.3",
+  "commitSha": "19987349141074092b3433e144a04d60e7e1f409",
+  "snapshotTag": "v2026.10.03.3",
+  "publishedAt": "2026-10-03T02:45:00Z",
+  "summary": "Transfer & Setup Runtime Mega Release: 21 Patterns, 12 Templates, 10 Skills, and Actionable Learning Resources",
   "changes": [
-    "收录 The Webby Awards、FWA、SiteInspire 等世界顶尖设计奖项与前沿画廊",
-    "收录 SaaS Interfaces、Refero、Magic UI、Aceternity UI 先锋组件与设计参考",
-    "全面适配客户端画廊网格与 DetailShell 详情弹层体系",
-    "建立 Release-Gated 双通道版本门禁，保证资产批次稳定性"
+    "大规模扩充至 21 套可复用 UI 架构模式（Diff对比、终端流、胶囊云、时间线、空状态、统计指标、代码语法框、进度条、主从分割视窗等）",
+    "大规模扩充至 12 套生产级全栈脚手架（Next.js 15, Astro 5, Vite 6 + React 19, Hono Workers, SvelteKit 2, Rust Axum, Python Typer, R3F 3D）",
+    "收录 10 套高自主权 Agent & Developer 提示词与审计技能规范",
+    "扩充 12 项世界级计算机科学公开课与核心知识体系（MIT Missing Semester, System Design Primer, Full Stack Open, CS-Notes, Visualizing Git）",
+    "建立通用可执行 SetupAction 协议，消除全部 Dead Content，所有资产具备明确的迁移与安装路径"
   ],
   "collections": {
     "styles": 4,
-    "resources": 90,
-    "templates": 4,
-    "patterns": 3
+    "resources": 110,
+    "templates": 12,
+    "patterns": 21,
+    "skills": 10
   }
 }

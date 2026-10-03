@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/pattern.schema.json",
+  "id": "pat:filter-pill-cloud",
+  "name": "过滤标签胶囊云 (Filter Pill Cloud)",
+  "category": "navigation",
+  "description": "紧凑水平排列的标签胶囊群，支持单选/多选状态切换、数量计数字标以及微边框过渡高亮。",
+  "author": "Setup Center Design Lab",
+  "tags": ["标签筛选", "胶囊按钮", "微交互", "探索器过滤"],
+  "codeSnippet": "<div class=\"pill-cloud\">\n  <button class=\"pill active\">全部 <span class=\"count\">18</span></button>\n  <button class=\"pill\">工具库 <span class=\"count\">6</span></button>\n  <button class=\"pill\">设计模式 <span class=\"count\">8</span></button>\n</div>",
+  "cssRules": ".pill-cloud {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n  align-items: center;\n}\n.pill {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  padding: 4px 10px;\n  font-size: 12px;\n  border-radius: 9999px;\n  background: rgba(255, 255, 255, 0.05);\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  color: #a1a1aa;\n  cursor: pointer;\n  transition: all 0.15s ease;\n}\n.pill:hover {\n  background: rgba(255, 255, 255, 0.09);\n  color: #f4f4f5;\n  border-color: rgba(255, 255, 255, 0.2);\n}\n.pill.active {\n  background: #3b82f6;\n  border-color: #3b82f6;\n  color: #ffffff;\n  box-shadow: 0 0 12px rgba(59, 130, 246, 0.35);\n}\n.pill .count {\n  font-size: 10px;\n  opacity: 0.8;\n}",
+  "usage": "用于各类资源卡片池、风格画廊及搜索分类标签筛选栏。",
+  "targetStyles": ["nordic-frost", "swiss-dark", "academic-lab"],
+  "updatedAt": "2026-10-03"
+}

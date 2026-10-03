@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:threejs-r3f-canvas",
+  "name": "React Three Fiber 3D 视觉交互脚手架",
+  "category": "3d-creative",
+  "description": "基于 React Three Fiber、Drei 辅助库与 Three.js 的声明式 Web 3D / WebGL 渲染工程模板，开箱即用支持相机控制、光源与阴影管线。",
+  "author": "Poimandres",
+  "license": "MIT",
+  "tags": ["Three.js", "R3F", "WebGL", "3D视觉", "Poimandres"],
+  "homepage": "https://r3f.docs.pmnd.rs",
+  "repository": "https://github.com/pmndrs/react-three-fiber",
+  "scaffold": {
+    "type": "command",
+    "command": "pnpm create vite my-3d-scene --template react-ts && cd my-3d-scene && pnpm add three @types/three @react-three/fiber @react-three/drei",
+    "defaultDir": "my-3d-scene",
+    "postInstallNotice": "运行 `pnpm dev` 并在浏览器体验 60FPS 声明式三维网格与空间粒子。"
+  },
+  "requirements": ["node", "pnpm"],
+  "featured": true,
+  "updatedAt": "2026-10-03"
+}

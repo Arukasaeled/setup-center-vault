@@ -1,10 +1,10 @@
 {
   "$schema": "./schemas/vault-manifest.schema.json",
   "schemaVersion": "1.0.0",
-  "contentVersion": "2026.10.03.2",
+  "contentVersion": "2026.10.03.3",
   "name": "Setup Center Remote Vault",
   "description": "Decoupled remote content vault holding developer tools, design systems, templates, patterns, and creative resources.",
-  "updatedAt": "2026-10-03T02:30:00Z",
+  "updatedAt": "2026-10-03T02:40:00Z",
   "maintainer": "arukas0623-ai",
   "repository": "https://github.com/arukas0623-ai/setup-center-vault",
   "collections": {
@@ -44,7 +44,7 @@
     },
     "resources": {
       "version": "1.0.0",
-      "count": 18,
+      "count": 35,
       "categories": [
         "frontend",
         "components",
@@ -62,7 +62,7 @@
           "id": "frontend",
           "name": "设计灵感与系统",
           "path": "resources/frontend.json",
-          "updatedAt": "2026-10-02"
+          "updatedAt": "2026-10-03"
         },
         {
           "id": "components",
@@ -110,19 +110,19 @@
           "id": "learning",
           "name": "学习路径与技能树",
           "path": "resources/learning.json",
-          "updatedAt": "2026-10-02"
+          "updatedAt": "2026-10-03"
         },
         {
           "id": "collections",
           "name": "精选开源清单",
           "path": "resources/collections.json",
-          "updatedAt": "2026-10-02"
+          "updatedAt": "2026-10-03"
         }
       ]
     },
     "templates": {
       "version": "1.0.0",
-      "count": 4,
+      "count": 12,
       "items": [
         {
           "id": "tpl:tauri-v2-react",
@@ -147,12 +147,60 @@
           "name": "Python uv + FastAPI 微服务工程",
           "path": "templates/python-uv-fastapi/template.json",
           "updatedAt": "2026-10-02"
+        },
+        {
+          "id": "tpl:nextjs-app-router",
+          "name": "Next.js 15 App Router 全栈脚手架",
+          "path": "templates/nextjs-app-router/template.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "tpl:astro-content-blog",
+          "name": "Astro 5 内容驱动博客脚手架",
+          "path": "templates/astro-content-blog/template.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "tpl:vite-react-ts-minimal",
+          "name": "Vite 6 + React 19 + TS 纯净工程",
+          "path": "templates/vite-react-ts-minimal/template.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "tpl:hono-cloudflare-workers",
+          "name": "Hono 边缘微服务与 API 脚手架",
+          "path": "templates/hono-cloudflare-workers/template.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "tpl:sveltekit-zero-config",
+          "name": "SvelteKit 2 极简响应式全栈",
+          "path": "templates/sveltekit-zero-config/template.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "tpl:rust-axum-backend",
+          "name": "Rust Axum + Tokio 高性能服务端",
+          "path": "templates/rust-axum-backend/template.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "tpl:python-cli-typer",
+          "name": "Python Typer + Rich 终端工具模板",
+          "path": "templates/python-cli-typer/template.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "tpl:threejs-r3f-canvas",
+          "name": "React Three Fiber 3D 视觉交互脚手架",
+          "path": "templates/threejs-r3f-canvas/template.json",
+          "updatedAt": "2026-10-03"
         }
       ]
     },
     "patterns": {
       "version": "1.0.0",
-      "count": 7,
+      "count": 21,
       "items": [
         {
           "id": "pat:hard-shadow-tactile-card",
@@ -195,18 +243,150 @@
           "name": "侧滑深度抽屉面板",
           "path": "patterns/split-detail-drawer/pattern.json",
           "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "pat:diff-viewer-panel",
+          "name": "差异对比分栏面板",
+          "path": "patterns/diff-viewer-panel/pattern.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "pat:terminal-log-stream",
+          "name": "终端日志流视图",
+          "path": "patterns/terminal-log-stream/pattern.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "pat:filter-pill-cloud",
+          "name": "过滤标签胶囊云",
+          "path": "patterns/filter-pill-cloud/pattern.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "pat:activity-feed-timeline",
+          "name": "活动流水时间线",
+          "path": "patterns/activity-feed-timeline/pattern.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "pat:empty-state-canvas",
+          "name": "优雅空状态占位",
+          "path": "patterns/empty-state-canvas/pattern.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "pat:metric-stat-counter",
+          "name": "指标统计卡片",
+          "path": "patterns/metric-stat-counter/pattern.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "pat:code-snippet-box",
+          "name": "代码语法框带一键复制",
+          "path": "patterns/code-snippet-box/pattern.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "pat:progress-step-tracker",
+          "name": "多步骤进度追踪条",
+          "path": "patterns/progress-step-tracker/pattern.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "pat:master-detail-split",
+          "name": "主从联动分割视窗",
+          "path": "patterns/master-detail-split/pattern.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "pat:notification-toast-shelf",
+          "name": "浮动微通知托架",
+          "path": "patterns/notification-toast-shelf/pattern.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "pat:hero-action-banner",
+          "name": "行动召唤主旗标",
+          "path": "patterns/hero-action-banner/pattern.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "pat:keybinding-cheat-grid",
+          "name": "快捷键指南速查网格",
+          "path": "patterns/keybinding-cheat-grid/pattern.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "pat:spatial-acrylic-header",
+          "name": "空间高透亚克力毛玻璃顶栏",
+          "path": "patterns/spatial-acrylic-header/pattern.json",
+          "updatedAt": "2026-10-03"
         }
       ]
     },
     "skills": {
       "version": "1.0.0",
-      "count": 1,
+      "count": 10,
       "items": [
         {
           "id": "skill:transfer-resource",
           "name": "Transfer External Resource to Setup Vault",
           "path": "skills/transfer-resource.json",
           "updatedAt": "2026-10-02"
+        },
+        {
+          "id": "skill:code-review-audit",
+          "name": "代码审查与架构坏味道侦测",
+          "path": "skills/code-review-audit.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "skill:ui-ux-distill",
+          "name": "前端界面走查与去玩具化精修",
+          "path": "skills/ui-ux-distill.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "skill:git-workflow-triage",
+          "name": "Git 历史清理与分支规范审计",
+          "path": "skills/git-workflow-triage.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "skill:dependency-upgrade",
+          "name": "依赖安全升级与破坏性改动迁移",
+          "path": "skills/dependency-upgrade.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "skill:style-extractor",
+          "name": "视觉灵感风格提炼与 Token 规范化",
+          "path": "skills/style-extractor.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "skill:perf-lighthouse-audit",
+          "name": "Web 性能与关键渲染路径分析",
+          "path": "skills/perf-lighthouse-audit.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "skill:tauri-bundle-optimize",
+          "name": "Tauri 桌面端安装包体积与 CSP 审计",
+          "path": "skills/tauri-bundle-optimize.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "skill:agent-prompt-craft",
+          "name": "高自主权 Agent 系统提示词工程",
+          "path": "skills/agent-prompt-craft.json",
+          "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "skill:api-design-restful",
+          "name": "RESTful 与 RPC 接口契约设计规范",
+          "path": "skills/api-design-restful.json",
+          "updatedAt": "2026-10-03"
         }
       ]
     },

@@ -1,0 +1,11 @@
+{
+  "$schema": "../../schemas/skill.schema.json",
+  "id": "skill:agent-prompt-craft",
+  "name": "高自主权 Agent 系统提示词工程 (Autonomous Agent Prompt Craft)",
+  "description": "编写自解释、具备严密上下文局部性（Context Locality）与长周期自主执行策略的 Agent 规范与规则提示词。",
+  "author": "Setup Center Agent Guide",
+  "tags": ["Agent系统", "系统提示词", "上下文局部性", "自主执行"],
+  "prompt": "设计面向复杂工程的 Agent 指南：\n1. 明确定义项目定位与统一生命周期，防止 Agent 在执行中发生定位漂移。\n2. 设立路由表（Task Routing），引导 Agent 优先读取最小局部文档，禁止暴力全仓扫描。\n3. 制定 Golden Rules，明确禁止与推荐的反模式（如页面禁止硬编码 style 判断，必须由样式契约声明式驱动）。",
+  "tools": ["write_to_file"],
+  "updatedAt": "2026-10-03"
+}

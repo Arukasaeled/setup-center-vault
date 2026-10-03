@@ -1,0 +1,11 @@
+{
+  "$schema": "../../schemas/skill.schema.json",
+  "id": "skill:api-design-restful",
+  "name": "RESTful 与 RPC 接口契约设计规范 (API Contract Design)",
+  "description": "基于 OpenAPI 3.1 或 Type-safe RPC 制定高自解释、无歧义的跨服务数据交换契约与统一错误状态码。",
+  "author": "Setup Center Agent Guide",
+  "tags": ["API契约", "OpenAPI", "Type-safe RPC", "自解释规范"],
+  "prompt": "设计微服务与客户端数据交互协议：\n1. 采用名词复数代表资源路径（如 `/api/v1/resources`），HTTP 动词映射 CRUD 语义。\n2. 错误响应统一包含：`code` (机器可识别错误枚举)、`message` (人类友好说明)、`details` (字段校验错误列表)。\n3. 导出 TypeScript 纯类型声明或生成 SDK，实现前后端联调时的编译期类型约束。",
+  "tools": ["write_to_file"],
+  "updatedAt": "2026-10-03"
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "../../schemas/skill.schema.json",
+  "id": "skill:style-extractor",
+  "name": "视觉灵感风格提炼与 Token 规范化 (Style Extraction & Tokenization)",
+  "description": "分析优质网站或设计作品的调色盘、几何轮廓、字体层级与质感硬阴影，直接抽取生成 Setup Center 规范的 SetupStyle 清单与 CSS 文件。",
+  "author": "Setup Center Design Lab",
+  "tags": ["视觉提炼", "设计Token", "CSS生成", "风格规范"],
+  "prompt": "从指定设计作品或网页中提取完整设计语言：\n1. 提炼 5 个核心基础色彩：bg-primary, surface, text-primary, accent, border。\n2. 确定圆角（Border Radius）与投影（Box Shadow）策略：例如硬黑实心阴影、零圆角或大圆角高透毛玻璃。\n3. 生成匹配 SetupStyle 契约的 manifest.json 与同名 CSS 覆盖规则，确保在全局容器上作用于 [data-style='...']。",
+  "tools": ["read_url_content", "write_to_file"],
+  "updatedAt": "2026-10-03"
+}

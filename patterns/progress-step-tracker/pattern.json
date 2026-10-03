@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/pattern.schema.json",
+  "id": "pat:progress-step-tracker",
+  "name": "多步骤进度追踪条 (Progress Step Tracker)",
+  "category": "wizard",
+  "description": "线性向导步骤状态条，以数字圆标、连线与完成对勾直观表达安装流程阶段。",
+  "author": "Setup Center Design Lab",
+  "tags": ["向导", "步骤条", "进度跟踪", "多阶段"],
+  "codeSnippet": "<div class=\"step-tracker\">\n  <div class=\"step completed\"><div class=\"circle\">✓</div><span>环境检测</span></div>\n  <div class=\"line completed\"></div>\n  <div class=\"step current\"><div class=\"circle\">2</div><span>方案定制</span></div>\n  <div class=\"line\"></div>\n  <div class=\"step\"><div class=\"circle\">3</div><span>开始安装</span></div>\n</div>",
+  "cssRules": ".step-tracker {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.step {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n  font-size: 12px;\n  color: #71717a;\n}\n.circle {\n  width: 20px;\n  height: 20px;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 11px;\n  font-weight: 600;\n  background: #27272a;\n  color: #a1a1aa;\n}\n.step.current {\n  color: #ffffff;\n}\n.step.current .circle {\n  background: #3b82f6;\n  color: #ffffff;\n}\n.step.completed .circle {\n  background: #10b981;\n  color: #ffffff;\n}\n.line {\n  flex: 1;\n  height: 2px;\n  background: #27272a;\n}\n.line.completed {\n  background: #10b981;\n}",
+  "usage": "用于新手初始化向导、多阶段 Recipe 自动化执行追踪。",
+  "targetStyles": ["fluent-spatial", "nordic-frost", "japanese-editorial"],
+  "updatedAt": "2026-10-03"
+}

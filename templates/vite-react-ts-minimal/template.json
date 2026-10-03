@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:vite-react-ts-minimal",
+  "name": "Vite 6 + React 19 + TS 纯净工程",
+  "category": "web-frontend",
+  "description": "零冗余的极速客户端 SPA 基础模板，搭载 Vite 6、React 19、TypeScript 与 Tailwind CSS v4，秒级冷启动与毫秒级 HMR。",
+  "author": "Vite Core Team",
+  "license": "MIT",
+  "tags": ["Vite", "React 19", "SPA", "TypeScript", "Tailwind v4"],
+  "homepage": "https://vite.dev",
+  "repository": "https://github.com/vitejs/vite",
+  "scaffold": {
+    "type": "command",
+    "command": "pnpm create vite . --template react-ts && pnpm add -D @tailwindcss/vite tailwindcss",
+    "defaultDir": "vite-react-spa",
+    "postInstallNotice": "运行 `pnpm install` 后 `pnpm dev` 开启本地开发体验。"
+  },
+  "requirements": ["node", "pnpm"],
+  "featured": true,
+  "updatedAt": "2026-10-03"
+}

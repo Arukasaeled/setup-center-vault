@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:python-cli-typer",
+  "name": "Python Typer + Rich 终端工具模板",
+  "category": "cli-tool",
+  "description": "基于 FastAPI 创作者打造的 Typer 框架与 Rich 富文本终端库，搭配 uv 高速虚拟环境管理的现代 Python CLI 工程。",
+  "author": "Tiangolo (Sebastián Ramírez)",
+  "license": "MIT",
+  "tags": ["Python", "Typer", "Rich", "CLI", "uv包管理"],
+  "homepage": "https://typer.tiangolo.com",
+  "repository": "https://github.com/fastapi/typer",
+  "scaffold": {
+    "type": "command",
+    "command": "uv init my-cli-tool && cd my-cli-tool && uv add typer rich",
+    "defaultDir": "my-cli-tool",
+    "postInstallNotice": "运行 `uv run python main.py --help` 自动查看生成的终端色彩帮助文档。"
+  },
+  "requirements": ["python", "uv"],
+  "featured": true,
+  "updatedAt": "2026-10-03"
+}

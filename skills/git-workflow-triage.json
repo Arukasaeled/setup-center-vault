@@ -1,0 +1,11 @@
+{
+  "$schema": "../../schemas/skill.schema.json",
+  "id": "skill:git-workflow-triage",
+  "name": "Git 历史清理与分支规范审计 (Git Workflow Triage)",
+  "description": "规范化 Conventional Commits 提交历史，排查误提交的大文件或敏感配置，确保版本标签与发布分支一致性。",
+  "author": "Setup Center Agent Guide",
+  "tags": ["Git规范", "Conventional Commits", "分支治理", "发布审计"],
+  "prompt": "对当前代码仓库执行 Git 历史与状态排查：\n1. 检查是否存在未加入 .gitignore 的构建临时文件（如 dist/、target/、.log）。\n2. 验证近期 Commit 是否严格遵循 Conventional Commits 格式（feat: / fix: / refactor: / docs:）。\n3. 检查远程分支与本地主干是否同步，确保无未合并的落后变更。",
+  "tools": ["run_command"],
+  "updatedAt": "2026-10-03"
+}

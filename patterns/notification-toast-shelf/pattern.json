@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/pattern.schema.json",
+  "id": "pat:notification-toast-shelf",
+  "name": "浮动微通知托架 (Notification Toast Shelf)",
+  "category": "feedback",
+  "description": "位于视窗底部中轴或右下角的悬浮消息队列托架，以物理轻微弹入/淡出展示命令复制、同步完成等非阻断通知。",
+  "author": "Setup Center Design Lab",
+  "tags": ["微通知", "Toast", "非阻断反馈", "操作提示"],
+  "codeSnippet": "<div class=\"toast-shelf\">\n  <div class=\"toast toast-success\">\n    <span class=\"toast-icon\">✓</span>\n    <span class=\"toast-message\">已复制安装命令到剪贴板</span>\n  </div>\n</div>",
+  "cssRules": ".toast-shelf {\n  position: fixed;\n  bottom: 24px;\n  right: 24px;\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  z-index: 9999;\n  pointer-events: none;\n}\n.toast {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  padding: 8px 14px;\n  background: #18181b;\n  border: 1px solid #27272a;\n  color: #f4f4f5;\n  font-size: 12px;\n  border-radius: 6px;\n  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);\n  animation: toastIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);\n  pointer-events: auto;\n}\n.toast-success .toast-icon { color: #22c55e; }\n@keyframes toastIn {\n  from { opacity: 0; transform: translateY(8px); }\n  to { opacity: 1; transform: translateY(0); }\n}",
+  "usage": "用于 SetupActionButton 复制成功反馈、Vault 同步通知及脚手架创建完成状态。",
+  "targetStyles": ["japanese-editorial", "nordic-frost", "swiss-dark"],
+  "updatedAt": "2026-10-03"
+}

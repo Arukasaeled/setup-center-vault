@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/pattern.schema.json",
+  "id": "pat:diff-viewer-panel",
+  "name": "差异对比分栏面板 (Diff Viewer Panel)",
+  "category": "inspector",
+  "description": "并排或单列展示两段配置、文本或代码差异的对比视窗，具备清晰的增删高亮背景与字符微位移装饰。",
+  "author": "Setup Center Design Lab",
+  "tags": ["代码对比", "Diff", "版本差异", "暗黑控制台"],
+  "codeSnippet": "<div class=\"diff-container\">\n  <div class=\"diff-line diff-del\"><span class=\"prefix\">-</span><span class=\"content\">const remoteUrl = 'https://raw.../main'</span></div>\n  <div class=\"diff-line diff-add\"><span class=\"prefix\">+</span><span class=\"content\">const remoteUrl = `https://raw.../${commitSha}`</span></div>\n</div>",
+  "cssRules": ".diff-container {\n  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;\n  font-size: 12px;\n  background: #090a0f;\n  border: 1px solid #1e2230;\n  border-radius: 6px;\n  overflow: hidden;\n}\n.diff-line {\n  display: flex;\n  padding: 3px 10px;\n  line-height: 1.5;\n}\n.diff-line .prefix {\n  width: 20px;\n  user-select: none;\n  font-weight: bold;\n}\n.diff-line.diff-del {\n  background: rgba(239, 68, 68, 0.12);\n  color: #fca5a5;\n}\n.diff-line.diff-add {\n  background: rgba(34, 197, 94, 0.12);\n  color: #86efac;\n}",
+  "usage": "用于配置仲裁、版本更新变更集展示以及代码审查审查弹层。",
+  "targetStyles": ["nordic-frost", "academic-lab", "dos-utility"],
+  "updatedAt": "2026-10-03"
+}

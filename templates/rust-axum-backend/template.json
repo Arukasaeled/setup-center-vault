@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:rust-axum-backend",
+  "name": "Rust Axum + Tokio 高性能服务端",
+  "category": "backend-api",
+  "description": "基于 Tokio 生态 Axum 框架的现代 Rust Web 服务端基础脚手架，具备 Tower 中间件栈、Tracing 结构化日志与 JSON 路由契约。",
+  "author": "Tokio Contributors",
+  "license": "MIT",
+  "tags": ["Rust", "Axum", "Tokio", "高性能API", "异步编程"],
+  "homepage": "https://github.com/tokio-rs/axum",
+  "repository": "https://github.com/tokio-rs/axum",
+  "scaffold": {
+    "type": "command",
+    "command": "cargo new --bin my-axum-service && cd my-axum-service && cargo add axum tokio --features tokio/full && cargo add tracing tracing-subscriber serde --features serde/derive",
+    "defaultDir": "my-axum-service",
+    "postInstallNotice": "运行 `cargo run` 启动 Axum HTTP 服务，默认端口监听 0.0.0.0:3000。"
+  },
+  "requirements": ["rust"],
+  "featured": true,
+  "updatedAt": "2026-10-03"
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/pattern.schema.json",
+  "id": "pat:terminal-log-stream",
+  "name": "终端日志流视图 (Terminal Log Stream)",
+  "category": "terminal",
+  "description": "模拟真实系统底层控制台输出的流式日志展示面板，具备光标呼吸闪烁、行号对齐与彩色级别指示器。",
+  "author": "Setup Center Design Lab",
+  "tags": ["终端控制台", "流式输出", "日志流", "暗色极客"],
+  "codeSnippet": "<div class=\"terminal-panel\">\n  <div class=\"terminal-header\">\n    <span class=\"dot dot-red\"></span><span class=\"dot dot-yellow\"></span><span class=\"dot dot-green\"></span>\n    <span class=\"terminal-title\">setup-agent.log</span>\n  </div>\n  <pre class=\"terminal-body\"><code>[INFO] 10:20:54 Verified 40 assets in Vault.\n[EXEC] cargo check --manifest-path src-tauri/Cargo.toml\n[DONE] Built binary at target/release/ai-student-setup.exe<span class=\"cursor\">_</span></code></pre>\n</div>",
+  "cssRules": ".terminal-panel {\n  background: #0d1117;\n  border: 1px solid #30363d;\n  border-radius: 8px;\n  overflow: hidden;\n  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);\n}\n.terminal-header {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n  padding: 8px 12px;\n  background: #161b22;\n  border-bottom: 1px solid #30363d;\n}\n.terminal-header .dot {\n  width: 10px;\n  height: 10px;\n  border-radius: 50%;\n}\n.dot-red { background: #ff5f56; }\n.dot-yellow { background: #ffbd2e; }\n.dot-green { background: #27c93f; }\n.terminal-title {\n  font-size: 11px;\n  color: #8b949e;\n  margin-left: 6px;\n  font-family: monospace;\n}\n.terminal-body {\n  padding: 12px;\n  margin: 0;\n  font-family: 'JetBrains Mono', Consolas, monospace;\n  font-size: 12px;\n  line-height: 1.6;\n  color: #c9d1d9;\n}\n.cursor {\n  display: inline-block;\n  animation: blink 1s step-end infinite;\n  color: #58a6ff;\n}\n@keyframes blink {\n  50% { opacity: 0; }\n}",
+  "usage": "用于软件安装进度输出、脚手架克隆执行反馈与后端探针调试日志。",
+  "targetStyles": ["cyber-neon", "dos-utility", "swiss-dark"],
+  "updatedAt": "2026-10-03"
+}

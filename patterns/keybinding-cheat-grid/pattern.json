@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/pattern.schema.json",
+  "id": "pat:keybinding-cheat-grid",
+  "name": "快捷键指南速查网格 (Keybinding Cheat Grid)",
+  "category": "shortcuts",
+  "description": "并排紧凑展示全局物理快捷键（Kbd 键位符）与对应操作说明的高信息密度指南视窗。",
+  "author": "Setup Center Design Lab",
+  "tags": ["快捷键", "Kbd", "键盘流", "效率工具"],
+  "codeSnippet": "<div class=\"kbd-grid\">\n  <div class=\"kbd-row\"><span class=\"desc\">全局命令调色板</span><kbd>Ctrl</kbd> + <kbd>K</kbd></div>\n  <div class=\"kbd-row\"><span class=\"desc\">上一项 / 下一项</span><kbd>←</kbd> / <kbd>→</kbd></div>\n  <div class=\"kbd-row\"><span class=\"desc\">退出详情弹层</span><kbd>Esc</kbd></div>\n</div>",
+  "cssRules": ".kbd-grid {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  background: #101216;\n  border: 1px solid #20242c;\n  border-radius: 8px;\n  padding: 16px;\n}\n.kbd-row {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  font-size: 12px;\n  color: #c0c6d4;\n}\n.kbd-row kbd {\n  font-family: ui-monospace, monospace;\n  font-size: 11px;\n  padding: 2px 6px;\n  background: #1c202a;\n  border: 1px solid #333a4d;\n  border-bottom: 2px solid #262c3b;\n  border-radius: 4px;\n  color: #ffffff;\n}",
+  "usage": "用于 Command Palette 底部提示栏、设置页面与效率帮助面板。",
+  "targetStyles": ["dos-utility", "swiss-dark", "academic-lab"],
+  "updatedAt": "2026-10-03"
+}

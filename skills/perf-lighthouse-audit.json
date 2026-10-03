@@ -1,0 +1,11 @@
+{
+  "$schema": "../../schemas/skill.schema.json",
+  "id": "skill:perf-lighthouse-audit",
+  "name": "Web 性能与关键渲染路径分析 (Web Perf & Critical Rendering Path)",
+  "description": "分析前端应用首屏载入耗时、首内容绘制（FCP）、最大内容绘制（LCP）与累计布局偏移（CLS），优化静态资源与分块策略。",
+  "author": "Setup Center Agent Guide",
+  "tags": ["性能分析", "Web性能", "LCP", "代码分割"],
+  "prompt": "对前端打包输出与渲染路径执行诊断：\n1. 审查打包产物体积（dist 目录 chunk 分析），标记单文件超过 500kB 的模块。\n2. 引入路由级懒加载与动态 import()，将大型低频模块（如三维引擎、重型画板）拆解为独立分块。\n3. 优化静态图片格式与尺寸（转换为 WebP / AVIF），减少首屏网络阻塞与资源争用。",
+  "tools": ["run_command", "view_file"],
+  "updatedAt": "2026-10-03"
+}

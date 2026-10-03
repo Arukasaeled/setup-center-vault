@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/template.schema.json",
+  "id": "tpl:astro-content-blog",
+  "name": "Astro 5 内容驱动博客脚手架",
+  "category": "content-site",
+  "description": "基于 Astro 5 孤岛架构的极速静态内容与博客脚手架，零 JavaScript 默认载入，原生支持 Markdown / MDX 与 Content Collections。",
+  "author": "Astro Community",
+  "license": "MIT",
+  "tags": ["Astro", "博客", "Content Collections", "MDX", "极速静态"],
+  "homepage": "https://astro.build",
+  "repository": "https://github.com/withastro/astro",
+  "scaffold": {
+    "type": "command",
+    "command": "pnpm create astro@latest . --template blog --install --git",
+    "defaultDir": "astro-blog",
+    "postInstallNotice": "运行 `pnpm dev` 并在浏览器打开 http://localhost:4321"
+  },
+  "requirements": ["node", "pnpm"],
+  "featured": true,
+  "updatedAt": "2026-10-03"
+}

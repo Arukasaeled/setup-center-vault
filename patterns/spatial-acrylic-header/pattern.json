@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/pattern.schema.json",
+  "id": "pat:spatial-acrylic-header",
+  "name": "空间高透亚克力毛玻璃顶栏 (Spatial Acrylic Header)",
+  "category": "header",
+  "description": "带有微妙模糊滤镜（backdrop-filter）、极细内阴影描边与内容透光的现代空间顶栏。",
+  "author": "Setup Center Design Lab",
+  "tags": ["毛玻璃", "空间感", "顶栏", "流光透视"],
+  "codeSnippet": "<header class=\"acrylic-header\">\n  <div class=\"brand\">Setup Center</div>\n  <nav class=\"nav-pills\">...</nav>\n</header>",
+  "cssRules": ".acrylic-header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  height: 48px;\n  padding: 0 16px;\n  background: rgba(18, 20, 26, 0.75);\n  backdrop-filter: blur(16px) saturate(180%);\n  -webkit-backdrop-filter: blur(16px) saturate(180%);\n  border-bottom: 1px solid rgba(255, 255, 255, 0.08);\n  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.04) inset;\n  position: sticky;\n  top: 0;\n  z-index: 50;\n}",
+  "usage": "用于应用主窗口 TitleBar、画廊二级吸顶导航条及模态浮层顶栏。",
+  "targetStyles": ["fluent-spatial", "nordic-frost", "japanese-editorial"],
+  "updatedAt": "2026-10-03"
+}
