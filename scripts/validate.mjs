@@ -1,11 +1,21 @@
 #!/usr/bin/env node
 
 import { readFileSync, existsSync, readdirSync } from "node:fs";
+import { execFileSync } from "node:child_process";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const vaultDir = join(here, "..");
+
+/** Run git in the vault repo; returns trimmed stdout or null when it fails. */
+function git(args) {
+  try {
+    return execFileSync("git", args, { cwd: vaultDir, encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }).trim();
+  } catch {
+    return null;
+  }
+}
 
 console.log("🔍 [Setup Vault Validator] Checking repository:", vaultDir);
 
@@ -25,6 +35,21 @@ if (!existsSync(relPath)) {
   const rel = JSON.parse(readFileSync(relPath, "utf8"));
   if (!rel.releaseVersion) fail("Missing releaseVersion");
   if (!rel.commitSha && !rel.snapshotTag) fail("Missing immutable commitSha or snapshotTag");
+  // Presence was not enough. The checkpoint once shipped a commitSha that did
+  // not exist on the remote; every client fetch 404'd, the client swallowed it
+  // as a console.warn, and a clean install silently received no remote content
+  // at all. A pin that does not resolve is a broken release, so resolve it.
+  for (const key of ["commitSha", "snapshotTag"]) {
+    const pin = rel[key];
+    if (!pin) continue;
+    if (typeof pin !== "string" || !pin.trim()) {
+      fail(`${key} must be a non-empty string, got ${JSON.stringify(pin)}`);
+      continue;
+    }
+    const resolved = git(["rev-parse", "--verify", "--quiet", `${pin.trim()}^{commit}`]);
+    if (!resolved) fail(`${key} "${pin}" does not resolve to a commit in this repository`);
+    else console.log(`✓ ${key} ${pin} → ${resolved.slice(0, 12)}`);
+  }
   console.log(`✓ Release checkpoint: ${rel.releaseVersion}`);
 }
 
