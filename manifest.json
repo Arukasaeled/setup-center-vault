@@ -1,16 +1,16 @@
 {
   "$schema": "./schemas/vault-manifest.schema.json",
   "schemaVersion": "1.0.0",
-  "contentVersion": "2026.10.04.1",
+  "contentVersion": "2026.10.04.2",
   "name": "Setup Center Remote Vault",
   "description": "Decoupled remote content vault holding developer tools, design systems, templates, patterns, and creative resources.",
-  "updatedAt": "2026-10-04T00:00:00Z",
+  "updatedAt": "2026-10-04T03:13:10Z",
   "maintainer": "arukas0623-ai",
   "repository": "https://github.com/arukas0623-ai/setup-center-vault",
   "collections": {
     "styles": {
       "version": "1.0.0",
-      "count": 4,
+      "count": 14,
       "items": [
         {
           "id": "blueprint",
@@ -39,6 +39,76 @@
           "path": "styles/cyber-neon/manifest.json",
           "cssPath": "styles/cyber-neon/cyber-neon.css",
           "updatedAt": "2026-10-03"
+        },
+        {
+          "id": "terminal-collage",
+          "name": "终端拼贴",
+          "path": "styles/terminal-collage/manifest.json",
+          "cssPath": "styles/terminal-collage/terminal-collage.css",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "blueprint-drafting",
+          "name": "蓝图制图",
+          "path": "styles/blueprint-drafting/manifest.json",
+          "cssPath": "styles/blueprint-drafting/blueprint-drafting.css",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "split-flap",
+          "name": "翻牌显示板",
+          "path": "styles/split-flap/manifest.json",
+          "cssPath": "styles/split-flap/split-flap.css",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "natural-history",
+          "name": "博物图版",
+          "path": "styles/natural-history/manifest.json",
+          "cssPath": "styles/natural-history/natural-history.css",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "scrapbook",
+          "name": "手账拼贴",
+          "path": "styles/scrapbook/manifest.json",
+          "cssPath": "styles/scrapbook/scrapbook.css",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "tree-rings",
+          "name": "年轮切片",
+          "path": "styles/tree-rings/manifest.json",
+          "cssPath": "styles/tree-rings/tree-rings.css",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "timeline-spine",
+          "name": "竖向时间脊",
+          "path": "styles/timeline-spine/manifest.json",
+          "cssPath": "styles/timeline-spine/timeline-spine.css",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "musical-staff",
+          "name": "乐谱谱表",
+          "path": "styles/musical-staff/manifest.json",
+          "cssPath": "styles/musical-staff/musical-staff.css",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "exhibition-plan",
+          "name": "展览平面图",
+          "path": "styles/exhibition-plan/manifest.json",
+          "cssPath": "styles/exhibition-plan/exhibition-plan.css",
+          "updatedAt": "2026-10-04"
+        },
+        {
+          "id": "patch-bay",
+          "name": "跳线面板",
+          "path": "styles/patch-bay/manifest.json",
+          "cssPath": "styles/patch-bay/patch-bay.css",
+          "updatedAt": "2026-10-04"
         }
       ]
     },

@@ -1,0 +1,268 @@
+/* ==========================================================================
+   STYLE SPECIMEN: patch-bay (跳线面板 / Modular Audio Rack & Signal Routing)
+   ========================================================================== */
+
+:root[data-style="patch-bay"]:not([data-theme="light"]) {
+  /* Anodized Dark Aluminum Chassis & Studio Rack Slate */
+  --surface-base: #131518;
+  --surface-raised: #1b1e24;
+  --surface-overlay: rgba(27, 30, 36, 0.98);
+  --surface-overlay-soft: rgba(33, 37, 45, 0.94);
+  --surface-sunken: #0c0e10;
+  --surface-hover: rgba(34, 197, 94, 0.08);
+  --surface-active: #22c55e;
+  --surface-inset: #21252d;
+
+  --text-strong: #ffffff;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+  --text-quiet: #475569;
+  --text-inverse: #0f172a;
+
+  --line-subtle: #20242b;
+  --line-default: #2d333d;
+  --line-strong: #22c55e;
+
+  --status-ok: #22c55e;
+  --status-warn: #f59e0b;
+  --status-bad: #ef4444;
+  --status-accent: #22c55e;
+  --status-accent-soft: rgba(34, 197, 94, 0.16);
+
+  --font-mono: "JetBrains Mono", Consolas, monospace;
+  --font-sans: system-ui, -apple-system, sans-serif;
+}
+
+:root[data-style="patch-bay"][data-theme="light"] {
+  /* Brushed Studio Silver & Industrial Control Slate */
+  --surface-base: #edf0f4;
+  --surface-raised: #ffffff;
+  --surface-overlay: rgba(255, 255, 255, 0.98);
+  --surface-overlay-soft: rgba(237, 240, 244, 0.95);
+  --surface-sunken: #dfe4ea;
+  --surface-hover: rgba(22, 163, 74, 0.08);
+  --surface-active: #16a34a;
+  --surface-inset: #e4e9f0;
+
+  --text-strong: #0f172a;
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-tertiary: #64748b;
+  --text-quiet: #94a3b8;
+  --text-inverse: #ffffff;
+
+  --line-subtle: #e2e8f0;
+  --line-default: #cbd5e1;
+  --line-strong: #16a34a;
+
+  --status-ok: #16a34a;
+  --status-warn: #d97706;
+  --status-bad: #dc2626;
+  --status-accent: #16a34a;
+  --status-accent-soft: rgba(22, 163, 74, 0.14);
+
+  --font-mono: "JetBrains Mono", Consolas, monospace;
+  --font-sans: system-ui, -apple-system, sans-serif;
+}
+
+/* --------------------------------------------------------------------------
+   App Shell & Rack Mount Frame
+   -------------------------------------------------------------------------- */
+
+[data-style="patch-bay"] [data-shell-root] {
+  background: var(--surface-base);
+}
+
+[data-style="patch-bay"] [data-shell-header] {
+  background: var(--surface-base);
+  border-bottom: var(--border-width) solid var(--line-default);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* Navigation Rail: Channel Strip Bus Selector */
+[data-style="patch-bay"] nav[data-nav] {
+  background: var(--surface-base);
+  border-right: var(--border-width) solid var(--line-default);
+  position: relative;
+  padding-top: 1.75rem !important;
+}
+
+[data-style="patch-bay"] nav[data-nav]::before {
+  content: "● PATCH ROUTE // BUS MATRIX";
+  position: absolute;
+  top: 8px;
+  left: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--status-accent);
+}
+
+[data-style="patch-bay"] [data-nav-brand] {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-strong);
+}
+
+[data-style="patch-bay"] [data-nav-brand]::after {
+  content: " [19\" RACK]";
+  font-size: 0.65rem;
+  color: var(--text-tertiary);
+}
+
+/* Nav Item Buttons: Channel Selector Button */
+[data-style="patch-bay"] nav[data-nav] button {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  border-radius: 2px !important;
+  border: 1px solid var(--line-subtle);
+  background: var(--surface-raised);
+  color: var(--text-secondary);
+  transition: all 0.15s ease;
+  position: relative;
+  padding-left: 1.6rem !important;
+}
+
+/* Port Socket circle indicator */
+[data-style="patch-bay"] nav[data-nav] button::before {
+  content: "";
+  position: absolute;
+  left: 0.65rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--surface-sunken);
+  border: 1px solid var(--text-tertiary);
+  transition: all 0.15s ease;
+}
+
+[data-style="patch-bay"] nav[data-nav] button:hover {
+  background: var(--surface-hover);
+  border-color: var(--status-accent);
+  color: var(--text-strong);
+}
+
+[data-style="patch-bay"] nav[data-nav] button:hover::before {
+  border-color: var(--status-accent);
+  background: var(--status-accent);
+}
+
+[data-style="patch-bay"] nav[data-nav] button[aria-current="page"],
+[data-style="patch-bay"] nav[data-nav] button[data-active="true"] {
+  background: var(--surface-inset);
+  border-color: var(--status-accent);
+  color: var(--status-accent);
+  font-weight: 700;
+  box-shadow: inset 2px 0 0 var(--status-accent);
+}
+
+[data-style="patch-bay"] nav[data-nav] button[aria-current="page"]::before,
+[data-style="patch-bay"] nav[data-nav] button[data-active="true"]::before {
+  background: var(--status-accent);
+  border-color: var(--status-accent);
+  box-shadow: 0 0 6px var(--status-accent);
+}
+
+/* --------------------------------------------------------------------------
+   Cards: Rack Mount Channel Module
+   -------------------------------------------------------------------------- */
+
+[data-style="patch-bay"] [data-resource-card],
+[data-style="patch-bay"] [data-style-card],
+[data-style="patch-bay"] [data-software-row] {
+  background: var(--surface-raised);
+  border: var(--border-width) solid var(--line-default);
+  border-radius: 3px !important;
+  position: relative;
+  transition: all 0.15s ease;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* Mounting screw heads on card top corners */
+[data-style="patch-bay"] [data-resource-card]::before,
+[data-style="patch-bay"] [data-style-card]::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #475569 35%, #0f172a 75%);
+  border: 1px solid var(--line-default);
+  pointer-events: none;
+}
+
+[data-style="patch-bay"] [data-resource-card]:hover,
+[data-style="patch-bay"] [data-style-card]:hover,
+[data-style="patch-bay"] [data-software-row]:hover {
+  border-color: var(--status-accent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+/* Signal / Port Badge */
+[data-style="patch-bay"] [data-resource-card] [data-badge],
+[data-style="patch-bay"] [data-style-card] [data-badge] {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  background: var(--surface-sunken);
+  color: var(--text-secondary);
+  border: 1px solid var(--line-subtle);
+  border-radius: 2px !important;
+}
+
+/* --------------------------------------------------------------------------
+   Detail / Modal: Channel Route Inspector Panel
+   -------------------------------------------------------------------------- */
+
+[data-style="patch-bay"] [role="dialog"] {
+  background: var(--surface-raised);
+  border: var(--border-width) solid var(--line-default);
+  border-top: 3px solid var(--status-accent);
+  border-radius: 4px !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+[data-style="patch-bay"] [role="dialog"]::before {
+  content: "● SIGNAL CHANNEL ROUTE // MONITOR & CALIBRATION";
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--status-accent);
+  padding: 0.6rem 1.25rem 0.3rem 1.25rem;
+  border-bottom: 1px solid var(--line-subtle);
+  background: var(--surface-sunken);
+}
+
+/* --------------------------------------------------------------------------
+   Controls & Inputs
+   -------------------------------------------------------------------------- */
+
+[data-style="patch-bay"] button {
+  border-radius: 2px !important;
+  font-family: var(--font-mono);
+}
+
+[data-style="patch-bay"] input[type="text"],
+[data-style="patch-bay"] input[type="search"] {
+  background: var(--surface-sunken);
+  border: var(--border-width) solid var(--line-default);
+  color: var(--text-primary);
+  border-radius: 2px !important;
+  font-family: var(--font-mono);
+}
+
+[data-style="patch-bay"] input[type="text"]:focus,
+[data-style="patch-bay"] input[type="search"]:focus {
+  border-color: var(--status-accent);
+  outline: none;
+}

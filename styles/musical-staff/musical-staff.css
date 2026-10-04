@@ -1,0 +1,278 @@
+/* ==========================================================================
+   STYLE SPECIMEN: musical-staff (乐谱谱表 / Score Staff & Rhythm Cadence)
+   ========================================================================== */
+
+:root[data-style="musical-staff"]:not([data-theme="light"]) {
+  /* Concert Score Night & Stave Slate */
+  --surface-base: #101114;
+  --surface-raised: #181a22;
+  --surface-overlay: rgba(24, 26, 34, 0.98);
+  --surface-overlay-soft: rgba(30, 33, 44, 0.94);
+  --surface-sunken: #0a0a0d;
+  --surface-hover: rgba(234, 179, 8, 0.08);
+  --surface-active: #eab308;
+  --surface-inset: #1f222d;
+
+  --text-strong: #ffffff;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+  --text-quiet: #475569;
+  --text-inverse: #101114;
+
+  --line-subtle: #1e212b;
+  --line-default: #2a2d3b;
+  --line-strong: #eab308;
+
+  --status-ok: #10b981;
+  --status-warn: #eab308;
+  --status-bad: #f43f5e;
+  --status-accent: #eab308;
+  --status-accent-soft: rgba(234, 179, 8, 0.16);
+
+  --font-serif: "Baskerville", "Georgia", "Times New Roman", serif;
+  --font-sans: system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", Consolas, monospace;
+}
+
+:root[data-style="musical-staff"][data-theme="light"] {
+  /* Ivory Score Parchment & Engraved Black Lead */
+  --surface-base: #fcf9f2;
+  --surface-raised: #ffffff;
+  --surface-overlay: rgba(255, 255, 255, 0.98);
+  --surface-overlay-soft: rgba(252, 249, 242, 0.95);
+  --surface-sunken: #f0eadc;
+  --surface-hover: rgba(202, 138, 4, 0.08);
+  --surface-active: #ca8a04;
+  --surface-inset: #f5eedf;
+
+  --text-strong: #18181b;
+  --text-primary: #27272a;
+  --text-secondary: #52525b;
+  --text-tertiary: #71717a;
+  --text-quiet: #a1a1aa;
+  --text-inverse: #ffffff;
+
+  --line-subtle: #eae4d5;
+  --line-default: #d8d0be;
+  --line-strong: #ca8a04;
+
+  --status-ok: #059669;
+  --status-warn: #d97706;
+  --status-bad: #e11d48;
+  --status-accent: #ca8a04;
+  --status-accent-soft: rgba(202, 138, 4, 0.14);
+
+  --font-serif: "Baskerville", "Georgia", "Times New Roman", serif;
+  --font-sans: system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", Consolas, monospace;
+}
+
+/* --------------------------------------------------------------------------
+   App Shell & Five-Staff Line Architecture
+   -------------------------------------------------------------------------- */
+
+[data-style="musical-staff"] [data-shell-root] {
+  background: var(--surface-base);
+}
+
+[data-style="musical-staff"] [data-shell-header] {
+  background: var(--surface-base);
+  border-bottom: 3px double var(--line-default);
+  position: relative;
+}
+
+/* Five hairline staff accent running along the header bottom */
+[data-style="musical-staff"] [data-shell-header]::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 9px;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 1px,
+    var(--line-subtle) 1px,
+    var(--line-subtle) 2px
+  );
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* Navigation: Movement & Register Strip */
+[data-style="musical-staff"] nav[data-nav] {
+  background: var(--surface-base);
+  border-right: 3px double var(--line-default);
+  position: relative;
+  padding-top: 1.75rem !important;
+}
+
+[data-style="musical-staff"] nav[data-nav]::before {
+  content: "§ MOVIMENTO // TEMPO: MODERATO";
+  position: absolute;
+  top: 8px;
+  left: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--status-accent);
+}
+
+[data-style="musical-staff"] [data-nav-brand] {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  color: var(--text-strong);
+}
+
+[data-style="musical-staff"] [data-nav-brand]::after {
+  content: " [PARTITURA]";
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-tertiary);
+}
+
+/* Navigation Buttons: Notehead Cadence */
+[data-style="musical-staff"] nav[data-nav] button {
+  font-family: var(--font-serif);
+  font-size: 0.875rem;
+  border-radius: 2px !important;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+  position: relative;
+  padding-left: 1.6rem !important;
+}
+
+/* Elliptical Notehead bullet */
+[data-style="musical-staff"] nav[data-nav] button::before {
+  content: "";
+  position: absolute;
+  left: 0.65rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(-15deg);
+  width: 7px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--text-tertiary);
+  transition: all 0.15s ease;
+}
+
+[data-style="musical-staff"] nav[data-nav] button:hover {
+  background: var(--surface-hover);
+  color: var(--text-strong);
+}
+
+[data-style="musical-staff"] nav[data-nav] button:hover::before {
+  background: var(--status-accent);
+}
+
+[data-style="musical-staff"] nav[data-nav] button[aria-current="page"],
+[data-style="musical-staff"] nav[data-nav] button[data-active="true"] {
+  background: var(--surface-raised);
+  border: 1px solid var(--line-default);
+  border-left: 3px solid var(--status-accent);
+  color: var(--status-accent);
+  font-weight: 700;
+}
+
+[data-style="musical-staff"] nav[data-nav] button[aria-current="page"]::before,
+[data-style="musical-staff"] nav[data-nav] button[data-active="true"]::before {
+  background: var(--status-accent);
+  box-shadow: 0 0 6px var(--status-accent);
+}
+
+/* --------------------------------------------------------------------------
+   Section Titles & Musical Movements
+   -------------------------------------------------------------------------- */
+
+[data-style="musical-staff"] h1,
+[data-style="musical-staff"] h2,
+[data-style="musical-staff"] h3 {
+  font-family: var(--font-serif);
+  color: var(--text-strong);
+}
+
+/* --------------------------------------------------------------------------
+   Cards: Ledger Measure Blocks
+   -------------------------------------------------------------------------- */
+
+[data-style="musical-staff"] [data-resource-card],
+[data-style="musical-staff"] [data-style-card],
+[data-style="musical-staff"] [data-software-row] {
+  background: var(--surface-raised);
+  border: var(--border-width) solid var(--line-default);
+  border-right: 3px double var(--line-default);
+  border-radius: 2px !important;
+  position: relative;
+  transition: all 0.15s ease;
+}
+
+[data-style="musical-staff"] [data-resource-card]:hover,
+[data-style="musical-staff"] [data-style-card]:hover,
+[data-style="musical-staff"] [data-software-row]:hover {
+  border-color: var(--status-accent);
+  border-right-color: var(--status-accent);
+  transform: translateY(-1px);
+}
+
+/* Tag / Badge as Measure Marker */
+[data-style="musical-staff"] [data-resource-card] [data-badge],
+[data-style="musical-staff"] [data-style-card] [data-badge] {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  background: var(--surface-sunken);
+  color: var(--text-secondary);
+  border: 1px solid var(--line-subtle);
+  border-radius: 2px !important;
+}
+
+/* --------------------------------------------------------------------------
+   Detail / Modal: Conductor's Master Score
+   -------------------------------------------------------------------------- */
+
+[data-style="musical-staff"] [role="dialog"] {
+  background: var(--surface-raised);
+  border: var(--border-width) solid var(--line-default);
+  border-top: 3px double var(--status-accent);
+  border-radius: 4px !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+  position: relative;
+}
+
+[data-style="musical-staff"] [role="dialog"]::before {
+  content: "PARTITURA D'ORCHESTRA // SCORE ANNOTATION NOTES";
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--status-accent);
+  padding: 0.6rem 1.25rem 0.3rem 1.25rem;
+  border-bottom: 1px solid var(--line-subtle);
+  background: var(--surface-sunken);
+}
+
+/* --------------------------------------------------------------------------
+   Controls & Inputs
+   -------------------------------------------------------------------------- */
+
+[data-style="musical-staff"] button {
+  border-radius: 2px !important;
+}
+
+[data-style="musical-staff"] input[type="text"],
+[data-style="musical-staff"] input[type="search"] {
+  background: var(--surface-sunken);
+  border: var(--border-width) solid var(--line-default);
+  color: var(--text-primary);
+  border-radius: 2px !important;
+}
+
+[data-style="musical-staff"] input[type="text"]:focus,
+[data-style="musical-staff"] input[type="search"]:focus {
+  border-color: var(--status-accent);
+  outline: none;
+}

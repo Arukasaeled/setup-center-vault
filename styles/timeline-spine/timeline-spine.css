@@ -1,0 +1,273 @@
+/* ==========================================================================
+   STYLE SPECIMEN: timeline-spine (竖向时间脊 / Chronological Axial Backbone)
+   ========================================================================== */
+
+:root[data-style="timeline-spine"]:not([data-theme="light"]) {
+  /* Deep Chronal Void & Titanium Slate */
+  --surface-base: #0b1019;
+  --surface-raised: #121a27;
+  --surface-overlay: rgba(18, 26, 39, 0.98);
+  --surface-overlay-soft: rgba(22, 32, 48, 0.94);
+  --surface-sunken: #070a10;
+  --surface-hover: rgba(56, 189, 248, 0.08);
+  --surface-active: #38bdf8;
+  --surface-inset: #162030;
+
+  --text-strong: #ffffff;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+  --text-quiet: #475569;
+  --text-inverse: #0b1019;
+
+  --line-subtle: #172233;
+  --line-default: #202c3f;
+  --line-strong: #38bdf8;
+
+  --status-ok: #34d399;
+  --status-warn: #fbbf24;
+  --status-bad: #f87171;
+  --status-accent: #38bdf8;
+  --status-accent-soft: rgba(56, 189, 248, 0.16);
+
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", Consolas, monospace;
+}
+
+:root[data-style="timeline-spine"][data-theme="light"] {
+  /* Daylight Steel & Pale Polar Matrix */
+  --surface-base: #f0f4f9;
+  --surface-raised: #ffffff;
+  --surface-overlay: rgba(255, 255, 255, 0.98);
+  --surface-overlay-soft: rgba(240, 244, 249, 0.95);
+  --surface-sunken: #e2e8f0;
+  --surface-hover: rgba(2, 132, 199, 0.08);
+  --surface-active: #0284c7;
+  --surface-inset: #e8eef6;
+
+  --text-strong: #0f172a;
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-tertiary: #64748b;
+  --text-quiet: #94a3b8;
+  --text-inverse: #ffffff;
+
+  --line-subtle: #e2e8f0;
+  --line-default: #cbd5e1;
+  --line-strong: #0284c7;
+
+  --status-ok: #059669;
+  --status-warn: #d97706;
+  --status-bad: #e11d48;
+  --status-accent: #0284c7;
+  --status-accent-soft: rgba(2, 132, 199, 0.14);
+
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", Consolas, monospace;
+}
+
+/* --------------------------------------------------------------------------
+   App Shell & Continuous Central/Left Spine Line
+   -------------------------------------------------------------------------- */
+
+[data-style="timeline-spine"] [data-shell-root] {
+  background: var(--surface-base);
+}
+
+[data-style="timeline-spine"] [data-shell-header] {
+  background: var(--surface-base);
+  border-bottom: var(--border-width) solid var(--line-default);
+}
+
+/* Left Rail Navigation: Time Epoch Selector */
+[data-style="timeline-spine"] nav[data-nav] {
+  background: var(--surface-base);
+  border-right: var(--border-width) solid var(--line-default);
+  position: relative;
+  padding-top: 1.75rem !important;
+}
+
+/* Nav Axis Line down the left side */
+[data-style="timeline-spine"] nav[data-nav]::before {
+  content: "CHRONO-AXIS // v0.2.x";
+  position: absolute;
+  top: 8px;
+  left: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--status-accent);
+  opacity: 0.9;
+}
+
+[data-style="timeline-spine"] [data-nav-brand] {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text-strong);
+}
+
+[data-style="timeline-spine"] [data-nav-brand]::after {
+  content: " [SPINE]";
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--status-accent);
+}
+
+/* Nav Item Buttons: Node & Tick Indicator */
+[data-style="timeline-spine"] nav[data-nav] button {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  border-radius: 4px !important;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  position: relative;
+  padding-left: 1.5rem !important;
+}
+
+/* Inactive node tick */
+[data-style="timeline-spine"] nav[data-nav] button::before {
+  content: "○";
+  position: absolute;
+  left: 0.6rem;
+  font-size: 0.6rem;
+  color: var(--text-tertiary);
+  transition: all 0.2s ease;
+}
+
+[data-style="timeline-spine"] nav[data-nav] button:hover {
+  background: var(--surface-hover);
+  color: var(--text-strong);
+}
+
+[data-style="timeline-spine"] nav[data-nav] button:hover::before {
+  color: var(--status-accent);
+}
+
+[data-style="timeline-spine"] nav[data-nav] button[aria-current="page"],
+[data-style="timeline-spine"] nav[data-nav] button[data-active="true"] {
+  background: var(--surface-raised);
+  border-color: var(--line-default);
+  color: var(--status-accent);
+  font-weight: 700;
+}
+
+[data-style="timeline-spine"] nav[data-nav] button[aria-current="page"]::before,
+[data-style="timeline-spine"] nav[data-nav] button[data-active="true"]::before {
+  content: "◉";
+  color: var(--status-accent);
+  font-size: 0.75rem;
+  filter: drop-shadow(0 0 4px var(--status-accent));
+}
+
+/* --------------------------------------------------------------------------
+   Content Spine: Continuous Vertical Line
+   -------------------------------------------------------------------------- */
+
+[data-style="timeline-spine"] section[data-page] {
+  position: relative;
+  padding-left: 1.25rem !important;
+}
+
+/* The Vertical Spine */
+[data-style="timeline-spine"] section[data-page]::before {
+  content: "";
+  position: absolute;
+  top: 1rem;
+  bottom: 2rem;
+  left: 0.5rem;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    var(--status-accent) 0%,
+    var(--line-default) 30%,
+    var(--line-default) 80%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Cards & Software Rows: Branch Nodes
+   -------------------------------------------------------------------------- */
+
+[data-style="timeline-spine"] [data-resource-card],
+[data-style="timeline-spine"] [data-style-card],
+[data-style="timeline-spine"] [data-software-row] {
+  background: var(--surface-raised);
+  border: var(--border-width) solid var(--line-default);
+  border-left: 3px solid var(--line-subtle);
+  border-radius: 4px !important;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+[data-style="timeline-spine"] [data-resource-card]:hover,
+[data-style="timeline-spine"] [data-style-card]:hover,
+[data-style="timeline-spine"] [data-software-row]:hover {
+  border-color: var(--line-default);
+  border-left-color: var(--status-accent);
+  background: var(--surface-overlay-soft);
+  transform: translateX(2px);
+  box-shadow: -3px 0 0 var(--status-accent);
+}
+
+/* Node Badge */
+[data-style="timeline-spine"] [data-resource-card] [data-badge],
+[data-style="timeline-spine"] [data-style-card] [data-badge] {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  background: var(--surface-sunken);
+  color: var(--text-secondary);
+  border: 1px solid var(--line-subtle);
+  border-radius: 2px !important;
+}
+
+/* --------------------------------------------------------------------------
+   Detail / Modal: Axial Expansion Node
+   -------------------------------------------------------------------------- */
+
+[data-style="timeline-spine"] [role="dialog"] {
+  background: var(--surface-raised);
+  border: var(--border-width) solid var(--line-default);
+  border-left: 4px solid var(--status-accent);
+  border-radius: 6px !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+  position: relative;
+}
+
+[data-style="timeline-spine"] [role="dialog"]::before {
+  content: "◉ AXIAL EXPANSION NODE // CHRONO-RECORD";
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--status-accent);
+  padding: 0.6rem 1.25rem 0.3rem 1.25rem;
+  border-bottom: 1px solid var(--line-subtle);
+  background: var(--surface-sunken);
+}
+
+/* --------------------------------------------------------------------------
+   Buttons & Inputs
+   -------------------------------------------------------------------------- */
+
+[data-style="timeline-spine"] button {
+  border-radius: 4px !important;
+}
+
+[data-style="timeline-spine"] input[type="text"],
+[data-style="timeline-spine"] input[type="search"] {
+  background: var(--surface-sunken);
+  border: var(--border-width) solid var(--line-default);
+  color: var(--text-primary);
+  border-radius: 4px !important;
+}
+
+[data-style="timeline-spine"] input[type="text"]:focus,
+[data-style="timeline-spine"] input[type="search"]:focus {
+  border-color: var(--status-accent);
+  outline: none;
+}

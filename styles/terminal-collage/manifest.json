@@ -1,0 +1,98 @@
+{
+  "$schema": "../../schemas/style.schema.json",
+  "id": "terminal-collage",
+  "name": "终端拼贴",
+  "version": "1.0.0",
+  "subtitle": "Tiling Terminal Mosaic / tmux Console",
+  "description": "tmux / i3 多窗格平铺字符控制台。等宽字符栅格、不等宽面板细线切分、状态栏指示器与命令行式缓冲区分区，高密度极客操作界面。",
+  "author": "Setup Center Design Lab",
+  "license": "MIT",
+  "updatedAt": "2026-10-04",
+  "implemented": true,
+  "inspiration": "tmux 窗格切分、i3 平铺窗口管理器与彭博终端信息架构（无多余留白，字符单元为尺度）",
+  "tags": [
+    "终端拼贴",
+    "tmux",
+    "平铺窗格",
+    "等宽字体",
+    "键盘控制",
+    "高密度"
+  ],
+  "features": [
+    "全屏平铺多窗格布局（Tiled Panes），以 1px 细线与 ASCII 符号清晰划分",
+    "等宽字体贯穿全局（JetBrains Mono / Cascadia Code），字符单元对齐",
+    "顶部与底部命令行式状态栏，携带工作区索引、会话与系统健康指标",
+    "软件列表与资源卡片化身终端缓冲区进程行，带高亮光标提示"
+  ],
+  "cssPath": "terminal-collage.css",
+  "palette": {
+    "bg": "#0c0e12",
+    "surface": "#14171f",
+    "border": "#272e3d",
+    "primary": "#f59e0b",
+    "text": "#f1f5f9"
+  },
+  "tokens": {
+    "cardRadius": "0px",
+    "borderWidth": "1px",
+    "shadowDepth": "0px",
+    "fontHeading": "\"JetBrains Mono\", \"Cascadia Code\", Consolas, monospace",
+    "fontBody": "\"JetBrains Mono\", \"Cascadia Code\", Consolas, monospace"
+  },
+  "experience": {
+    "tier": "experience",
+    "shell": "sidebar",
+    "navigation": "keyboard-menu",
+    "detail": "floating-inspector",
+    "card": "terminal-line",
+    "composition": "character-list",
+    "density": "compact",
+    "motion": "reduced",
+    "typography": {
+      "headingFamily": "\"JetBrains Mono\", \"Cascadia Code\", Consolas, monospace",
+      "bodyFamily": "\"JetBrains Mono\", \"Cascadia Code\", Consolas, monospace",
+      "monoFamily": "\"JetBrains Mono\", \"Cascadia Code\", Consolas, monospace",
+      "headingScale": 1,
+      "bodyScale": 0.95,
+      "headingWeight": 700,
+      "headingTracking": "0.02em"
+    },
+    "ornament": {
+      "rule": "ascii",
+      "corner": "square",
+      "decoration": "scanline",
+      "chrome": "status"
+    },
+    "tweakable": [
+      "borderWidth",
+      "shadow",
+      "accent",
+      "accentSecondary",
+      "surface",
+      "text",
+      "density",
+      "motion"
+    ],
+    "locked": {
+      "panelRadius": "终端平铺窗格要求严格直角，圆角会破坏字符栅格与边框贴合。",
+      "controlRadius": "命令行按键与标签均为直角字符单元。"
+    },
+    "specimenNote": "tmux 平铺多窗格与等宽控制台，字符单元排版与状态栏"
+  },
+  "preview": {
+    "note": "tmux 平铺多窗格与等宽控制台，字符单元排版与状态栏",
+    "swatches": [
+      "#0c0e12",
+      "#14171f",
+      "#272e3d",
+      "#f59e0b",
+      "#38bdf8"
+    ]
+  },
+  "designPrinciples": [
+    "Character Cell Rhythm — 字符单元为唯一度量尺度，去除多余无意义圆角与装饰留白",
+    "Tiled Hierarchy — 明确的窗格编号与分区标头（[P0:NAV] / [P1:MAIN] / [P2:INSPECT]）",
+    "Monospace Uniformity — 统一等宽字重，强化工程控制台的秩序感与严谨性",
+    "Restrained Signals — 深色冷灰底色搭配暖琥珀与电光青信号点缀，告别黑底绿字刻板印象"
+  ]
+}

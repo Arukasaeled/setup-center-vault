@@ -1,0 +1,95 @@
+{
+  "$schema": "../../schemas/style.schema.json",
+  "id": "tree-rings",
+  "name": "年轮切片",
+  "version": "1.0.0",
+  "subtitle": "Dendrochronology Growth Archive",
+  "description": "树木年轮截面与档案时间层。同心弧线重复母题、生长层刻度、木刻式编号与柔和自然暖纸色，记录系统长期演化与历史积淀。",
+  "author": "Setup Center Design Lab",
+  "license": "MIT",
+  "updatedAt": "2026-10-04",
+  "implemented": true,
+  "inspiration": "树木年轮年代学（Dendrochronology）、历史档案时间分层、同心生长环与木刻版画档案",
+  "tags": [
+    "年轮切片",
+    "自然时间",
+    "同心弧线",
+    "生长层",
+    "历史档案",
+    "木刻标本"
+  ],
+  "features": [
+    "不完整同心弧线（Concentric Arcs）作为时间地层背景母题",
+    "木刻式生长层标号（ANNULUS RING / CORE SPECIMEN）",
+    "柔和暖纸与深邃树皮底色，自然低饱和温润质感",
+    "卡片与条目具备微弧切角与生长层刻度标尺"
+  ],
+  "cssPath": "tree-rings.css",
+  "palette": {
+    "bg": "#141210",
+    "surface": "#1c1915",
+    "border": "#383126",
+    "primary": "#d4a373",
+    "text": "#f3ece2"
+  },
+  "tokens": {
+    "cardRadius": "6px",
+    "borderWidth": "1px",
+    "shadowDepth": "0px",
+    "fontHeading": "\"Palatino Linotype\", \"Book Antiqua\", Georgia, serif",
+    "fontBody": "system-ui, -apple-system, sans-serif"
+  },
+  "experience": {
+    "tier": "experience",
+    "shell": "sidebar",
+    "navigation": "sidebar",
+    "detail": "sheet",
+    "card": "panel",
+    "composition": "magazine-index",
+    "density": "normal",
+    "motion": "reduced",
+    "typography": {
+      "headingFamily": "\"Palatino Linotype\", \"Book Antiqua\", Georgia, serif",
+      "bodyFamily": "system-ui, -apple-system, sans-serif",
+      "monoFamily": "\"Cascadia Mono\", Consolas, monospace",
+      "headingScale": 1.05,
+      "bodyScale": 1,
+      "headingWeight": 600,
+      "headingTracking": "0.01em"
+    },
+    "ornament": {
+      "rule": "hairline",
+      "corner": "rounded",
+      "decoration": "none",
+      "chrome": "status"
+    },
+    "tweakable": [
+      "panelRadius",
+      "borderWidth",
+      "shadow",
+      "accent",
+      "accentSecondary",
+      "surface",
+      "text",
+      "density",
+      "motion"
+    ],
+    "specimenNote": "同心年轮弧线背景，生长层标号与自然暖纸色档案排版"
+  },
+  "preview": {
+    "note": "同心年轮弧线背景，生长层标号与自然暖纸色档案排版",
+    "swatches": [
+      "#141210",
+      "#1c1915",
+      "#383126",
+      "#d4a373",
+      "#a98467"
+    ]
+  },
+  "designPrinciples": [
+    "Temporal Stratum — 每一层都是时间的生长记录，越靠核心越早期，历史与变更沉淀为同心层",
+    "Concentric Motif — 同心弧线作为空间韵律，避免呆板正圆，采用局部的宏大同心切片",
+    "Organic Precision — 自然柔和纸本暖调结合木刻工整标度，既有岁月厚重感又保持工程严谨",
+    "Non-Disruptive Geometry — 卡片保持可用规整矩形，通过边缘年轮刻度与标号强化生命周期隐喻"
+  ]
+}

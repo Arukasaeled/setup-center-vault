@@ -1,0 +1,303 @@
+/* ==========================================================================
+   STYLE SPECIMEN: terminal-collage (终端拼贴 / Tiling Terminal Mosaic)
+   ========================================================================== */
+
+:root[data-style="terminal-collage"]:not([data-theme="light"]) {
+  /* Terminal Obsidian & Charcoal Slate Ground */
+  --surface-base: #0c0e12;
+  --surface-raised: #14171f;
+  --surface-overlay: rgba(20, 23, 31, 0.98);
+  --surface-overlay-soft: rgba(25, 29, 40, 0.94);
+  --surface-sunken: #07080b;
+  --surface-hover: rgba(245, 158, 11, 0.08);
+  --surface-active: #f59e0b;
+  --surface-inset: #181c26;
+
+  --text-strong: #ffffff;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+  --text-quiet: #475569;
+  --text-inverse: #0c0e12;
+
+  --line-subtle: #1c222e;
+  --line-default: #272e3d;
+  --line-strong: #f59e0b;
+
+  --status-ok: #10b981;
+  --status-warn: #f59e0b;
+  --status-bad: #f43f5e;
+  --status-accent: #f59e0b;
+  --status-accent-soft: rgba(245, 158, 11, 0.16);
+
+  --font-mono: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+  --font-sans: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+}
+
+:root[data-style="terminal-collage"][data-theme="light"] {
+  /* DEC VT Paper-White / Amber Phosphor Day Slate */
+  --surface-base: #f1f4f8;
+  --surface-raised: #ffffff;
+  --surface-overlay: rgba(255, 255, 255, 0.98);
+  --surface-overlay-soft: rgba(241, 245, 249, 0.95);
+  --surface-sunken: #e2e8f0;
+  --surface-hover: rgba(217, 119, 6, 0.08);
+  --surface-active: #d97706;
+  --surface-inset: #e8edf3;
+
+  --text-strong: #0f172a;
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-tertiary: #64748b;
+  --text-quiet: #94a3b8;
+  --text-inverse: #ffffff;
+
+  --line-subtle: #e2e8f0;
+  --line-default: #cbd5e1;
+  --line-strong: #d97706;
+
+  --status-ok: #059669;
+  --status-warn: #d97706;
+  --status-bad: #e11d48;
+  --status-accent: #d97706;
+  --status-accent-soft: rgba(217, 119, 6, 0.16);
+
+  --font-mono: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+  --font-sans: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+}
+
+/* Global Font & Zero Radius for Terminal Pane Precision */
+[data-style="terminal-collage"] {
+  font-family: var(--font-mono) !important;
+}
+
+[data-style="terminal-collage"] *,
+[data-style="terminal-collage"] *::before,
+[data-style="terminal-collage"] *::after {
+  border-radius: var(--radius-panel, 0px) !important;
+}
+
+/* --------------------------------------------------------------------------
+   App Shell & Tiled Panes
+   -------------------------------------------------------------------------- */
+
+[data-style="terminal-collage"] [data-shell-root] {
+  background: var(--surface-base);
+  gap: 1px;
+}
+
+/* Left Pane: Navigation [P0:NAV] */
+[data-style="terminal-collage"] nav[data-nav] {
+  background: var(--surface-base);
+  border-right: var(--border-width) solid var(--line-default);
+  position: relative;
+  padding-top: 2rem !important;
+}
+
+[data-style="terminal-collage"] nav[data-nav]::before {
+  content: "┌── [P0:WORKSPACE] ──";
+  position: absolute;
+  top: 6px;
+  left: 12px;
+  font-size: 10.5px;
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+}
+
+[data-style="terminal-collage"] nav[data-nav] button {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  border: var(--border-width) solid transparent;
+  padding: 6px 10px;
+  transition: all var(--motion-fast) ease;
+  background: transparent;
+}
+
+[data-style="terminal-collage"] nav[data-nav] button:hover {
+  background: var(--surface-hover);
+  border-color: var(--line-default);
+  color: var(--status-accent);
+}
+
+[data-style="terminal-collage"] nav[data-nav] button[aria-current="page"] {
+  background: var(--surface-raised) !important;
+  border: var(--border-width) solid var(--status-accent) !important;
+  color: var(--status-accent) !important;
+  box-shadow: inset 2px 0 0 var(--status-accent) !important;
+}
+
+[data-style="terminal-collage"] nav[data-nav] button[aria-current="page"]::before {
+  content: "> ";
+  color: var(--status-accent);
+  font-weight: 800;
+}
+
+/* Center Pane: Main Content [P1:BUFFER] */
+[data-style="terminal-collage"] section[data-page] {
+  background: var(--surface-base);
+  position: relative;
+  border-right: var(--border-width) solid var(--line-subtle);
+}
+
+/* Detail Pane / Rail [P2:INSPECT] */
+[data-style="terminal-collage"] aside[data-detail] {
+  background: var(--surface-base);
+  border-left: var(--border-width) solid var(--line-default);
+  position: relative;
+  padding-top: 2rem !important;
+}
+
+[data-style="terminal-collage"] aside[data-detail]::before {
+  content: "┌── [P2:INSPECT // MAN(1)] ──";
+  position: absolute;
+  top: 6px;
+  left: 12px;
+  font-size: 10.5px;
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Software Process Rows (Process Table)
+   -------------------------------------------------------------------------- */
+
+[data-style="terminal-collage"] [data-software-row] {
+  border: var(--border-width) solid var(--line-default) !important;
+  background: var(--surface-raised) !important;
+  box-shadow: none !important;
+  padding: 8px 12px !important;
+  position: relative;
+  font-family: var(--font-mono);
+  transition: border-color var(--motion-fast) ease, background-color var(--motion-fast) ease;
+}
+
+[data-style="terminal-collage"] [data-software-row]:hover {
+  border-color: var(--status-accent) !important;
+  background: var(--surface-inset) !important;
+}
+
+[data-style="terminal-collage"] [data-software-row][aria-pressed="true"],
+[data-style="terminal-collage"] [data-software-row][data-selected="true"] {
+  border-color: var(--status-accent) !important;
+  background: var(--surface-inset) !important;
+  box-shadow: inset 3px 0 0 var(--status-accent) !important;
+}
+
+[data-style="terminal-collage"] [data-software-row] .software-row-name {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+[data-style="terminal-collage"] [data-software-row] .software-row-icon-tray {
+  border: var(--border-width) solid var(--line-default);
+  background: var(--surface-sunken);
+  padding: 2px;
+}
+
+/* Terminal Pill Badges */
+[data-style="terminal-collage"] [data-tier] {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  border: var(--border-width) solid var(--line-default);
+  background: var(--surface-sunken);
+  text-transform: uppercase;
+  padding: 1px 6px;
+}
+
+/* --------------------------------------------------------------------------
+   Resource Catalog Cards (File / Buffer Blocks)
+   -------------------------------------------------------------------------- */
+
+[data-style="terminal-collage"] [data-resource-card] {
+  border: var(--border-width) solid var(--line-default) !important;
+  background: var(--surface-raised) !important;
+  box-shadow: none !important;
+  padding: 14px !important;
+  position: relative;
+  font-family: var(--font-mono);
+  transition: all var(--motion-fast) ease;
+}
+
+[data-style="terminal-collage"] [data-resource-card]::before {
+  content: "drwxr-xr-x 1 root core";
+  display: block;
+  font-size: 9.5px;
+  color: var(--text-quiet);
+  margin-bottom: 6px;
+  border-bottom: var(--border-width) dashed var(--line-subtle);
+  padding-bottom: 4px;
+}
+
+[data-style="terminal-collage"] [data-resource-card]:hover {
+  border-color: var(--status-accent) !important;
+  background: var(--surface-inset) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Style Cards in Design Lab / Visual Gallery
+   -------------------------------------------------------------------------- */
+
+[data-style="terminal-collage"] [data-style-card] {
+  border: var(--border-width) solid var(--line-default) !important;
+  background: var(--surface-raised) !important;
+  box-shadow: none !important;
+  font-family: var(--font-mono);
+}
+
+[data-style="terminal-collage"] [data-style-card]:hover {
+  border-color: var(--status-accent) !important;
+}
+
+/* --------------------------------------------------------------------------
+   DetailShell & Modals: Terminal Inspector Buffer
+   -------------------------------------------------------------------------- */
+
+[data-style="terminal-collage"] [role="dialog"] > div:last-child {
+  border: var(--border-width) solid var(--status-accent) !important;
+  background: var(--surface-raised) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75), 0 0 0 1px var(--line-default) !important;
+  font-family: var(--font-mono);
+}
+
+[data-style="terminal-collage"] [role="dialog"] header,
+[data-style="terminal-collage"] [role="dialog"] .border-b {
+  border-bottom: var(--border-width) solid var(--line-default) !important;
+  background: var(--surface-sunken) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Buttons & Inputs: Terminal Keys
+   -------------------------------------------------------------------------- */
+
+[data-style="terminal-collage"] button {
+  font-family: var(--font-mono);
+}
+
+[data-style="terminal-collage"] input[type="search"],
+[data-style="terminal-collage"] input[type="text"] {
+  border: var(--border-width) solid var(--line-default) !important;
+  background: var(--surface-sunken) !important;
+  color: var(--text-primary) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 12px !important;
+}
+
+[data-style="terminal-collage"] input[type="search"]:focus,
+[data-style="terminal-collage"] input[type="text"]:focus {
+  border-color: var(--status-accent) !important;
+  box-shadow: 0 0 0 1px var(--status-accent) !important;
+}
+
+[data-style="terminal-collage"] button.bg-\[color\:var\(--status-accent\)\] {
+  background: var(--status-accent) !important;
+  color: var(--accent-on, #0c0e12) !important;
+  font-weight: 700 !important;
+  border: var(--border-width) solid var(--status-accent) !important;
+}

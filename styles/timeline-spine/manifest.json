@@ -1,0 +1,95 @@
+{
+  "$schema": "../../schemas/style.schema.json",
+  "id": "timeline-spine",
+  "name": "竖向时间脊",
+  "version": "1.0.0",
+  "subtitle": "Chronological Axial Backbone",
+  "description": "纵向时间主轴与系统编年史脊柱。贯穿主轴线、节点刻度分支、阶段状态锚点与展开式检视节点，以生命周期与时序韵律统领全局界面。",
+  "author": "Setup Center Design Lab",
+  "license": "MIT",
+  "updatedAt": "2026-10-04",
+  "implemented": true,
+  "inspiration": "编年史时间主轴、系统生命周期刻度、轴线节点与分支管线拓扑",
+  "tags": [
+    "时间脊",
+    "轴线节点",
+    "刻度主轴",
+    "生命周期",
+    "编年史",
+    "时序分支"
+  ],
+  "features": [
+    "持续贯穿页面的纵向主轴线（Vertical Spine），串联各个阶段与内容模块",
+    "内容卡片与列表项自带水平分支短线（Branch Tick）与时间刻度节点",
+    "导航栏集成状态主轴高亮，以发光节点（Node）指示当前生命周期阶段",
+    "详情抽屉化身主轴展开节点（Axial Expansion Node），逻辑层次清晰"
+  ],
+  "cssPath": "timeline-spine.css",
+  "palette": {
+    "bg": "#0b1019",
+    "surface": "#121a27",
+    "border": "#202c3f",
+    "primary": "#38bdf8",
+    "text": "#f1f5f9"
+  },
+  "tokens": {
+    "cardRadius": "4px",
+    "borderWidth": "1px",
+    "shadowDepth": "0px",
+    "fontHeading": "system-ui, -apple-system, sans-serif",
+    "fontBody": "system-ui, -apple-system, sans-serif"
+  },
+  "experience": {
+    "tier": "experience",
+    "shell": "sidebar",
+    "navigation": "sidebar",
+    "detail": "sheet",
+    "card": "flat-row",
+    "composition": "roadmap",
+    "density": "normal",
+    "motion": "normal",
+    "typography": {
+      "headingFamily": "system-ui, -apple-system, sans-serif",
+      "bodyFamily": "system-ui, -apple-system, sans-serif",
+      "monoFamily": "\"JetBrains Mono\", Consolas, monospace",
+      "headingScale": 1.05,
+      "bodyScale": 1,
+      "headingWeight": 600,
+      "headingTracking": "0.01em"
+    },
+    "ornament": {
+      "rule": "dashed",
+      "corner": "square",
+      "decoration": "none",
+      "chrome": "status"
+    },
+    "tweakable": [
+      "panelRadius",
+      "borderWidth",
+      "shadow",
+      "accent",
+      "accentSecondary",
+      "surface",
+      "text",
+      "density",
+      "motion"
+    ],
+    "specimenNote": "贯穿主轴线，刻度节点与分支连线编年史系统"
+  },
+  "preview": {
+    "note": "贯穿主轴线，刻度节点与分支连线编年史系统",
+    "swatches": [
+      "#0b1019",
+      "#121a27",
+      "#202c3f",
+      "#38bdf8",
+      "#34d399"
+    ]
+  },
+  "designPrinciples": [
+    "Axial Continuity — 页面具备清晰的纵向脊梁，从系统初始化到运行时形成明确的时间与逻辑主干",
+    "Nodal Hierarchy — 强节点代表活跃与就绪状态，弱刻度代表历史记录与背景通道",
+    "Branch Connection — 卡片与列表通过水平连接符接入主轴，保持网格可用性同时建立从属关系",
+    "Restrained Signals — 墨蓝底色结合电光青冷色发光主轴，塑造高技术感的现代工程编年史氛围"
+  ]
+}

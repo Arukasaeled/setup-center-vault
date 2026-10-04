@@ -1,0 +1,280 @@
+/* ==========================================================================
+   STYLE SPECIMEN: tree-rings (年轮切片 / Dendrochronology Growth Archive)
+   ========================================================================== */
+
+:root[data-style="tree-rings"]:not([data-theme="light"]) {
+  /* Warm Dark Heartwood & Peat Earth */
+  --surface-base: #141210;
+  --surface-raised: #1c1915;
+  --surface-overlay: rgba(28, 25, 21, 0.98);
+  --surface-overlay-soft: rgba(36, 32, 27, 0.94);
+  --surface-sunken: #0c0b09;
+  --surface-hover: rgba(212, 163, 115, 0.08);
+  --surface-active: #d4a373;
+  --surface-inset: #231f1a;
+
+  --text-strong: #fffdf9;
+  --text-primary: #f3ece2;
+  --text-secondary: #c2b6a6;
+  --text-tertiary: #8f8373;
+  --text-quiet: #6b6154;
+  --text-inverse: #141210;
+
+  --line-subtle: #29241d;
+  --line-default: #383126;
+  --line-strong: #d4a373;
+
+  --status-ok: #84a98c;
+  --status-warn: #e09f3e;
+  --status-bad: #9e2a2b;
+  --status-accent: #d4a373;
+  --status-accent-soft: rgba(212, 163, 115, 0.14);
+
+  --font-serif: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-sans: system-ui, -apple-system, sans-serif;
+  --font-mono: "Cascadia Mono", Consolas, monospace;
+}
+
+:root[data-style="tree-rings"][data-theme="light"] {
+  /* Warm Sunlit Birch & Aged Ivory Botanical Paper */
+  --surface-base: #f7f3ec;
+  --surface-raised: #ffffff;
+  --surface-overlay: rgba(255, 255, 255, 0.98);
+  --surface-overlay-soft: rgba(247, 243, 236, 0.95);
+  --surface-sunken: #ede6da;
+  --surface-hover: rgba(184, 115, 51, 0.08);
+  --surface-active: #b07d4b;
+  --surface-inset: #f1ebd0;
+
+  --text-strong: #2a221b;
+  --text-primary: #3d3228;
+  --text-secondary: #635345;
+  --text-tertiary: #8c7b6d;
+  --text-quiet: #b5a494;
+  --text-inverse: #ffffff;
+
+  --line-subtle: #eae0d0;
+  --line-default: #d6c7b2;
+  --line-strong: #b07d4b;
+
+  --status-ok: #52796f;
+  --status-warn: #b07d4b;
+  --status-bad: #a44a3f;
+  --status-accent: #b07d4b;
+  --status-accent-soft: rgba(176, 125, 75, 0.14);
+
+  --font-serif: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-sans: system-ui, -apple-system, sans-serif;
+  --font-mono: "Cascadia Mono", Consolas, monospace;
+}
+
+/* --------------------------------------------------------------------------
+   App Shell & Subtle Concentric Arc Texture
+   -------------------------------------------------------------------------- */
+
+[data-style="tree-rings"] [data-shell-root] {
+  background-color: var(--surface-base);
+  background-image:
+    radial-gradient(ellipse 900px 700px at 0% 0%, transparent 120px, rgba(212, 163, 115, 0.04) 121px, transparent 122px,
+      transparent 220px, rgba(212, 163, 115, 0.035) 221px, transparent 222px,
+      transparent 340px, rgba(212, 163, 115, 0.03) 341px, transparent 342px,
+      transparent 480px, rgba(212, 163, 115, 0.025) 481px, transparent 482px,
+      transparent 640px, rgba(212, 163, 115, 0.02) 641px, transparent 642px,
+      transparent 820px, rgba(212, 163, 115, 0.015) 821px, transparent 822px);
+  background-attachment: fixed;
+}
+
+[data-style="tree-rings"] [data-shell-header] {
+  background: var(--surface-base);
+  border-bottom: var(--border-width) solid var(--line-default);
+  box-shadow: 0 1px 0 rgba(212, 163, 115, 0.08);
+}
+
+/* Navigation: Dendrochronological Log Book Rail */
+[data-style="tree-rings"] nav[data-nav] {
+  background: var(--surface-base);
+  border-right: var(--border-width) solid var(--line-default);
+  position: relative;
+  padding-top: 1.5rem !important;
+}
+
+[data-style="tree-rings"] nav[data-nav]::before {
+  content: "◎ DENDRO-CHRONO // SECT.";
+  position: absolute;
+  top: 8px;
+  left: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--status-accent);
+  opacity: 0.85;
+}
+
+[data-style="tree-rings"] [data-nav-brand] {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-strong);
+  position: relative;
+}
+
+[data-style="tree-rings"] [data-nav-brand]::after {
+  content: " [生长层 · 2026]";
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: var(--text-tertiary);
+}
+
+/* Nav Item Buttons: Radial Rings Bullet */
+[data-style="tree-rings"] nav[data-nav] button {
+  font-family: var(--font-serif);
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  border-radius: 4px !important;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+[data-style="tree-rings"] nav[data-nav] button:hover {
+  background: var(--surface-hover);
+  border-color: var(--line-subtle);
+  color: var(--text-strong);
+}
+
+[data-style="tree-rings"] nav[data-nav] button[aria-current="page"],
+[data-style="tree-rings"] nav[data-nav] button[data-active="true"] {
+  background: var(--surface-raised);
+  border-color: var(--status-accent);
+  color: var(--status-accent);
+  font-weight: 700;
+}
+
+[data-style="tree-rings"] nav[data-nav] button[aria-current="page"]::before,
+[data-style="tree-rings"] nav[data-nav] button[data-active="true"]::before {
+  content: "⌒ ";
+  color: var(--status-accent);
+  font-weight: bold;
+}
+
+/* --------------------------------------------------------------------------
+   Headings & Editorial Hierarchy
+   -------------------------------------------------------------------------- */
+
+[data-style="tree-rings"] h1,
+[data-style="tree-rings"] h2,
+[data-style="tree-rings"] h3 {
+  font-family: var(--font-serif);
+  color: var(--text-strong);
+  letter-spacing: 0.02em;
+}
+
+[data-style="tree-rings"] section[data-page] {
+  position: relative;
+}
+
+/* --------------------------------------------------------------------------
+   Cards: Growth Ring Stratum Plates
+   -------------------------------------------------------------------------- */
+
+[data-style="tree-rings"] [data-resource-card],
+[data-style="tree-rings"] [data-style-card],
+[data-style="tree-rings"] [data-software-row] {
+  background: var(--surface-raised);
+  border: var(--border-width) solid var(--line-default);
+  border-radius: 6px !important;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Concentric arc curve accent on top-right corner */
+[data-style="tree-rings"] [data-resource-card]::before,
+[data-style="tree-rings"] [data-style-card]::before {
+  content: "";
+  position: absolute;
+  top: -24px;
+  right: -24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 163, 115, 0.25);
+  box-shadow: 0 0 0 6px rgba(212, 163, 115, 0.08);
+  pointer-events: none;
+}
+
+[data-style="tree-rings"] [data-resource-card]:hover,
+[data-style="tree-rings"] [data-style-card]:hover,
+[data-style="tree-rings"] [data-software-row]:hover {
+  border-color: var(--status-accent);
+  transform: translateY(-1px);
+}
+
+/* Metadata badges in woodcut style */
+[data-style="tree-rings"] [data-resource-card] [data-badge],
+[data-style="tree-rings"] [data-style-card] [data-badge] {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  background: var(--surface-sunken);
+  color: var(--text-secondary);
+  border: 1px solid var(--line-subtle);
+  border-radius: 3px !important;
+}
+
+/* --------------------------------------------------------------------------
+   Detail / Modal: Research Cross-Section Specimen
+   -------------------------------------------------------------------------- */
+
+[data-style="tree-rings"] [role="dialog"] {
+  background: var(--surface-raised);
+  border: var(--border-width) solid var(--line-default);
+  border-radius: 8px !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+  position: relative;
+}
+
+[data-style="tree-rings"] [role="dialog"]::before {
+  content: "DENDROCHRONOLOGY SPECIMEN ARCHIVE // SEC. SAMPLE";
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--status-accent);
+  padding: 0.6rem 1.25rem 0.2rem 1.25rem;
+  border-bottom: 1px solid var(--line-subtle);
+  background: var(--surface-sunken);
+}
+
+[data-style="tree-rings"] [role="dialog"] h2 {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--text-strong);
+}
+
+/* --------------------------------------------------------------------------
+   Buttons & Controls: Warm Peat Tactility
+   -------------------------------------------------------------------------- */
+
+[data-style="tree-rings"] button {
+  font-family: var(--font-serif);
+}
+
+[data-style="tree-rings"] input[type="text"],
+[data-style="tree-rings"] input[type="search"] {
+  background: var(--surface-sunken);
+  border: var(--border-width) solid var(--line-default);
+  color: var(--text-primary);
+  border-radius: 4px !important;
+  font-family: var(--font-sans);
+}
+
+[data-style="tree-rings"] input[type="text"]:focus,
+[data-style="tree-rings"] input[type="search"]:focus {
+  border-color: var(--status-accent);
+  outline: none;
+}

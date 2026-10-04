@@ -1,0 +1,98 @@
+{
+  "$schema": "../../schemas/style.schema.json",
+  "id": "patch-bay",
+  "name": "跳线面板",
+  "version": "1.0.0",
+  "subtitle": "Modular Audio Rack & Signal Routing",
+  "description": "机架跳线面板与模块通道路由。拉丝金属机架、1/4 英寸插孔接口（Port/Jack）、通道条（Channel Strip）、信号电平指示灯与路由状态标签，呈现工业硬件级可靠度。",
+  "author": "Setup Center Design Lab",
+  "license": "MIT",
+  "updatedAt": "2026-10-04",
+  "implemented": true,
+  "inspiration": "专业音频跳线架（TT / Bantam Patch Bay）、19 英寸机架设备通道条（Channel Strip）、硬件信号电平表与硬件接口矩阵",
+  "tags": [
+    "跳线面板",
+    "音频机架",
+    "通道路由",
+    "硬件接口",
+    "信号指示",
+    "工业质感"
+  ],
+  "features": [
+    "19 英寸阳极氧化铝机架单元（Rack Unit）与通道条（Channel Strip）布局",
+    "精密加工的 Jack 插孔接口微质感（Port Ring）与同心金属边缘",
+    "信号电平状态指示灯（Signal Green / Clip Amber / Mute）清晰明了",
+    "详情弹层化身通道信号检视仪（Patch & Signal Inspector Panel）"
+  ],
+  "cssPath": "patch-bay.css",
+  "palette": {
+    "bg": "#131518",
+    "surface": "#1b1e24",
+    "border": "#2d333d",
+    "primary": "#22c55e",
+    "text": "#f1f5f9"
+  },
+  "tokens": {
+    "cardRadius": "3px",
+    "borderWidth": "1px",
+    "shadowDepth": "0px",
+    "fontHeading": "\"JetBrains Mono\", Consolas, monospace",
+    "fontBody": "system-ui, -apple-system, sans-serif"
+  },
+  "experience": {
+    "tier": "experience",
+    "shell": "sidebar",
+    "navigation": "sidebar",
+    "detail": "floating-inspector",
+    "card": "panel",
+    "composition": "solid-grid",
+    "density": "compact",
+    "motion": "reduced",
+    "typography": {
+      "headingFamily": "\"JetBrains Mono\", Consolas, monospace",
+      "bodyFamily": "system-ui, -apple-system, sans-serif",
+      "monoFamily": "\"JetBrains Mono\", Consolas, monospace",
+      "headingScale": 1,
+      "bodyScale": 0.95,
+      "headingWeight": 700,
+      "headingTracking": "0.02em"
+    },
+    "ornament": {
+      "rule": "hairline",
+      "corner": "bevel",
+      "decoration": "none",
+      "chrome": "full"
+    },
+    "tweakable": [
+      "borderWidth",
+      "shadow",
+      "accent",
+      "accentSecondary",
+      "surface",
+      "text",
+      "density",
+      "motion"
+    ],
+    "locked": {
+      "panelRadius": "工业机架与铝合金面板遵循微倒角加工规范。",
+      "controlRadius": "跳线插孔与通道开关具有严谨硬件规格尺寸。"
+    },
+    "specimenNote": "19寸机架跳线插孔，通道条矩阵与信号指示灯"
+  },
+  "preview": {
+    "note": "19寸机架跳线插孔，通道条矩阵与信号指示灯",
+    "swatches": [
+      "#131518",
+      "#1b1e24",
+      "#2d333d",
+      "#22c55e",
+      "#f59e0b"
+    ]
+  },
+  "designPrinciples": [
+    "Industrial Rack Reliability — 稳固严谨的机架结构与通道编号，带来硬件工作站般的沉稳触感",
+    "Tactile Port Signals — 以同心插孔与状态 LED 灯取代泛滥的图标，功能状态一目了然",
+    "Channel Strip Cohesion — 每一行与卡片均是独立路由通道，具备输入/输出标识与信道增益刻度",
+    "Minimalist Wiring Metaphor — 聚焦物理面板接口与跳线状态编码，避免杂乱连线干扰核心点击操作"
+  ]
+}

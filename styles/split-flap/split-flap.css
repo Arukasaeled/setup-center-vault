@@ -1,0 +1,292 @@
+/* ==========================================================================
+   STYLE SPECIMEN: split-flap (翻牌显示板 / Split-Flap Board)
+   ========================================================================== */
+
+:root[data-style="split-flap"]:not([data-theme="light"]) {
+  /* Solari Basalt & Flap Charcoal Palette */
+  --surface-base: #101115;
+  --surface-raised: #18191f;
+  --surface-overlay: rgba(24, 25, 31, 0.98);
+  --surface-overlay-soft: rgba(28, 30, 38, 0.94);
+  --surface-sunken: #0b0c0e;
+  --surface-hover: rgba(245, 158, 11, 0.08);
+  --surface-active: #f59e0b;
+  --surface-inset: #1d1e26;
+
+  --text-strong: #ffffff;
+  --text-primary: #f3f4f6;
+  --text-secondary: #a1a1aa;
+  --text-tertiary: #71717a;
+  --text-quiet: #52525b;
+  --text-inverse: #101115;
+
+  --line-subtle: #20222a;
+  --line-default: #2d303b;
+  --line-strong: #f59e0b;
+
+  --status-ok: #22c55e;
+  --status-warn: #f59e0b;
+  --status-bad: #ef4444;
+  --status-accent: #f59e0b;
+  --status-accent-soft: rgba(245, 158, 11, 0.16);
+
+  --font-mono: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+}
+
+:root[data-style="split-flap"][data-theme="light"] {
+  /* Day Airport Terminal Steel & Enamel Plate */
+  --surface-base: #e5e7eb;
+  --surface-raised: #ffffff;
+  --surface-overlay: rgba(255, 255, 255, 0.98);
+  --surface-overlay-soft: rgba(243, 244, 246, 0.95);
+  --surface-sunken: #d1d5db;
+  --surface-hover: rgba(217, 119, 6, 0.08);
+  --surface-active: #d97706;
+  --surface-inset: #f3f4f6;
+
+  --text-strong: #111827;
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+  --text-tertiary: #6b7280;
+  --text-quiet: #9ca3af;
+  --text-inverse: #ffffff;
+
+  --line-subtle: #d1d5db;
+  --line-default: #9ca3af;
+  --line-strong: #d97706;
+
+  --status-ok: #16a34a;
+  --status-warn: #d97706;
+  --status-bad: #dc2626;
+  --status-accent: #d97706;
+  --status-accent-soft: rgba(217, 119, 6, 0.16);
+
+  --font-mono: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+}
+
+/* Zero Radius for Mechanical Split Modules */
+[data-style="split-flap"] *,
+[data-style="split-flap"] *::before,
+[data-style="split-flap"] *::after {
+  border-radius: var(--radius-panel, 0px) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Mechanical Split-Flap Animation
+   -------------------------------------------------------------------------- */
+
+@keyframes mechanicalFlapFlip {
+  0% {
+    transform: perspective(600px) rotateX(0deg);
+  }
+  40% {
+    transform: perspective(600px) rotateX(-24deg);
+    filter: brightness(0.8);
+  }
+  80% {
+    transform: perspective(600px) rotateX(4deg);
+  }
+  100% {
+    transform: perspective(600px) rotateX(0deg);
+    filter: brightness(1);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Navigation: Concourse Departure Board Track Selector
+   -------------------------------------------------------------------------- */
+
+[data-style="split-flap"] nav[data-nav] {
+  background: var(--surface-base);
+  border-bottom: 2px solid var(--line-default);
+  position: relative;
+}
+
+[data-style="split-flap"] nav[data-nav] button {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: var(--border-width) solid var(--line-subtle);
+  background: var(--surface-raised);
+  padding: 6px 12px;
+  transition: all var(--motion-fast) ease;
+}
+
+[data-style="split-flap"] nav[data-nav] button:hover {
+  background: var(--surface-hover);
+  border-color: var(--line-default);
+  color: var(--status-accent);
+}
+
+[data-style="split-flap"] nav[data-nav] button[aria-current="page"] {
+  background: var(--surface-inset) !important;
+  border: var(--border-width) solid var(--status-accent) !important;
+  color: var(--status-accent) !important;
+  box-shadow: inset 0 -3px 0 var(--status-accent), 0 2px 8px rgba(0,0,0,0.4) !important;
+  animation: mechanicalFlapFlip 240ms ease-out;
+}
+
+/* --------------------------------------------------------------------------
+   Software Rows: Departure Flight Matrix Flap Rows
+   -------------------------------------------------------------------------- */
+
+[data-style="split-flap"] [data-software-row] {
+  border: var(--border-width) solid var(--line-default) !important;
+  background: 
+    linear-gradient(
+      to bottom,
+      var(--surface-raised) 0%,
+      var(--surface-raised) calc(50% - 1px),
+      #050608 calc(50% - 1px),
+      #050608 50%,
+      rgba(255,255,255,0.08) 50%,
+      var(--surface-raised) calc(50% + 1px),
+      var(--surface-raised) 100%
+    ) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+  position: relative;
+  font-family: var(--font-mono);
+  transition: border-color var(--motion-fast) ease;
+}
+
+/* Flap side hinge tabs (left and right tiny notches) */
+[data-style="split-flap"] [data-software-row]::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 3px);
+  left: 0;
+  width: 3px;
+  height: 6px;
+  background: #000000;
+  border-right: 1px solid rgba(255,255,255,0.15);
+}
+
+[data-style="split-flap"] [data-software-row]::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 3px);
+  right: 0;
+  width: 3px;
+  height: 6px;
+  background: #000000;
+  border-left: 1px solid rgba(255,255,255,0.15);
+}
+
+[data-style="split-flap"] [data-software-row]:hover {
+  border-color: var(--status-accent) !important;
+  animation: mechanicalFlapFlip 200ms ease-out;
+}
+
+[data-style="split-flap"] [data-software-row][aria-pressed="true"],
+[data-style="split-flap"] [data-software-row][data-selected="true"] {
+  border-color: var(--status-accent) !important;
+  box-shadow: inset 3px 0 0 var(--status-accent), 0 4px 12px rgba(0,0,0,0.6) !important;
+  animation: mechanicalFlapFlip 280ms ease-out;
+}
+
+[data-style="split-flap"] [data-software-row] .software-row-name {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* --------------------------------------------------------------------------
+   Resource Destination Cards
+   -------------------------------------------------------------------------- */
+
+[data-style="split-flap"] [data-resource-card] {
+  border: var(--border-width) solid var(--line-default) !important;
+  background: 
+    linear-gradient(
+      to bottom,
+      var(--surface-raised) 0%,
+      var(--surface-raised) calc(50% - 1px),
+      #050608 calc(50% - 1px),
+      #050608 50%,
+      rgba(255,255,255,0.06) 50%,
+      var(--surface-raised) calc(50% + 1px),
+      var(--surface-raised) 100%
+    ) !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.45) !important;
+  position: relative;
+  transition: border-color var(--motion-fast) ease;
+}
+
+[data-style="split-flap"] [data-resource-card]::before {
+  content: "[STATUS: SCHEDULED]  == ARRIVALS ==";
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--status-accent);
+  margin-bottom: 6px;
+  border-bottom: var(--border-width) solid var(--line-default);
+  padding-bottom: 4px;
+}
+
+[data-style="split-flap"] [data-resource-card]:hover {
+  border-color: var(--status-accent) !important;
+  animation: mechanicalFlapFlip 220ms ease-out;
+}
+
+/* --------------------------------------------------------------------------
+   Style Cards in Design Lab
+   -------------------------------------------------------------------------- */
+
+[data-style="split-flap"] [data-style-card] {
+  border: var(--border-width) solid var(--line-default) !important;
+  background: var(--surface-raised) !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-style="split-flap"] [data-style-card]:hover {
+  border-color: var(--status-accent) !important;
+}
+
+/* --------------------------------------------------------------------------
+   DetailShell & Modals: Concourse Main Board Display
+   -------------------------------------------------------------------------- */
+
+[data-style="split-flap"] [role="dialog"] > div:last-child {
+  border: var(--border-width) solid var(--status-accent) !important;
+  background: var(--surface-raised) !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9), 0 0 0 1px var(--line-default) !important;
+  font-family: var(--font-mono);
+}
+
+[data-style="split-flap"] [role="dialog"] header,
+[data-style="split-flap"] [role="dialog"] .border-b {
+  border-bottom: var(--border-width) solid var(--line-default) !important;
+  background: var(--surface-sunken) !important;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   Buttons & Inputs: Enamel Mechanical Swatch Keys
+   -------------------------------------------------------------------------- */
+
+[data-style="split-flap"] button {
+  font-family: var(--font-mono);
+}
+
+[data-style="split-flap"] input[type="search"],
+[data-style="split-flap"] input[type="text"] {
+  border: var(--border-width) solid var(--line-default) !important;
+  background: var(--surface-sunken) !important;
+  color: var(--text-primary) !important;
+  font-family: var(--font-mono) !important;
+  text-transform: uppercase;
+}
+
+[data-style="split-flap"] button.bg-\[color\:var\(--status-accent\)\] {
+  background: var(--status-accent) !important;
+  color: var(--accent-on, #101115) !important;
+  font-weight: 800 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: var(--border-width) solid var(--status-accent) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5) !important;
+}

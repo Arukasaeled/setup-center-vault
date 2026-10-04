@@ -1,0 +1,241 @@
+/* ==========================================================================
+   STYLE SPECIMEN: scrapbook (手账拼贴 / Scrapbook Collage)
+   ========================================================================== */
+
+:root[data-style="scrapbook"] {
+  /* Warm Sketchbook Ivory & Kraft Paper Ground */
+  --surface-base: #fcf9f2;
+  --surface-raised: #f5eee1;
+  --surface-overlay: rgba(245, 238, 225, 0.98);
+  --surface-overlay-soft: rgba(252, 249, 242, 0.95);
+  --surface-sunken: #ede3d1;
+  --surface-hover: rgba(223, 115, 86, 0.08);
+  --surface-active: #df7356;
+  --surface-inset: #e8ded0;
+
+  --text-strong: #1e1d1b;
+  --text-primary: #2c2a29;
+  --text-secondary: #57524e;
+  --text-tertiary: #7c756f;
+  --text-quiet: #a39c94;
+  --text-inverse: #fcf9f2;
+
+  --line-subtle: #eae2d3;
+  --line-default: #ded4c3;
+  --line-strong: #df7356;
+
+  --status-ok: #588157;
+  --status-warn: #e09f3e;
+  --status-bad: #c1121f;
+  --status-accent: #df7356;
+  --status-accent-soft: rgba(223, 115, 86, 0.16);
+
+  --font-hand: "Caveat", "Segoe Print", "Comic Sans MS", "Bradley Hand", cursive, sans-serif;
+}
+
+:root[data-style="scrapbook"]:not([data-theme="light"]) {
+  /* Midnight Artist Studio Desk */
+  --surface-base: #1a191d;
+  --surface-raised: #242229;
+  --surface-overlay: rgba(36, 34, 41, 0.98);
+  --surface-overlay-soft: rgba(26, 25, 29, 0.94);
+  --surface-sunken: #131215;
+  --surface-hover: rgba(229, 142, 115, 0.12);
+  --surface-active: #e58e73;
+  --surface-inset: #2d2b33;
+
+  --text-strong: #ffffff;
+  --text-primary: #f3eee4;
+  --text-secondary: #c2bcb0;
+  --text-tertiary: #8f8a7e;
+  --text-quiet: #69655c;
+  --text-inverse: #1a191d;
+
+  --line-subtle: #2d2b33;
+  --line-default: #423f4a;
+  --line-strong: #e58e73;
+
+  --status-ok: #7ba37a;
+  --status-warn: #e8b264;
+  --status-bad: #d94e5a;
+  --status-accent: #e58e73;
+  --status-accent-soft: rgba(229, 142, 115, 0.2);
+
+  --font-hand: "Caveat", "Segoe Print", "Comic Sans MS", "Bradley Hand", cursive, sans-serif;
+}
+
+/* --------------------------------------------------------------------------
+   Notebook Dot Grid Paper Ground
+   -------------------------------------------------------------------------- */
+
+[data-style="scrapbook"] [data-shell-root] {
+  background-color: var(--surface-base);
+  background-image: radial-gradient(var(--line-default) 1.2px, transparent 1.2px);
+  background-size: 20px 20px;
+}
+
+/* --------------------------------------------------------------------------
+   Navigation: Colorful Divider Bookmark Tabs
+   -------------------------------------------------------------------------- */
+
+[data-style="scrapbook"] nav[data-nav] {
+  background: var(--surface-base);
+  border-right: var(--border-width) solid var(--line-default);
+  position: relative;
+}
+
+[data-style="scrapbook"] nav[data-nav] button {
+  font-size: 13px;
+  border-radius: var(--radius-control, 8px) !important;
+  border: var(--border-width) solid transparent;
+  padding: 8px 12px;
+  color: var(--text-secondary);
+  transition: all var(--motion-fast) ease;
+}
+
+[data-style="scrapbook"] nav[data-nav] button:hover {
+  background: var(--surface-hover);
+  color: var(--status-accent);
+}
+
+[data-style="scrapbook"] nav[data-nav] button[aria-current="page"] {
+  background: var(--surface-raised) !important;
+  border: var(--border-width) solid var(--status-accent) !important;
+  color: var(--status-accent) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Software Rows: Taped Journal Memo Slips
+   -------------------------------------------------------------------------- */
+
+[data-style="scrapbook"] [data-software-row] {
+  border: var(--border-width) solid var(--line-default) !important;
+  background: var(--surface-raised) !important;
+  border-radius: var(--radius-panel, 12px) !important;
+  box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.06) !important;
+  position: relative;
+  transition: transform var(--motion-fast) ease, box-shadow var(--motion-fast) ease, border-color var(--motion-fast) ease;
+}
+
+/* Alternating gentle tilt */
+[data-style="scrapbook"] [data-software-row]:nth-child(even) {
+  transform: rotate(0.35deg);
+}
+
+[data-style="scrapbook"] [data-software-row]:nth-child(odd) {
+  transform: rotate(-0.35deg);
+}
+
+[data-style="scrapbook"] [data-software-row]:hover {
+  transform: rotate(0deg) scale(1.01);
+  border-color: var(--status-accent) !important;
+  box-shadow: 2px 6px 14px rgba(0, 0, 0, 0.12) !important;
+}
+
+[data-style="scrapbook"] [data-software-row][aria-pressed="true"],
+[data-style="scrapbook"] [data-software-row][data-selected="true"] {
+  border-color: var(--status-accent) !important;
+  box-shadow: 0 0 0 2px var(--status-accent), 2px 6px 14px rgba(0, 0, 0, 0.15) !important;
+  transform: rotate(0deg);
+}
+
+/* --------------------------------------------------------------------------
+   Resource Scrap Cards: Polaroid Clippings with Washi Tape
+   -------------------------------------------------------------------------- */
+
+[data-style="scrapbook"] [data-resource-card] {
+  border: var(--border-width) solid var(--line-default) !important;
+  background: var(--surface-raised) !important;
+  border-radius: var(--radius-panel, 12px) !important;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.08) !important;
+  position: relative;
+  padding-top: 1.25rem !important;
+  transition: all var(--motion-fast) ease;
+}
+
+/* Washi Tape Strip at Top-Center */
+[data-style="scrapbook"] [data-resource-card]::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: calc(50% - 28px);
+  width: 56px;
+  height: 16px;
+  background: rgba(223, 115, 86, 0.45);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transform: rotate(-1.5deg);
+  border-left: 2px dashed rgba(255, 255, 255, 0.4);
+  border-right: 2px dashed rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+}
+
+/* Three-way staggered subtle rotation */
+[data-style="scrapbook"] [data-resource-card]:nth-child(3n+1) {
+  transform: rotate(-0.6deg);
+}
+
+[data-style="scrapbook"] [data-resource-card]:nth-child(3n+2) {
+  transform: rotate(0.65deg);
+}
+
+[data-style="scrapbook"] [data-resource-card]:nth-child(3n) {
+  transform: rotate(-0.35deg);
+}
+
+[data-style="scrapbook"] [data-resource-card]:hover {
+  transform: rotate(0deg) translateY(-2px);
+  border-color: var(--status-accent) !important;
+  box-shadow: 3px 8px 18px rgba(0, 0, 0, 0.14) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Style Cards in Design Lab
+   -------------------------------------------------------------------------- */
+
+[data-style="scrapbook"] [data-style-card] {
+  border: var(--border-width) solid var(--line-default) !important;
+  background: var(--surface-raised) !important;
+  border-radius: var(--radius-panel, 12px) !important;
+}
+
+[data-style="scrapbook"] [data-style-card]:hover {
+  border-color: var(--status-accent) !important;
+}
+
+/* --------------------------------------------------------------------------
+   DetailShell & Modals: Artist Notebook Entry
+   -------------------------------------------------------------------------- */
+
+[data-style="scrapbook"] [role="dialog"] > div:last-child {
+  border: var(--border-width) solid var(--line-default) !important;
+  background: var(--surface-raised) !important;
+  border-radius: 16px !important;
+  box-shadow: 4px 16px 40px rgba(0, 0, 0, 0.25) !important;
+}
+
+[data-style="scrapbook"] [role="dialog"] header,
+[data-style="scrapbook"] [role="dialog"] .border-b {
+  border-bottom: var(--border-width) solid var(--line-subtle) !important;
+  background: var(--surface-sunken) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Buttons & Inputs: Kraft Stickers
+   -------------------------------------------------------------------------- */
+
+[data-style="scrapbook"] input[type="search"],
+[data-style="scrapbook"] input[type="text"] {
+  border: var(--border-width) solid var(--line-default) !important;
+  background: var(--surface-sunken) !important;
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-control, 8px) !important;
+}
+
+[data-style="scrapbook"] button.bg-\[color\:var\(--status-accent\)\] {
+  background: var(--status-accent) !important;
+  color: var(--accent-on, #ffffff) !important;
+  font-weight: 700 !important;
+  border-radius: var(--radius-control, 8px) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12) !important;
+}

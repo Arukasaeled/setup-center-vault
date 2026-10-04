@@ -1,0 +1,98 @@
+{
+  "$schema": "../../schemas/style.schema.json",
+  "id": "scrapbook",
+  "name": "手账拼贴",
+  "version": "1.0.0",
+  "subtitle": "Scrapbook Collage / Creative Notebook",
+  "description": "手工艺术手账与拼贴笔记本语言。和纸胶带、牛皮纸便签、微倾角纸片层级、手写批注与点阵本底纹，保持清晰秩序的同时洋溢着真实创作与收纳的温度。",
+  "author": "Setup Center Design Lab",
+  "license": "MIT",
+  "updatedAt": "2026-10-04",
+  "implemented": true,
+  "inspiration": "手账拼贴（Scrapbooking）、Midori 旅人笔记本与混合媒介手作拼贴整理法（克制有序，拒绝杂乱无序的堆叠）",
+  "tags": [
+    "手账拼贴",
+    "和纸胶带",
+    "牛皮纸",
+    "手写批注",
+    "笔记本",
+    "创作收纳"
+  ],
+  "features": [
+    "半透明和纸胶带（Washi Tape）贴角与便签回形针固定装饰，充满手作温度",
+    "柔和牛皮纸色基底搭配轻微交错微倾角（-0.7° ~ +0.8°），生动而不失可读性",
+    "手写随笔字阶标注（Caveat / Segoe Print）与荧光笔高亮划线重点",
+    "细密点阵手账纸纹理背景（Dot Grid Paper），赋予界面收纳秩序与触觉联想"
+  ],
+  "cssPath": "scrapbook.css",
+  "palette": {
+    "bg": "#fcf9f2",
+    "surface": "#f5eee1",
+    "border": "#ded4c3",
+    "primary": "#df7356",
+    "text": "#2c2a29"
+  },
+  "tokens": {
+    "cardRadius": "12px",
+    "borderWidth": "1px",
+    "shadowDepth": "4px",
+    "fontHeading": "\"Caveat\", \"Segoe Print\", \"Comic Sans MS\", \"Bradley Hand\", cursive, sans-serif",
+    "fontBody": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif"
+  },
+  "experience": {
+    "tier": "experience",
+    "shell": "stacked",
+    "navigation": "tab-strip",
+    "detail": "sheet",
+    "card": "sticker",
+    "composition": "floating-panels",
+    "density": "spacious",
+    "motion": "normal",
+    "typography": {
+      "headingFamily": "\"Caveat\", \"Segoe Print\", \"Comic Sans MS\", \"Bradley Hand\", cursive, sans-serif",
+      "bodyFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+      "monoFamily": "\"JetBrains Mono\", Consolas, monospace",
+      "headingScale": 1.2,
+      "bodyScale": 1,
+      "headingWeight": 700,
+      "headingTracking": "0.01em"
+    },
+    "ornament": {
+      "rule": "none",
+      "corner": "rounded",
+      "decoration": "grid",
+      "chrome": "none"
+    },
+    "tweakable": [
+      "panelRadius",
+      "controlRadius",
+      "borderWidth",
+      "shadow",
+      "accent",
+      "accentSecondary",
+      "surface",
+      "text",
+      "density",
+      "headingScale",
+      "bodyScale",
+      "motion"
+    ],
+    "specimenNote": "和纸胶带固定、牛皮纸便签层级与微倾角手账拼贴"
+  },
+  "preview": {
+    "note": "和纸胶带固定、牛皮纸便签层级与微倾角手账拼贴",
+    "swatches": [
+      "#fcf9f2",
+      "#f5eee1",
+      "#ded4c3",
+      "#df7356",
+      "#6b9080"
+    ]
+  },
+  "designPrinciples": [
+    "Warm Materiality — 牛皮纸、和纸胶带与铅笔字迹唤醒亲切的实体手作体验",
+    "Controlled Collage — 极轻微的有机倾斜与错落层级，严守文字可读性与网格秩序",
+    "Personal Annotation — 荧光划线、星号贴纸与随笔图章，让配置过程如手账记录般愉悦",
+    "Subtle Textures — 点阵笔记本底纹为不规则模块提供看不见却感得到的对齐基线"
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "$schema": "../../schemas/style.schema.json",
+  "id": "split-flap",
+  "name": "翻牌显示板",
+  "version": "1.0.0",
+  "subtitle": "Split-Flap Board / Departure Display",
+  "description": "机场与火车站机械翻牌信息板。中缝分段字符单元、高对比机械色块、离合翻转动效与行列信息矩阵，赋予状态流转强烈的物理机械节奏。",
+  "author": "Setup Center Design Lab",
+  "license": "MIT",
+  "updatedAt": "2026-10-04",
+  "implemented": true,
+  "inspiration": "Solari di Udine 经典机械翻牌大屏、机场离港信息牌与欧洲中央车站时刻矩阵",
+  "tags": [
+    "翻牌显示板",
+    "机场大屏",
+    "机械感",
+    "分段字符",
+    "翻片动效",
+    "高对比"
+  ],
+  "features": [
+    "字符与卡片具备中央水平机械切缝（Horizontal Split Crease）与铰链咬合质感",
+    "软件状态流转与鼠标悬停触发精准 3D 机械翻片动效（Split-Flap Transition）",
+    "时刻表行列矩阵严整对齐，信息层级如离港指示大屏般清晰可扫视",
+    "高对比黑色玄武岩基底、哑光黑翻板与亮白/琥珀黄色珐琅印刷字样"
+  ],
+  "cssPath": "split-flap.css",
+  "palette": {
+    "bg": "#111216",
+    "surface": "#18191e",
+    "border": "#2a2c35",
+    "primary": "#f59e0b",
+    "text": "#f4f5f7"
+  },
+  "tokens": {
+    "cardRadius": "0px",
+    "borderWidth": "1px",
+    "shadowDepth": "4px",
+    "fontHeading": "\"Oswald\", \"DIN Alternate\", \"Trebuchet MS\", \"Arial Black\", sans-serif",
+    "fontBody": "\"JetBrains Mono\", \"Cascadia Code\", Consolas, monospace"
+  },
+  "experience": {
+    "tier": "experience",
+    "shell": "topbar",
+    "navigation": "tab-strip",
+    "detail": "sheet",
+    "card": "panel",
+    "composition": "solid-grid",
+    "density": "compact",
+    "motion": "expressive",
+    "typography": {
+      "headingFamily": "\"Oswald\", \"DIN Alternate\", \"Trebuchet MS\", \"Arial Black\", sans-serif",
+      "bodyFamily": "\"JetBrains Mono\", \"Cascadia Code\", Consolas, monospace",
+      "monoFamily": "\"JetBrains Mono\", \"Cascadia Code\", Consolas, monospace",
+      "headingScale": 1.15,
+      "bodyScale": 0.95,
+      "headingWeight": 800,
+      "headingTracking": "0.06em",
+      "headingTransform": "uppercase"
+    },
+    "ornament": {
+      "rule": "hairline",
+      "corner": "square",
+      "decoration": "pinstripe",
+      "chrome": "status"
+    },
+    "tweakable": [
+      "borderWidth",
+      "shadow",
+      "accent",
+      "accentSecondary",
+      "surface",
+      "text",
+      "density",
+      "motion"
+    ],
+    "locked": {
+      "panelRadius": "翻牌机械单元采用物理直角模块拼接，圆角无法形成连续字符翻板矩阵。",
+      "controlRadius": "物理控制按键均为硬质矩形微动开关。"
+    },
+    "specimenNote": "机械翻牌分段字符单元、中缝切线与离港时刻表矩阵"
+  },
+  "preview": {
+    "note": "机械翻牌分段字符单元、中缝切线与离港时刻表矩阵",
+    "swatches": [
+      "#111216",
+      "#18191e",
+      "#2a2c35",
+      "#f59e0b",
+      "#22c55e"
+    ]
+  },
+  "designPrinciples": [
+    "Mechanical Authenticity — 翻板中缝与侧边铰链赋予每一个信息单元真实的物理机械质感",
+    "Departure Board Cadence — 严谨的行列对齐节奏，如航班信息牌般一目了然",
+    "State Change as Drama — 状态流转时伴随翻板翻落的物理动画，赋予操作扎实的确定感",
+    "High-Contrast Legibility — 极黑哑光底板与明亮珐琅字体，确保远距离扫视依旧极高清晰度"
+  ]
+}

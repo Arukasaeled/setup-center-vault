@@ -1,0 +1,99 @@
+{
+  "$schema": "../../schemas/style.schema.json",
+  "id": "exhibition-plan",
+  "name": "展览平面图",
+  "version": "1.0.0",
+  "subtitle": "Architectural Gallery Wayfinding",
+  "description": "现代艺术馆展厅平面与导视系统。展厅分区编号（ROOM / GALLERY）、建筑导视流线、空间色块标牌与展品墙签，将软件与配置探索转化为沉浸式展厅漫步。",
+  "author": "Setup Center Design Lab",
+  "license": "MIT",
+  "updatedAt": "2026-10-04",
+  "implemented": true,
+  "inspiration": "当代美术馆平面导向图（Gallery Floor Plan）、建筑寻路导视（Wayfinding System）、展品说明牌（Wall Labels）与展厅空间拓扑",
+  "tags": [
+    "展览平面图",
+    "展厅编号",
+    "导视系统",
+    "寻路标牌",
+    "空间分区",
+    "展品墙签"
+  ],
+  "features": [
+    "顶栏博物馆楼层导视指南（Wayfinding Directory），层级分明",
+    "各分区以展厅（GALLERY ZONE / WING）编号与建筑墙线界定",
+    "内容卡片化身展品基座与墙上标签（Exhibit Wall Label），含收录编号与媒介",
+    "当前位置高亮标志（YOU ARE HERE），引导全局漫步路线"
+  ],
+  "cssPath": "exhibition-plan.css",
+  "palette": {
+    "bg": "#121417",
+    "surface": "#1c2027",
+    "border": "#2f3642",
+    "primary": "#f97316",
+    "text": "#f8fafc"
+  },
+  "tokens": {
+    "cardRadius": "0px",
+    "borderWidth": "1px",
+    "shadowDepth": "0px",
+    "fontHeading": "\"Inter\", -apple-system, BlinkMacSystemFont, sans-serif",
+    "fontBody": "\"Inter\", -apple-system, BlinkMacSystemFont, sans-serif"
+  },
+  "experience": {
+    "tier": "experience",
+    "shell": "topbar",
+    "navigation": "tab-strip",
+    "detail": "sheet",
+    "card": "index-entry",
+    "composition": "magazine-index",
+    "density": "normal",
+    "motion": "normal",
+    "typography": {
+      "headingFamily": "\"Inter\", -apple-system, BlinkMacSystemFont, sans-serif",
+      "bodyFamily": "\"Inter\", -apple-system, BlinkMacSystemFont, sans-serif",
+      "monoFamily": "\"JetBrains Mono\", Consolas, monospace",
+      "headingScale": 1.15,
+      "bodyScale": 1,
+      "headingWeight": 800,
+      "headingTracking": "0.04em",
+      "headingTransform": "uppercase"
+    },
+    "ornament": {
+      "rule": "heavy",
+      "corner": "square",
+      "decoration": "none",
+      "chrome": "title"
+    },
+    "tweakable": [
+      "borderWidth",
+      "shadow",
+      "accent",
+      "accentSecondary",
+      "surface",
+      "text",
+      "density",
+      "motion"
+    ],
+    "locked": {
+      "panelRadius": "现代画廊平面与展品基座遵循建筑直角几何。",
+      "controlRadius": "导视标牌与楼层指引采用标准矩形色块。"
+    },
+    "specimenNote": "展厅导视指南，空间展区编号与展品说明标牌系统"
+  },
+  "preview": {
+    "note": "展厅导视指南，空间展区编号与展品说明标牌系统",
+    "swatches": [
+      "#121417",
+      "#1c2027",
+      "#2f3642",
+      "#f97316",
+      "#0284c7"
+    ]
+  },
+  "designPrinciples": [
+    "Wayfinding Legibility — 寻路导视首重清晰识别，粗壮等线标题与高反差色块指示空间拓扑",
+    "Gallery Partitioning — 区域以展厅空间（Wing A / Gallery B）组织，避免生硬的单调列表堆叠",
+    "Exhibition Wall Labels — 卡片与详情采用博物馆展品标牌排版，明确标示作者、版本、年份与流派",
+    "Architectural Planar Edge — 直角硬朗墙线与空间分区边界，体现现代主义建筑秩序与开阔感"
+  ]
+}
