@@ -13,7 +13,19 @@
     "type": "command",
     "command": "cargo generate --git https://github.com/thesurlydev/clap-cli-template --name {{projectName}}",
     "defaultDir": "my-rust-cli",
-    "postInstallNotice": "执行 `cargo run -- --help` 查看自动生成的 CLI 帮助与参数解析。"
+    "postInstallNotice": "执行 `cargo run -- --help` 查看自动生成的 CLI 帮助与参数解析。",
+    "steps": [
+      {
+        "id": "cargo-generate",
+        "program": "cargo",
+        "args": ["generate", "--git", "https://github.com/thesurlydev/clap-cli-template", "--name", "{{projectName}}"],
+        "cwd": "{{parentDir}}",
+        "description": "基于 cargo-generate 实例化 Clap CLI 模板"
+      }
+    ],
+    "supportedPackageManagers": [],
+    "requiredCapabilities": ["rust"],
+    "preparedOnly": true
   },
   "requirements": ["Rust toolchain (cargo, rustc 1.74+)"],
   "featured": false,

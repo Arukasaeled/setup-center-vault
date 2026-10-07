@@ -11,9 +11,22 @@
   "repository": "https://github.com/sveltejs/kit",
   "scaffold": {
     "type": "command",
-    "command": "pnpm create svelte@latest .",
+    "command": "pnpm create svelte@latest {{projectName}}",
     "defaultDir": "my-svelte-app",
-    "postInstallNotice": "按引导选择 Skeleton project 与 TypeScript，完成后运行 `pnpm dev`。"
+    "postInstallNotice": "按引导选择 Skeleton project 与 TypeScript，完成后运行 `pnpm dev`。",
+    "steps": [
+      {
+        "id": "create-svelte",
+        "program": "pnpm",
+        "args": ["create", "svelte@latest", "{{projectName}}"],
+        "cwd": "{{parentDir}}",
+        "description": "初始化 SvelteKit 2 全栈脚手架"
+      }
+    ],
+    "supportedPackageManagers": ["pnpm", "npm", "yarn", "bun"],
+    "defaultPackageManager": "pnpm",
+    "requiredCapabilities": ["node", "pnpm"],
+    "preparedOnly": true
   },
   "requirements": ["node", "pnpm"],
   "featured": false,

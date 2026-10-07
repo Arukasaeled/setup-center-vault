@@ -12,11 +12,24 @@
   "scaffold": {
     "type": "git-clone",
     "gitUrl": "https://github.com/microsoft/vscode-extension-samples.git",
-    "command": "git clone https://github.com/microsoft/vscode-extension-samples.git && cd vscode-extension-samples",
+    "command": "git clone https://github.com/microsoft/vscode-extension-samples.git {{projectName}} && cd {{projectName}}",
     "defaultDir": "vscode-extension-samples",
-    "postInstallNotice": "每个子目录是一个独立扩展，进入所需样例后执行 `npm install`，按 F5 启动扩展开发宿主。"
+    "postInstallNotice": "每个子目录是一个独立扩展，进入所需样例后执行 `npm install`，按 F5 启动扩展开发宿主。",
+    "steps": [
+      {
+        "id": "clone-samples",
+        "program": "git",
+        "args": ["clone", "https://github.com/microsoft/vscode-extension-samples.git", "{{targetPath}}"],
+        "cwd": "{{parentDir}}",
+        "description": "克隆 VS Code 官方扩展示例仓库"
+      }
+    ],
+    "supportedPackageManagers": ["npm", "yarn", "pnpm"],
+    "defaultPackageManager": "npm",
+    "requiredCapabilities": ["git", "node", "vscode"],
+    "preparedOnly": true
   },
-  "requirements": ["node", "npm", "VS Code"],
+  "requirements": ["git", "node", "npm", "VS Code"],
   "featured": false,
   "updatedAt": "2026-10-04"
 }

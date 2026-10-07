@@ -11,9 +11,29 @@
   "repository": "https://github.com/vitejs/vite",
   "scaffold": {
     "type": "command",
-    "command": "pnpm create vite . --template react-ts && pnpm add -D @tailwindcss/vite tailwindcss",
+    "command": "pnpm create vite {{projectName}} --template react-ts && cd {{projectName}} && pnpm add -D @tailwindcss/vite tailwindcss",
     "defaultDir": "vite-react-spa",
-    "postInstallNotice": "运行 `pnpm install` 后 `pnpm dev` 开启本地开发体验。"
+    "postInstallNotice": "运行 `pnpm install` 后 `pnpm dev` 开启本地开发体验。",
+    "steps": [
+      {
+        "id": "create-vite",
+        "program": "pnpm",
+        "args": ["create", "vite", "{{projectName}}", "--template", "react-ts"],
+        "cwd": "{{parentDir}}",
+        "description": "创建 Vite + React 19 + TypeScript SPA 基础骨架"
+      },
+      {
+        "id": "add-tailwind",
+        "program": "pnpm",
+        "args": ["add", "-D", "@tailwindcss/vite", "tailwindcss"],
+        "cwd": "{{targetPath}}",
+        "description": "配置 Tailwind CSS 样式引擎"
+      }
+    ],
+    "supportedPackageManagers": ["pnpm", "npm", "yarn", "bun"],
+    "defaultPackageManager": "pnpm",
+    "requiredCapabilities": ["node", "pnpm"],
+    "preparedOnly": true
   },
   "requirements": ["node", "pnpm"],
   "featured": true,

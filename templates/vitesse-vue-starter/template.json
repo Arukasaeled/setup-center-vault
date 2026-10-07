@@ -12,11 +12,31 @@
   "scaffold": {
     "type": "git-clone",
     "gitUrl": "https://github.com/antfu-collective/vitesse.git",
-    "command": "git clone https://github.com/antfu-collective/vitesse.git my-vue-app && cd my-vue-app && pnpm install",
-    "defaultDir": "my-vue-app",
-    "postInstallNotice": "运行 `pnpm dev` 启动开发服务器；首次运行会生成类型声明。"
+    "command": "git clone https://github.com/antfu-collective/vitesse.git {{projectName}} && cd {{projectName}} && pnpm install",
+    "defaultDir": "my-vitesse-app",
+    "postInstallNotice": "运行 `pnpm dev` 启动开发服务器；首次运行会生成类型声明。",
+    "steps": [
+      {
+        "id": "clone-vitesse",
+        "program": "git",
+        "args": ["clone", "https://github.com/antfu-collective/vitesse.git", "{{targetPath}}"],
+        "cwd": "{{parentDir}}",
+        "description": "克隆 Vitesse Vue 3 起步仓库"
+      },
+      {
+        "id": "install-deps",
+        "program": "pnpm",
+        "args": ["install"],
+        "cwd": "{{targetPath}}",
+        "description": "安装 Vue 生态与 UnoCSS 依赖"
+      }
+    ],
+    "supportedPackageManagers": ["pnpm", "npm", "yarn"],
+    "defaultPackageManager": "pnpm",
+    "requiredCapabilities": ["git", "node", "pnpm"],
+    "preparedOnly": true
   },
-  "requirements": ["node", "pnpm"],
+  "requirements": ["git", "node", "pnpm"],
   "featured": true,
   "updatedAt": "2026-10-04"
 }

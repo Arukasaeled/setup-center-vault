@@ -13,7 +13,20 @@
     "type": "command",
     "command": "npx create-t3-app@latest {{projectName}}",
     "defaultDir": "my-t3-app",
-    "postInstallNotice": "运行 `npm run dev` 启动 Next.js 极速开发服务。"
+    "postInstallNotice": "运行 `npm run dev` 启动 Next.js 极速开发服务。",
+    "steps": [
+      {
+        "id": "create-t3",
+        "program": "npx",
+        "args": ["create-t3-app@latest", "{{projectName}}"],
+        "cwd": "{{parentDir}}",
+        "description": "初始化 T3 Stack 端到端全栈工程"
+      }
+    ],
+    "supportedPackageManagers": ["pnpm", "npm", "yarn", "bun"],
+    "defaultPackageManager": "pnpm",
+    "requiredCapabilities": ["node"],
+    "preparedOnly": true
   },
   "requirements": ["Node.js 18.17+"],
   "featured": true,

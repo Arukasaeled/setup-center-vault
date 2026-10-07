@@ -11,9 +11,22 @@
   "repository": "https://github.com/vercel/next.js",
   "scaffold": {
     "type": "command",
-    "command": "pnpm create next-app@latest . --ts --tailwind --eslint --app --src-dir --import-alias '@/*'",
+    "command": "pnpm create next-app@latest {{projectName}} --ts --tailwind --eslint --app --src-dir --import-alias '@/*'",
     "defaultDir": "my-next-app",
-    "postInstallNotice": "运行 `pnpm dev` 启动本地开发服务：http://localhost:3000"
+    "postInstallNotice": "运行 `pnpm dev` 启动本地开发服务：http://localhost:3000",
+    "steps": [
+      {
+        "id": "create-next",
+        "program": "pnpm",
+        "args": ["create", "next-app@latest", "{{projectName}}", "--ts", "--tailwind", "--eslint", "--app", "--src-dir", "--import-alias", "@/*"],
+        "cwd": "{{parentDir}}",
+        "description": "初始化 Next.js 15 App Router 生产级脚手架"
+      }
+    ],
+    "supportedPackageManagers": ["pnpm", "npm", "yarn", "bun"],
+    "defaultPackageManager": "pnpm",
+    "requiredCapabilities": ["node", "pnpm"],
+    "preparedOnly": true
   },
   "requirements": ["node", "pnpm"],
   "featured": true,

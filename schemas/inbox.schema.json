@@ -4,8 +4,10 @@
   "description": "Schema definition for incoming raw transfer proposals awaiting normalization",
   "type": "object",
   "required": ["id", "url", "capturedAt", "status"],
+  "additionalProperties": false,
   "properties": {
-    "id": { "type": "string" },
+    "$schema": { "type": "string" },
+    "id": { "type": "string", "minLength": 1 },
     "url": { "type": "string" },
     "title": { "type": "string" },
     "note": { "type": "string" },
@@ -13,6 +15,9 @@
     "suggestedCategory": { "type": "string" },
     "capturedAt": { "type": "string" },
     "status": { "type": "string", "enum": ["pending", "processed", "rejected"] },
-    "normalizedItemId": { "type": "string" }
+    "normalizedItemId": { "type": "string" },
+    "extensions": {
+      "type": "object"
+    }
   }
 }

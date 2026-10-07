@@ -10,13 +10,32 @@
   "homepage": "https://cookiecutter-django.readthedocs.io",
   "repository": "https://github.com/cookiecutter/cookiecutter-django",
   "scaffold": {
-    "type": "git-clone",
+    "type": "command",
     "gitUrl": "https://github.com/cookiecutter/cookiecutter-django.git",
-    "command": "git clone https://github.com/cookiecutter/cookiecutter-django.git && pip install cookiecutter && cookiecutter cookiecutter-django",
+    "command": "git clone https://github.com/cookiecutter/cookiecutter-django.git {{projectName}} && cd {{projectName}} && pip install cookiecutter",
     "defaultDir": "cookiecutter-django",
-    "postInstallNotice": "生成后用 `docker compose -f local.yml up` 起本地全栈环境，含 PostgreSQL 与 Redis。"
+    "postInstallNotice": "生成后用 `docker compose -f local.yml up` 起本地全栈环境，含 PostgreSQL 与 Redis。",
+    "steps": [
+      {
+        "id": "clone-django",
+        "program": "git",
+        "args": ["clone", "https://github.com/cookiecutter/cookiecutter-django.git", "{{targetPath}}"],
+        "cwd": "{{parentDir}}",
+        "description": "克隆 Cookiecutter Django 模板代码"
+      },
+      {
+        "id": "pip-install",
+        "program": "pip",
+        "args": ["install", "cookiecutter"],
+        "cwd": "{{targetPath}}",
+        "description": "安装 cookiecutter CLI 工具"
+      }
+    ],
+    "supportedPackageManagers": [],
+    "requiredCapabilities": ["git", "python", "docker"],
+    "preparedOnly": true
   },
-  "requirements": ["python", "docker"],
+  "requirements": ["python", "docker", "git"],
   "featured": false,
   "updatedAt": "2026-10-04"
 }

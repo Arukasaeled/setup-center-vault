@@ -12,11 +12,31 @@
   "scaffold": {
     "type": "git-clone",
     "gitUrl": "https://github.com/nestjs/typescript-starter.git",
-    "command": "git clone https://github.com/nestjs/typescript-starter.git my-nest-api && cd my-nest-api && npm install",
+    "command": "git clone https://github.com/nestjs/typescript-starter.git {{projectName}} && cd {{projectName}} && npm install",
     "defaultDir": "my-nest-api",
-    "postInstallNotice": "运行 `npm run start:dev` 启动带热重载的服务：http://localhost:3000"
+    "postInstallNotice": "运行 `npm run start:dev` 启动带热重载的服务：http://localhost:3000",
+    "steps": [
+      {
+        "id": "clone-nest",
+        "program": "git",
+        "args": ["clone", "https://github.com/nestjs/typescript-starter.git", "{{targetPath}}"],
+        "cwd": "{{parentDir}}",
+        "description": "克隆 NestJS TypeScript 起步工程"
+      },
+      {
+        "id": "install-deps",
+        "program": "npm",
+        "args": ["install"],
+        "cwd": "{{targetPath}}",
+        "description": "安装服务端依赖"
+      }
+    ],
+    "supportedPackageManagers": ["npm", "pnpm", "yarn"],
+    "defaultPackageManager": "npm",
+    "requiredCapabilities": ["git", "node", "npm"],
+    "preparedOnly": true
   },
-  "requirements": ["node", "npm"],
+  "requirements": ["git", "node", "npm"],
   "featured": true,
   "updatedAt": "2026-10-04"
 }

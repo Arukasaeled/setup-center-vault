@@ -12,11 +12,31 @@
   "scaffold": {
     "type": "git-clone",
     "gitUrl": "https://github.com/t3-oss/create-t3-turbo.git",
-    "command": "git clone https://github.com/t3-oss/create-t3-turbo.git my-turbo-app && cd my-turbo-app && pnpm install",
+    "command": "git clone https://github.com/t3-oss/create-t3-turbo.git {{projectName}} && cd {{projectName}} && pnpm install",
     "defaultDir": "my-turbo-app",
-    "postInstallNotice": "复制 .env.example 为 .env 并填写 DATABASE_URL 后再运行 `pnpm dev`。"
+    "postInstallNotice": "复制 .env.example 为 .env 并填写 DATABASE_URL 后再运行 `pnpm dev`。",
+    "steps": [
+      {
+        "id": "clone-turbo",
+        "program": "git",
+        "args": ["clone", "https://github.com/t3-oss/create-t3-turbo.git", "{{targetPath}}"],
+        "cwd": "{{parentDir}}",
+        "description": "克隆 T3 Turbo 单体仓库"
+      },
+      {
+        "id": "install-turbo",
+        "program": "pnpm",
+        "args": ["install"],
+        "cwd": "{{targetPath}}",
+        "description": "安装 Monorepo 依赖"
+      }
+    ],
+    "supportedPackageManagers": ["pnpm"],
+    "defaultPackageManager": "pnpm",
+    "requiredCapabilities": ["git", "node", "pnpm"],
+    "preparedOnly": true
   },
-  "requirements": ["node", "pnpm", "postgres"],
+  "requirements": ["git", "node", "pnpm"],
   "featured": true,
   "updatedAt": "2026-10-04"
 }

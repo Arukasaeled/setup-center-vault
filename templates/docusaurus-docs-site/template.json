@@ -12,11 +12,24 @@
   "scaffold": {
     "type": "git-clone",
     "gitUrl": "https://github.com/facebook/docusaurus.git",
-    "command": "git clone https://github.com/facebook/docusaurus.git && cd docusaurus",
-    "defaultDir": "docusaurus",
-    "postInstallNotice": "仓库自带官网实例 website/，`cd website && yarn && yarn start` 即可本地预览。"
+    "command": "git clone https://github.com/facebook/docusaurus.git {{projectName}} && cd {{projectName}}",
+    "defaultDir": "docusaurus-site",
+    "postInstallNotice": "仓库自带官网实例 website/，`cd website && yarn && yarn start` 即可本地预览。",
+    "steps": [
+      {
+        "id": "clone-docusaurus",
+        "program": "git",
+        "args": ["clone", "https://github.com/facebook/docusaurus.git", "{{targetPath}}"],
+        "cwd": "{{parentDir}}",
+        "description": "克隆 Docusaurus 仓库"
+      }
+    ],
+    "supportedPackageManagers": ["yarn", "npm", "pnpm"],
+    "defaultPackageManager": "yarn",
+    "requiredCapabilities": ["git", "node"],
+    "preparedOnly": true
   },
-  "requirements": ["node", "yarn"],
+  "requirements": ["git", "node", "yarn"],
   "featured": false,
   "updatedAt": "2026-10-04"
 }

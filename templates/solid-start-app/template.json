@@ -12,11 +12,31 @@
   "scaffold": {
     "type": "git-clone",
     "gitUrl": "https://github.com/solidjs/solid-start.git",
-    "command": "git clone https://github.com/solidjs/solid-start.git solid-app && cd solid-app && npm install",
+    "command": "git clone https://github.com/solidjs/solid-start.git {{projectName}} && cd {{projectName}} && npm install",
     "defaultDir": "solid-app",
-    "postInstallNotice": "运行 `npm run dev` 启动开发服务器。"
+    "postInstallNotice": "运行 `npm run dev` 启动开发服务器。",
+    "steps": [
+      {
+        "id": "clone-solid",
+        "program": "git",
+        "args": ["clone", "https://github.com/solidjs/solid-start.git", "{{targetPath}}"],
+        "cwd": "{{parentDir}}",
+        "description": "克隆 SolidStart 官方应用模板"
+      },
+      {
+        "id": "install-deps",
+        "program": "npm",
+        "args": ["install"],
+        "cwd": "{{targetPath}}",
+        "description": "安装 SolidStart 依赖"
+      }
+    ],
+    "supportedPackageManagers": ["npm", "pnpm", "yarn"],
+    "defaultPackageManager": "npm",
+    "requiredCapabilities": ["git", "node", "npm"],
+    "preparedOnly": true
   },
-  "requirements": ["node", "npm"],
+  "requirements": ["git", "node", "npm"],
   "featured": false,
   "updatedAt": "2026-10-04"
 }

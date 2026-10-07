@@ -1,0 +1,12 @@
+{
+  "name": "setup-center-vault",
+  "version": "1.0.0",
+  "description": "Decoupled remote content vault holding developer tools, design systems, templates, patterns, and creative resources.",
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate.mjs"
+  },
+  "devDependencies": {
+    "@cfworker/json-schema": "^2.0.1"
+  }
+}

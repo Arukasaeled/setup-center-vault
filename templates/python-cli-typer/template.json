@@ -11,9 +11,28 @@
   "repository": "https://github.com/fastapi/typer",
   "scaffold": {
     "type": "command",
-    "command": "uv init my-cli-tool && cd my-cli-tool && uv add typer rich",
+    "command": "uv init {{projectName}} && cd {{projectName}} && uv add typer rich",
     "defaultDir": "my-cli-tool",
-    "postInstallNotice": "运行 `uv run python main.py --help` 自动查看生成的终端色彩帮助文档。"
+    "postInstallNotice": "运行 `uv run python main.py --help` 自动查看生成的终端色彩帮助文档。",
+    "steps": [
+      {
+        "id": "uv-init-cli",
+        "program": "uv",
+        "args": ["init", "{{projectName}}"],
+        "cwd": "{{parentDir}}",
+        "description": "初始化 Python CLI 工作区"
+      },
+      {
+        "id": "add-cli-deps",
+        "program": "uv",
+        "args": ["add", "typer", "rich"],
+        "cwd": "{{targetPath}}",
+        "description": "添加 Typer 与 Rich 终端工具库"
+      }
+    ],
+    "supportedPackageManagers": [],
+    "requiredCapabilities": ["python", "uv"],
+    "preparedOnly": true
   },
   "requirements": ["python", "uv"],
   "featured": true,

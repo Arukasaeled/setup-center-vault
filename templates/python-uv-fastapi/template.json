@@ -12,9 +12,28 @@
     "type": "command",
     "command": "uv init {{projectName}} --app && cd {{projectName}} && uv add fastapi uvicorn",
     "defaultDir": "my-fastapi-service",
-    "postInstallNotice": "执行 `uv run uvicorn main:app --reload` 启动极速异步 API 服务与 Swagger 文档。"
+    "postInstallNotice": "执行 `uv run uvicorn main:app --reload` 启动极速异步 API 服务与 Swagger 文档。",
+    "steps": [
+      {
+        "id": "uv-init",
+        "program": "uv",
+        "args": ["init", "{{projectName}}", "--app"],
+        "cwd": "{{parentDir}}",
+        "description": "初始化 uv 应用工程结构"
+      },
+      {
+        "id": "uv-add-deps",
+        "program": "uv",
+        "args": ["add", "fastapi", "uvicorn"],
+        "cwd": "{{targetPath}}",
+        "description": "安装 FastAPI 与 Uvicorn 异步依赖"
+      }
+    ],
+    "supportedPackageManagers": [],
+    "requiredCapabilities": ["uv", "python"],
+    "preparedOnly": true
   },
-  "requirements": ["Astral uv (可在 Setup Center 软件库直接安装)"],
+  "requirements": ["Astral uv (可在 Setup Center 软件库直接安装)", "Python 3.10+"],
   "featured": true,
   "updatedAt": "2026-10-02"
 }

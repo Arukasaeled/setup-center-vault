@@ -11,9 +11,22 @@
   "repository": "https://github.com/withastro/astro",
   "scaffold": {
     "type": "command",
-    "command": "pnpm create astro@latest . --template blog --install --git",
+    "command": "pnpm create astro@latest {{projectName}} --template blog --install --git",
     "defaultDir": "astro-blog",
-    "postInstallNotice": "运行 `pnpm dev` 并在浏览器打开 http://localhost:4321"
+    "postInstallNotice": "运行 `pnpm dev` 并在浏览器打开 http://localhost:4321",
+    "steps": [
+      {
+        "id": "create-astro",
+        "program": "pnpm",
+        "args": ["create", "astro@latest", "{{projectName}}", "--template", "blog", "--install", "--git"],
+        "cwd": "{{parentDir}}",
+        "description": "创建 Astro 5 内容博客工程"
+      }
+    ],
+    "supportedPackageManagers": ["pnpm", "npm", "yarn", "bun"],
+    "defaultPackageManager": "pnpm",
+    "requiredCapabilities": ["node", "pnpm"],
+    "preparedOnly": true
   },
   "requirements": ["node", "pnpm"],
   "featured": true,

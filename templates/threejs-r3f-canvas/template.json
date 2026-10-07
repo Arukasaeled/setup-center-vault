@@ -11,9 +11,29 @@
   "repository": "https://github.com/pmndrs/react-three-fiber",
   "scaffold": {
     "type": "command",
-    "command": "pnpm create vite my-3d-scene --template react-ts && cd my-3d-scene && pnpm add three @types/three @react-three/fiber @react-three/drei",
+    "command": "pnpm create vite {{projectName}} --template react-ts && cd {{projectName}} && pnpm add three @types/three @react-three/fiber @react-three/drei",
     "defaultDir": "my-3d-scene",
-    "postInstallNotice": "运行 `pnpm dev` 并在浏览器体验 60FPS 声明式三维网格与空间粒子。"
+    "postInstallNotice": "运行 `pnpm dev` 并在浏览器体验 60FPS 声明式三维网格与空间粒子。",
+    "steps": [
+      {
+        "id": "create-vite-3d",
+        "program": "pnpm",
+        "args": ["create", "vite", "{{projectName}}", "--template", "react-ts"],
+        "cwd": "{{parentDir}}",
+        "description": "创建 Vite + React 3D 宿主工程"
+      },
+      {
+        "id": "add-three-deps",
+        "program": "pnpm",
+        "args": ["add", "three", "@types/three", "@react-three/fiber", "@react-three/drei"],
+        "cwd": "{{targetPath}}",
+        "description": "安装 Three.js 与 React Three Fiber 3D 渲染库"
+      }
+    ],
+    "supportedPackageManagers": ["pnpm", "npm", "yarn", "bun"],
+    "defaultPackageManager": "pnpm",
+    "requiredCapabilities": ["node", "pnpm"],
+    "preparedOnly": true
   },
   "requirements": ["node", "pnpm"],
   "featured": true,

@@ -41,9 +41,32 @@ setup-center-vault/
 │   ├── create-t3-app/
 │   ├── rust-cli-starter/
 │   └── python-uv-fastapi/
-├── patterns/                # 可复用 UI / 交互模式规范
-├── skills/                  # 面向 Agent 与开发者的 Transfer 技能
+├── patterns/                # 可复用 UI / 交互模式规范 (34 项)
+├── skills/                  # 面向 Agent 与开发者的 Transfer 技能 (21 项)
 └── inbox/                   # 外部链接收集箱（等待结构化入库）
+```
+
+### 资产规模与收录基线
+- **视觉风格 (Styles)**：20 套独立设计系统体验（客户端内置 14 套离线基线，6 套动态按需同步）。
+- **精选资源 (Resources)**：172+ 项开源工具、框架与设计资产，覆盖 10 大分类。
+- **工程模板 (Templates)**：28 套结构化工程脚手架模板（包含 Node/Tauri/Rust/Python 等初始化配方）。
+- **交互模式 (Patterns)**：34 套 WAI-ARIA 与现代化交互组件设计规范。
+- **Transfer 技能 (Skills)**：21 项 Agent 迁移与工作流自动化技能。
+
+---
+
+## 前置要求与开发环境
+
+- **Node.js**：20.19+ / 22.12+ (LTS)
+- **npm**：10+
+
+### 验证与质量门禁
+
+在提交更改或发起 Pull Request 前，必须运行本地契约与结构验证：
+
+```bash
+# 全量内容与 Schema 契约校验
+node scripts/validate.mjs --content-only
 ```
 
 ---
@@ -55,3 +78,4 @@ setup-center-vault/
 3. **添加新模板**：在 `templates/<id>/` 下放置 `template.json`。
 4. **更新清单**：递增 `manifest.json` 中的 `contentVersion` 与计数器。
 5. **生效**：客户端在启动或点击「检查更新」时自动无缝增量加载。
+

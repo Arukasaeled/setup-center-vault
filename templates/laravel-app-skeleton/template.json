@@ -12,11 +12,30 @@
   "scaffold": {
     "type": "git-clone",
     "gitUrl": "https://github.com/laravel/laravel.git",
-    "command": "git clone https://github.com/laravel/laravel.git my-laravel-app && cd my-laravel-app && composer install",
+    "command": "git clone https://github.com/laravel/laravel.git {{projectName}} && cd {{projectName}} && composer install",
     "defaultDir": "my-laravel-app",
-    "postInstallNotice": "复制 .env.example 为 .env，运行 `php artisan key:generate` 后 `php artisan serve` 启动。"
+    "postInstallNotice": "复制 .env.example 为 .env，运行 `php artisan key:generate` 后 `php artisan serve` 启动。",
+    "steps": [
+      {
+        "id": "clone-laravel",
+        "program": "git",
+        "args": ["clone", "https://github.com/laravel/laravel.git", "{{targetPath}}"],
+        "cwd": "{{parentDir}}",
+        "description": "克隆 Laravel 官方应用骨架"
+      },
+      {
+        "id": "composer-install",
+        "program": "composer",
+        "args": ["install"],
+        "cwd": "{{targetPath}}",
+        "description": "安装 PHP 依赖包"
+      }
+    ],
+    "supportedPackageManagers": [],
+    "requiredCapabilities": ["git", "php"],
+    "preparedOnly": true
   },
-  "requirements": ["php", "composer"],
+  "requirements": ["git", "php", "composer"],
   "featured": false,
   "updatedAt": "2026-10-04"
 }

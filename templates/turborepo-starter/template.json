@@ -12,11 +12,24 @@
   "scaffold": {
     "type": "git-clone",
     "gitUrl": "https://github.com/vercel/turborepo.git",
-    "command": "git clone https://github.com/vercel/turborepo.git && cd turborepo",
-    "defaultDir": "turborepo",
-    "postInstallNotice": "仓库包含 docs/、examples/、packages/ 三个工作区，可从 examples/basic 入手。"
+    "command": "git clone https://github.com/vercel/turborepo.git {{projectName}} && cd {{projectName}}",
+    "defaultDir": "turborepo-starter",
+    "postInstallNotice": "仓库包含 docs/、examples/、packages/ 三个工作区，可从 examples/basic 入手。",
+    "steps": [
+      {
+        "id": "clone-turbo",
+        "program": "git",
+        "args": ["clone", "https://github.com/vercel/turborepo.git", "{{targetPath}}"],
+        "cwd": "{{parentDir}}",
+        "description": "克隆 Turborepo 任务图与示例仓库"
+      }
+    ],
+    "supportedPackageManagers": ["pnpm", "npm", "yarn"],
+    "defaultPackageManager": "pnpm",
+    "requiredCapabilities": ["git", "node", "pnpm"],
+    "preparedOnly": true
   },
-  "requirements": ["node", "pnpm"],
+  "requirements": ["git", "node", "pnpm"],
   "featured": false,
   "updatedAt": "2026-10-04"
 }

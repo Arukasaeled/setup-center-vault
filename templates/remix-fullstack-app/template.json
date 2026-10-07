@@ -12,11 +12,24 @@
   "scaffold": {
     "type": "git-clone",
     "gitUrl": "https://github.com/remix-run/remix.git",
-    "command": "git clone https://github.com/remix-run/remix.git remix-app",
+    "command": "git clone https://github.com/remix-run/remix.git {{projectName}}",
     "defaultDir": "remix-app",
-    "postInstallNotice": "仓库为 monorepo；示例应用位于 templates/ 目录，进入后运行 `npm install && npm run dev`。"
+    "postInstallNotice": "仓库为 monorepo；示例应用位于 templates/ 目录，进入后运行 `npm install && npm run dev`。",
+    "steps": [
+      {
+        "id": "clone-remix",
+        "program": "git",
+        "args": ["clone", "https://github.com/remix-run/remix.git", "{{targetPath}}"],
+        "cwd": "{{parentDir}}",
+        "description": "克隆 Remix 全栈仓库"
+      }
+    ],
+    "supportedPackageManagers": ["npm", "pnpm", "yarn"],
+    "defaultPackageManager": "npm",
+    "requiredCapabilities": ["git", "node", "npm"],
+    "preparedOnly": true
   },
-  "requirements": ["node", "npm"],
+  "requirements": ["git", "node", "npm"],
   "featured": true,
   "updatedAt": "2026-10-04"
 }

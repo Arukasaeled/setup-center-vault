@@ -12,11 +12,31 @@
   "scaffold": {
     "type": "git-clone",
     "gitUrl": "https://github.com/withastro/starlight.git",
-    "command": "git clone https://github.com/withastro/starlight.git && cd starlight && pnpm install",
-    "defaultDir": "starlight",
-    "postInstallNotice": "仓库为 monorepo，docs/ 内即为 Starlight 官方文档站实例，运行 `pnpm dev` 预览。"
+    "command": "git clone https://github.com/withastro/starlight.git {{projectName}} && cd {{projectName}} && pnpm install",
+    "defaultDir": "starlight-docs",
+    "postInstallNotice": "仓库为 monorepo，docs/ 内即为 Starlight 官方文档站实例，运行 `pnpm dev` 预览。",
+    "steps": [
+      {
+        "id": "git-clone-starlight",
+        "program": "git",
+        "args": ["clone", "https://github.com/withastro/starlight.git", "{{targetPath}}"],
+        "cwd": "{{parentDir}}",
+        "description": "克隆 Starlight 官方文档站仓库"
+      },
+      {
+        "id": "install-deps",
+        "program": "pnpm",
+        "args": ["install"],
+        "cwd": "{{targetPath}}",
+        "description": "安装项目工作区依赖"
+      }
+    ],
+    "supportedPackageManagers": ["pnpm", "npm", "yarn"],
+    "defaultPackageManager": "pnpm",
+    "requiredCapabilities": ["git", "node", "pnpm"],
+    "preparedOnly": true
   },
-  "requirements": ["node", "pnpm"],
+  "requirements": ["git", "node", "pnpm"],
   "featured": false,
   "updatedAt": "2026-10-04"
 }

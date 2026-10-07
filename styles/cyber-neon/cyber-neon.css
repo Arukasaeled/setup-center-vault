@@ -34,8 +34,8 @@
   --radius-control: 4px;
 }
 
-[data-style="cyber-neon"] * {
-  border-radius: 4px !important;
+[data-style="cyber-neon"] :is([data-resource-card], [data-style-card], [data-software-row], input, button) {
+  border-radius: 4px;
 }
 
 /* Subtle cyber-grid background */

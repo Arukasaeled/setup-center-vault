@@ -11,9 +11,35 @@
   "repository": "https://github.com/tokio-rs/axum",
   "scaffold": {
     "type": "command",
-    "command": "cargo new --bin my-axum-service && cd my-axum-service && cargo add axum tokio --features tokio/full && cargo add tracing tracing-subscriber serde --features serde/derive",
+    "command": "cargo new --bin {{projectName}} && cd {{projectName}} && cargo add axum tokio --features tokio/full && cargo add tracing tracing-subscriber serde --features serde/derive",
     "defaultDir": "my-axum-service",
-    "postInstallNotice": "运行 `cargo run` 启动 Axum HTTP 服务，默认端口监听 0.0.0.0:3000。"
+    "postInstallNotice": "运行 `cargo run` 启动 Axum HTTP 服务，默认端口监听 0.0.0.0:3000。",
+    "steps": [
+      {
+        "id": "cargo-new",
+        "program": "cargo",
+        "args": ["new", "--bin", "{{projectName}}"],
+        "cwd": "{{parentDir}}",
+        "description": "创建 Rust 独立二进制应用"
+      },
+      {
+        "id": "add-axum",
+        "program": "cargo",
+        "args": ["add", "axum", "tokio", "--features", "tokio/full"],
+        "cwd": "{{targetPath}}",
+        "description": "添加 Axum 与 Tokio 运行时依赖"
+      },
+      {
+        "id": "add-tracing",
+        "program": "cargo",
+        "args": ["add", "tracing", "tracing-subscriber", "serde", "--features", "serde/derive"],
+        "cwd": "{{targetPath}}",
+        "description": "添加日志追踪与 Serde 序列化库"
+      }
+    ],
+    "supportedPackageManagers": [],
+    "requiredCapabilities": ["rust"],
+    "preparedOnly": true
   },
   "requirements": ["rust"],
   "featured": true,

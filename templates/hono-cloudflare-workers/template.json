@@ -11,9 +11,22 @@
   "repository": "https://github.com/honojs/hono",
   "scaffold": {
     "type": "command",
-    "command": "pnpm create hono@latest . --template cloudflare-workers --install",
+    "command": "pnpm create hono@latest {{projectName}} --template cloudflare-workers --install",
     "defaultDir": "hono-edge-api",
-    "postInstallNotice": "运行 `pnpm dev` 启动 Wrangler 本地 Workers 仿真环境。"
+    "postInstallNotice": "运行 `pnpm dev` 启动 Wrangler 本地 Workers 仿真环境。",
+    "steps": [
+      {
+        "id": "create-hono",
+        "program": "pnpm",
+        "args": ["create", "hono@latest", "{{projectName}}", "--template", "cloudflare-workers", "--install"],
+        "cwd": "{{parentDir}}",
+        "description": "生成 Hono Cloudflare Workers 边缘 API 模板"
+      }
+    ],
+    "supportedPackageManagers": ["pnpm", "npm", "yarn", "bun"],
+    "defaultPackageManager": "pnpm",
+    "requiredCapabilities": ["node", "pnpm"],
+    "preparedOnly": true
   },
   "requirements": ["node", "pnpm"],
   "featured": true,

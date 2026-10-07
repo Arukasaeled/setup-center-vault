@@ -89,7 +89,7 @@
 }
 
 [data-style="patch-bay"] nav[data-nav]::before {
-  content: "● PATCH ROUTE // BUS MATRIX";
+  content: "PATCH ROUTE // BUS MATRIX";
   position: absolute;
   top: 8px;
   left: 1rem;

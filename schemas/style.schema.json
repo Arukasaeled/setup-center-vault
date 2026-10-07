@@ -4,10 +4,13 @@
   "description": "Setup Center Style Contract V2. A style manifest describes a whole declarative Experience — palette + tokens (the legacy Tier-1/2 reskin surface) plus an optional `experience` block naming the shell, navigation, detail, card and composition grammar the client renders. Every grammar value is a closed enum the client already implements, which is what lets a release ship a Tier-3/Tier-4 experience with no client rebuild. The V1 fields stay required so an older vault entry keeps validating.",
   "type": "object",
   "required": ["id", "name", "version", "description", "palette", "tokens", "cssPath"],
+  "additionalProperties": false,
   "properties": {
+    "$schema": { "type": "string" },
     "id": { "type": "string" },
     "name": { "type": "string" },
     "version": { "type": "string" },
+    "subtitle": { "type": "string" },
     "description": { "type": "string" },
     "author": { "type": "string" },
     "license": { "type": "string" },
@@ -162,6 +165,9 @@
         "imagePath": { "type": "string" },
         "swatches": { "type": "array", "items": { "type": "string" } }
       }
+    },
+    "extensions": {
+      "type": "object"
     }
   }
 }

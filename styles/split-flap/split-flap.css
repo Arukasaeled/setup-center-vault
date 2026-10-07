@@ -216,7 +216,7 @@
 }
 
 [data-style="split-flap"] [data-resource-card]::before {
-  content: "[STATUS: SCHEDULED]  == ARRIVALS ==";
+  content: "[CATALOG INDEX]  == SOLARI BOARD ==";
   display: block;
   font-family: var(--font-mono);
   font-size: 9.5px;

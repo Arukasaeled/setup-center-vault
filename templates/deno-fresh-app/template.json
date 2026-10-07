@@ -12,11 +12,23 @@
   "scaffold": {
     "type": "git-clone",
     "gitUrl": "https://github.com/freshframework/fresh.git",
-    "command": "git clone https://github.com/freshframework/fresh.git && cd fresh && deno task start",
-    "defaultDir": "fresh",
-    "postInstallNotice": "需要先安装 Deno；仓库自带 demo/ 应用可直接运行，无需 npm install。"
+    "command": "git clone https://github.com/freshframework/fresh.git {{projectName}} && cd {{projectName}}",
+    "defaultDir": "fresh-app",
+    "postInstallNotice": "需要先安装 Deno；仓库自带 demo/ 应用可直接运行，无需 npm install。",
+    "steps": [
+      {
+        "id": "clone-fresh",
+        "program": "git",
+        "args": ["clone", "https://github.com/freshframework/fresh.git", "{{targetPath}}"],
+        "cwd": "{{parentDir}}",
+        "description": "克隆 Fresh 框架工程"
+      }
+    ],
+    "supportedPackageManagers": [],
+    "requiredCapabilities": ["git", "deno"],
+    "preparedOnly": true
   },
-  "requirements": ["deno"],
+  "requirements": ["git", "deno"],
   "featured": false,
   "updatedAt": "2026-10-04"
 }

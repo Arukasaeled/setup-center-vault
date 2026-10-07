@@ -12,11 +12,31 @@
   "scaffold": {
     "type": "git-clone",
     "gitUrl": "https://github.com/nuxt/starter.git",
-    "command": "git clone https://github.com/nuxt/starter.git nuxt-app && cd nuxt-app && npm install",
+    "command": "git clone https://github.com/nuxt/starter.git {{projectName}} && cd {{projectName}} && npm install",
     "defaultDir": "nuxt-app",
-    "postInstallNotice": "运行 `npm run dev` 启动开发服务器：http://localhost:3000"
+    "postInstallNotice": "运行 `npm run dev` 启动开发服务器：http://localhost:3000",
+    "steps": [
+      {
+        "id": "clone-nuxt",
+        "program": "git",
+        "args": ["clone", "https://github.com/nuxt/starter.git", "{{targetPath}}"],
+        "cwd": "{{parentDir}}",
+        "description": "克隆 Nuxt 4 官方起步仓库"
+      },
+      {
+        "id": "install-deps",
+        "program": "npm",
+        "args": ["install"],
+        "cwd": "{{targetPath}}",
+        "description": "安装 Nuxt 全栈依赖"
+      }
+    ],
+    "supportedPackageManagers": ["npm", "pnpm", "yarn", "bun"],
+    "defaultPackageManager": "npm",
+    "requiredCapabilities": ["git", "node", "npm"],
+    "preparedOnly": true
   },
-  "requirements": ["node", "npm"],
+  "requirements": ["git", "node", "npm"],
   "featured": true,
   "updatedAt": "2026-10-04"
 }

@@ -12,11 +12,24 @@
   "scaffold": {
     "type": "git-clone",
     "gitUrl": "https://github.com/electron/forge.git",
-    "command": "git clone https://github.com/electron/forge.git && cd forge",
-    "defaultDir": "forge",
-    "postInstallNotice": "仓库为 monorepo；推荐改用 `npx create-electron-app@latest my-app` 生成独立工程。"
+    "command": "git clone https://github.com/electron/forge.git {{projectName}} && cd {{projectName}}",
+    "defaultDir": "forge-desktop",
+    "postInstallNotice": "仓库为 monorepo；推荐改用 `npx create-electron-app@latest my-app` 生成独立工程。",
+    "steps": [
+      {
+        "id": "clone-forge",
+        "program": "git",
+        "args": ["clone", "https://github.com/electron/forge.git", "{{targetPath}}"],
+        "cwd": "{{parentDir}}",
+        "description": "克隆 Electron Forge 仓库"
+      }
+    ],
+    "supportedPackageManagers": ["npm", "yarn", "pnpm"],
+    "defaultPackageManager": "npm",
+    "requiredCapabilities": ["git", "node", "npm"],
+    "preparedOnly": true
   },
-  "requirements": ["node", "npm"],
+  "requirements": ["git", "node", "npm"],
   "featured": true,
   "updatedAt": "2026-10-04"
 }

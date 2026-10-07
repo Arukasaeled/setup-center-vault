@@ -12,11 +12,31 @@
   "scaffold": {
     "type": "git-clone",
     "gitUrl": "https://github.com/electron-vite/electron-vite-react.git",
-    "command": "git clone https://github.com/electron-vite/electron-vite-react.git my-desktop && cd my-desktop && npm install",
-    "defaultDir": "my-desktop",
-    "postInstallNotice": "运行 `npm run dev` 同时启动 Vite 与 Electron 窗口。"
+    "command": "git clone https://github.com/electron-vite/electron-vite-react.git {{projectName}} && cd {{projectName}} && npm install",
+    "defaultDir": "my-electron-app",
+    "postInstallNotice": "运行 `npm run dev` 同时启动 Vite 与 Electron 窗口。",
+    "steps": [
+      {
+        "id": "clone-electron-vite",
+        "program": "git",
+        "args": ["clone", "https://github.com/electron-vite/electron-vite-react.git", "{{targetPath}}"],
+        "cwd": "{{parentDir}}",
+        "description": "克隆 Electron + Vite + React 模板"
+      },
+      {
+        "id": "install-deps",
+        "program": "npm",
+        "args": ["install"],
+        "cwd": "{{targetPath}}",
+        "description": "安装桌面端依赖"
+      }
+    ],
+    "supportedPackageManagers": ["npm", "pnpm", "yarn"],
+    "defaultPackageManager": "npm",
+    "requiredCapabilities": ["git", "node", "npm"],
+    "preparedOnly": true
   },
-  "requirements": ["node", "npm"],
+  "requirements": ["git", "node", "npm"],
   "featured": true,
   "updatedAt": "2026-10-04"
 }

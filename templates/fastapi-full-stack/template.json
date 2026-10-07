@@ -12,11 +12,30 @@
   "scaffold": {
     "type": "git-clone",
     "gitUrl": "https://github.com/fastapi/full-stack-fastapi-template.git",
-    "command": "git clone https://github.com/fastapi/full-stack-fastapi-template.git my-api && cd my-api && docker compose up -d",
-    "defaultDir": "my-api",
-    "postInstallNotice": "先用 `python -c \"import secrets;print(secrets.token_urlsafe(32))\"` 生成 SECRET_KEY 写入 .env。"
+    "command": "git clone https://github.com/fastapi/full-stack-fastapi-template.git {{projectName}} && cd {{projectName}} && docker compose up -d",
+    "defaultDir": "fastapi-fullstack",
+    "postInstallNotice": "先用 `python -c \"import secrets;print(secrets.token_urlsafe(32))\"` 生成 SECRET_KEY 写入 .env。",
+    "steps": [
+      {
+        "id": "clone-fastapi-fullstack",
+        "program": "git",
+        "args": ["clone", "https://github.com/fastapi/full-stack-fastapi-template.git", "{{targetPath}}"],
+        "cwd": "{{parentDir}}",
+        "description": "克隆 FastAPI 官方全栈模板"
+      },
+      {
+        "id": "docker-compose-up",
+        "program": "docker",
+        "args": ["compose", "up", "-d"],
+        "cwd": "{{targetPath}}",
+        "description": "启动全栈服务容器"
+      }
+    ],
+    "supportedPackageManagers": [],
+    "requiredCapabilities": ["git", "python", "docker"],
+    "preparedOnly": true
   },
-  "requirements": ["python", "docker"],
+  "requirements": ["git", "python", "docker"],
   "featured": true,
   "updatedAt": "2026-10-04"
 }
