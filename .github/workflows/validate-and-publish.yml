@@ -2,9 +2,14 @@ name: Validate and Publish Vault Release
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
     paths:
+      - ".github/workflows/validate-and-publish.yml"
+      - "scripts/**"
+      - "schemas/**"
+      - "inbox/**"
+      - "package.json"
+      - "package-lock.json"
       - "releases/latest.json"
       - "manifest.json"
       - "resources/**"
@@ -14,75 +19,104 @@ on:
       - "skills/**"
   workflow_dispatch:
     inputs:
-      force_tag:
-        description: "Force create release tag if absent (true/false)"
-        required: false
-        default: "false"
+      snapshot_commit:
+        description: "Existing full Snapshot Commit A ID to validate and tag"
+        required: true
+        type: string
+      content_version:
+        description: "Content version declared in Snapshot Commit A"
+        required: true
+        type: string
 
 permissions:
   contents: read
 
+concurrency:
+  group: vault-release-${{ github.event_name }}-${{ inputs.content_version || github.ref }}
+  cancel-in-progress: false
+
 jobs:
   validate-content:
-    name: Validate Content Integrity
+    name: Validate Selected Snapshot
     runs-on: ubuntu-latest
     permissions:
       contents: read
     steps:
-      - name: Checkout repository
+      - name: Checkout validator and repository history
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5a1 # v4.1.0
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
         with:
           node-version: 20
+          cache: npm
 
-      - name: Validate Vault Content Integrity (Zero Dead Content)
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Validate current content on main push
+        if: github.event_name == 'push'
         run: node scripts/validate.mjs --content-only
 
+      - name: Verify existing pointer B against its pinned A
+        if: github.event_name == 'push'
+        run: node scripts/validate.mjs --checkpoint-only
+
+      - name: Validate dispatch target A before any tag is created
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          TARGET_A: ${{ inputs.snapshot_commit }}
+          TARGET_VERSION: ${{ inputs.content_version }}
+        run: node scripts/validate.mjs --content-only --snapshot-commit "$TARGET_A" --expected-version "$TARGET_VERSION"
+
   publish-and-tag:
-    name: Tag & Verify Immutable Release
+    name: Tag Validated Snapshot A
+    if: github.event_name == 'workflow_dispatch'
     needs: validate-content
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - name: Checkout repository
+      - name: Checkout repository history and tags
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5a1 # v4.1.0
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
         with:
           node-version: 20
 
-      - name: Verify Version Consistency & Co-originated Tag
+      - name: Create immutable tag or confirm the same existing A
+        env:
+          TARGET_A: ${{ inputs.snapshot_commit }}
+          TARGET_VERSION: ${{ inputs.content_version }}
         run: |
-          VERSION=$(node -e "console.log(JSON.parse(require('fs').readFileSync('releases/latest.json')).releaseVersion)")
-          TAG="v$VERSION"
-          COMMIT_SHA=$(git rev-parse HEAD)
-          PIN_SHA=$(node -e "console.log(JSON.parse(require('fs').readFileSync('releases/latest.json')).commitSha)")
-
-          echo "Target Release Version: $VERSION"
-          echo "Target Release Tag:     $TAG"
-          echo "Head Commit SHA:        $COMMIT_SHA"
-          echo "Pinned Commit SHA:      $PIN_SHA"
-
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-          # 1. Create and push tag if absent
-          if ! git rev-parse "$TAG" >/dev/null 2>&1; then
-            echo "Creating tag $TAG on HEAD..."
-            git tag -a "$TAG" -m "Vault Release $VERSION" "$COMMIT_SHA"
-            git push origin "$TAG"
-            echo "Successfully pushed tag $TAG"
+          set -euo pipefail
+          RESOLVED_A=$(git rev-parse --verify --quiet "${TARGET_A}^{commit}")
+          TAG="v$TARGET_VERSION"
+          export RESOLVED_A
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+          const current = JSON.parse(readFileSync('releases/latest.json', 'utf8'));
+          if (current.releaseVersion === process.env.TARGET_VERSION &&
+              current.commitSha.toLowerCase() !== process.env.RESOLVED_A.toLowerCase()) {
+            throw new Error('A published content version cannot be reused for another snapshot');
+          }
+          NODE
+          EXISTING_TAG_COMMIT=$(git rev-parse --verify --quiet "refs/tags/${TAG}^{commit}" || true)
+          if [ -n "$EXISTING_TAG_COMMIT" ]; then
+            if [ "$EXISTING_TAG_COMMIT" != "$RESOLVED_A" ]; then
+              echo "::error::Version tag already points to another snapshot; overwrite refused."
+              exit 1
+            fi
           else
-            echo "Tag $TAG already exists."
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git tag -a "$TAG" -m "Vault snapshot $TARGET_VERSION" "$RESOLVED_A"
+            git push origin "refs/tags/$TAG"
           fi
-
-          # 2. Strict checkpoint validation ensuring tag & commit are co-originated (Issues D01, D02)
-          node scripts/validate.mjs --checkpoint-only
+          echo "Snapshot A tag is ready. Pointer B has not been changed." >> "$GITHUB_STEP_SUMMARY"

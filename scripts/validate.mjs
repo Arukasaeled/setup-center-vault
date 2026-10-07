@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-import { readFileSync, existsSync, readdirSync } from "node:fs";
+import { readFileSync as readDisk, existsSync as existsOnDisk, readdirSync as listDisk } from "node:fs";
 import { execFileSync } from "node:child_process";
-import { join, dirname } from "node:path";
+import { join, dirname, relative, isAbsolute } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -11,7 +11,7 @@ const vaultDir = join(here, "..");
 /** Run git in the vault repo; returns trimmed stdout or null when it fails. */
 function git(args) {
   try {
-    return execFileSync("git", args, { cwd: vaultDir, encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }).trim();
+    return execFileSync("git", args, { cwd: vaultDir, encoding: "utf8", maxBuffer: 16 * 1024 * 1024, stdio: ["ignore", "pipe", "ignore"] }).trim();
   } catch {
     return null;
   }
@@ -20,8 +20,73 @@ function git(args) {
 const cliArgs = process.argv.slice(2);
 const contentOnly = cliArgs.includes("--content-only");
 const checkpointOnly = cliArgs.includes("--checkpoint-only");
+function option(name) {
+  const index = cliArgs.indexOf(name);
+  if (index < 0) return null;
+  const value = cliArgs[index + 1];
+  if (!value || value.startsWith("--")) throw new Error(`Missing value for ${name}`);
+  return value;
+}
 
-console.log("🔍 [Setup Vault Validator] Checking repository:", vaultDir, contentOnly ? "(content-only mode)" : checkpointOnly ? "(checkpoint-only mode)" : "(full mode)");
+let snapshotCommit = null;
+let expectedVersion = null;
+let snapshotFiles = null;
+try {
+  const requestedCommit = option("--snapshot-commit");
+  expectedVersion = option("--expected-version");
+  if (contentOnly && checkpointOnly) throw new Error("Content-only and checkpoint-only are mutually exclusive");
+  if (expectedVersion && !/^[0-9]{4}\.[0-9]{2}\.[0-9]{2}(\.[0-9]+)?$/.test(expectedVersion)) {
+    throw new Error("Invalid expected content version");
+  }
+  if (requestedCommit) {
+    if (!contentOnly || !/^[0-9a-fA-F]{40}$/.test(requestedCommit)) {
+      throw new Error("Snapshot validation requires --content-only and a full existing commit ID");
+    }
+    snapshotCommit = git(["rev-parse", "--verify", "--quiet", `${requestedCommit}^{commit}`]);
+    if (!snapshotCommit) throw new Error("Requested snapshot commit does not exist");
+    const tree = git(["ls-tree", "-r", "--name-only", "-z", snapshotCommit]);
+    if (tree === null) throw new Error("Cannot read the requested snapshot tree");
+    snapshotFiles = new Set(tree.split("\0").filter(Boolean));
+  }
+} catch (error) {
+  console.error(`Cannot select validation snapshot: ${error.message}`);
+  process.exit(1);
+}
+
+function snapshotPath(path) {
+  const local = relative(vaultDir, path).replace(/\\/g, "/");
+  if (isAbsolute(local) || local === ".." || local.startsWith("../")) throw new Error("Path escapes the vault root");
+  return local;
+}
+
+// Read immutable A directly. The validator and its installed dependencies remain from this workflow checkout.
+function readFileSync(path, encoding) {
+  if (!snapshotCommit) return readDisk(path, encoding);
+  const content = git(["show", `${snapshotCommit}:${snapshotPath(path)}`]);
+  if (content === null) throw new Error(`Missing snapshot file: ${snapshotPath(path)}`);
+  return content;
+}
+function existsSync(path) {
+  if (!snapshotFiles) return existsOnDisk(path);
+  const local = snapshotPath(path);
+  return snapshotFiles.has(local) || [...snapshotFiles].some((file) => file.startsWith(`${local}/`));
+}
+function readdirSync(path, options) {
+  if (!snapshotFiles) return listDisk(path, options);
+  const prefix = `${snapshotPath(path)}/`;
+  const entries = new Map();
+  for (const file of snapshotFiles) {
+    if (!file.startsWith(prefix)) continue;
+    const remainder = file.slice(prefix.length);
+    const name = remainder.split("/")[0];
+    entries.set(name, remainder.includes("/"));
+  }
+  return options?.withFileTypes
+    ? [...entries].map(([name, directory]) => ({ name, isDirectory: () => directory }))
+    : [...entries.keys()];
+}
+
+console.log("🔍 [Setup Vault Validator] Checking repository:", snapshotCommit ?? vaultDir, contentOnly ? "(content-only mode)" : checkpointOnly ? "(checkpoint-only mode)" : "(full mode)");
 
 let errors = 0;
 let checkedItems = 0;
@@ -31,13 +96,15 @@ function fail(msg) {
   errors++;
 }
 
-// Load JSON Schema validator if available
+// Schema validation is mandatory; missing dependencies must not silently bypass it.
 let cfValidator = null;
 try {
   const cf = await import("@cfworker/json-schema");
   cfValidator = cf.Validator;
-} catch {
-  // Pure Node fallback if dependencies not yet installed
+  if (typeof cfValidator !== "function") throw new Error("JSON Schema Validator export is unavailable");
+} catch (error) {
+  console.error(`Required JSON Schema validator could not be loaded: ${error.message}`);
+  process.exit(1);
 }
 
 function loadSchema(name) {
@@ -46,10 +113,19 @@ function loadSchema(name) {
     fail(`Schema missing: ${name}`);
     return null;
   }
-  return JSON.parse(readFileSync(p, "utf8"));
+  try {
+    return JSON.parse(readFileSync(p, "utf8"));
+  } catch (error) {
+    fail(`Schema cannot be loaded: ${name}: ${error.message}`);
+    return null;
+  }
 }
 
 function validateWithSchema(data, schema, label) {
+  if (!cfValidator || !schema) {
+    fail(`Schema validation unavailable for ${label}`);
+    return false;
+  }
   if (cfValidator && schema) {
     try {
       const v = new cfValidator(schema);
@@ -66,6 +142,78 @@ function validateWithSchema(data, schema, label) {
     }
   }
   return true;
+}
+
+function safeContentPath(path) {
+  return typeof path === "string" && path.length > 0
+    && !/[\\\x00-\x1f:?*"<>|]/.test(path)
+    && path.split("/").every((segment) => segment && segment !== "." && segment !== "..");
+}
+
+/** The release summary counts actual published items; resource manifest.count counts category files. */
+function validatePinnedCounts(manifest, checkpoint, commit) {
+  const tree = git(["ls-tree", "-r", "--name-only", "-z", commit]);
+  if (tree === null) { fail("Cannot read pinned content tree"); return; }
+  const files = new Set(tree.split("\0").filter(Boolean));
+  validateWithSchema(manifest, loadSchema("vault-manifest.schema.json"), "pinned manifest.json");
+  for (const section of ["styles", "resources", "templates", "patterns", "skills"]) {
+    const collection = manifest.collections?.[section];
+    if (!collection && section === "skills") continue;
+    if (!Array.isArray(collection?.items)) { fail(`Pinned ${section} index is missing`); continue; }
+    if (collection.count !== collection.items.length) fail(`Pinned ${section} index count does not match its entries`);
+    const paths = new Set();
+    const ids = new Set();
+    let itemCount = 0;
+    for (const ref of collection.items) {
+      if (!safeContentPath(ref.path) || !ref.path.startsWith(`${section}/`) || !files.has(ref.path)) {
+        fail(`Pinned ${section} path is invalid or missing: ${ref.path}`);
+        continue;
+      }
+      if (paths.has(ref.path) || ids.has(ref.id)) fail(`Duplicate pinned ${section} index entry: ${ref.id}`);
+      paths.add(ref.path); ids.add(ref.id);
+      try {
+        const raw = git(["show", `${commit}:${ref.path}`]);
+        if (raw === null) throw new Error("Cannot read pinned asset");
+        const asset = JSON.parse(raw);
+        if (section === "resources") {
+          if (!Array.isArray(asset)) throw new Error("Resource category is not an array");
+          itemCount += asset.length;
+        } else {
+          if (asset.id !== ref.id) fail(`Pinned index ID differs from asset ID: ${ref.path}`);
+          itemCount++;
+          if (section === "styles") {
+            const css = ref.cssPath ?? `${ref.path.slice(0, ref.path.lastIndexOf("/") + 1)}${asset.cssPath}`;
+            if (!safeContentPath(css) || !css.startsWith("styles/") || !files.has(css)) {
+              fail(`Pinned style CSS is invalid or missing: ${css}`);
+            }
+          }
+        }
+      } catch (error) {
+        fail(`Pinned asset cannot be read: ${ref.path}: ${error.message}`);
+      }
+    }
+    if (section === "resources") {
+      const categories = collection.categories;
+      if (!Array.isArray(categories) || categories.length !== collection.count
+        || new Set(categories).size !== categories.length || categories.some((id) => !ids.has(id))) {
+        fail("Pinned resource categories do not match the category index");
+      }
+    }
+    if (checkpoint.collections?.[section] !== itemCount) {
+      fail(`Release ${section} count ${checkpoint.collections?.[section]} differs from pinned items ${itemCount}`);
+    }
+  }
+  if (checkpoint.collections?.inbox !== undefined) {
+    let inboxCount = 0;
+    for (const path of files) {
+      if (!/^inbox\/[^/]+\.json$/.test(path)) continue;
+      try {
+        const item = JSON.parse(git(["show", `${commit}:${path}`]));
+        inboxCount += Array.isArray(item) ? item.length : 1;
+      } catch (error) { fail(`Pinned inbox cannot be read: ${path}: ${error.message}`); }
+    }
+    if (checkpoint.collections.inbox !== inboxCount) fail("Release inbox count differs from pinned items");
+  }
 }
 
 // 1. releases/latest.json
@@ -88,21 +236,52 @@ if (!contentOnly) {
       if (!rel.snapshotTag || !/^v[0-9]{4}\.[0-9]{2}\.[0-9]{2}(\.[0-9]+)?$/.test(rel.snapshotTag)) {
         fail(`snapshotTag must match vYYYY.MM.DD[.patch], got: ${rel.snapshotTag}`);
       }
+      if (rel.snapshotTag !== `v${rel.releaseVersion}`) {
+        fail("snapshotTag must equal v + releaseVersion");
+      }
 
-      for (const key of ["commitSha", "snapshotTag"]) {
-        const pin = rel[key];
-        if (!pin) continue;
-        const resolved = git(["rev-parse", "--verify", "--quiet", `${pin.trim()}^{commit}`]);
-        if (!resolved) {
-          if (checkpointOnly) {
-            fail(`Strict checkpoint verification failed: ${key} "${pin}" does not resolve to an existing git commit`);
-          } else {
-            console.warn(`· Warning: ${key} "${pin}" does not resolve to a local git commit (may be checked out from release archive or shallow clone)`);
-          }
+      const resolvedCommit = rel.commitSha ? git(["rev-parse", "--verify", "--quiet", `${rel.commitSha.trim()}^{commit}`]) : null;
+      const resolvedTag = rel.snapshotTag ? git(["rev-parse", "--verify", "--quiet", `${rel.snapshotTag.trim()}^{commit}`]) : null;
+
+      if (!resolvedCommit) {
+        fail(`Checkpoint commitSha "${rel.commitSha}" does not resolve to an existing git commit`);
+      } else {
+        console.log(`✓ commitSha ${rel.commitSha} → ${resolvedCommit.slice(0, 12)}`);
+      }
+
+      if (!resolvedTag) {
+        fail(`Checkpoint snapshotTag "${rel.snapshotTag}" does not resolve to an existing git commit`);
+      } else {
+        console.log(`✓ snapshotTag ${rel.snapshotTag} → ${resolvedTag.slice(0, 12)}`);
+      }
+
+      if (resolvedCommit && resolvedTag) {
+        if (resolvedCommit !== resolvedTag) {
+          fail(`Strict checkpoint mismatch: snapshotTag (${rel.snapshotTag} -> ${resolvedTag}) does not resolve to commitSha (${rel.commitSha} -> ${resolvedCommit})`);
         } else {
-          console.log(`✓ ${key} ${pin} → ${resolved.slice(0, 12)}`);
+          console.log(`✓ snapshotTag and commitSha co-resolve to ${resolvedCommit.slice(0, 12)}`);
         }
       }
+
+      if (resolvedCommit) {
+        const pinnedManifestRaw = git(["show", `${resolvedCommit}:manifest.json`]);
+        if (!pinnedManifestRaw) {
+          fail(`Strict checkpoint verification failed: could not read manifest.json from pinned commit ${resolvedCommit}`);
+        } else {
+          try {
+            const pinnedManifest = JSON.parse(pinnedManifestRaw);
+            validatePinnedCounts(pinnedManifest, rel, resolvedCommit);
+            if (pinnedManifest.contentVersion !== rel.releaseVersion) {
+              fail(`Strict checkpoint mismatch: pinned manifest version (${pinnedManifest.contentVersion}) does not match releases/latest.json releaseVersion (${rel.releaseVersion})`);
+            } else {
+              console.log(`✓ Pinned commit manifest version matches releaseVersion: ${rel.releaseVersion}`);
+            }
+          } catch (e) {
+            fail(`Failed to parse pinned manifest.json from commit ${resolvedCommit}: ${e.message}`);
+          }
+        }
+      }
+
       console.log(`✓ Release checkpoint: ${rel.releaseVersion}`);
       checkedItems++;
     } catch (e) {
@@ -115,7 +294,7 @@ if (!contentOnly) {
       console.error(`\nCheckpoint validation failed with ${errors} error(s).`);
       process.exit(1);
     } else {
-      console.log(`\n✨ Release checkpoint verified 100% green!`);
+      console.log(`\nRelease checkpoint verified against its pinned snapshot.`);
       process.exit(0);
     }
   }
@@ -133,6 +312,9 @@ if (!existsSync(manPath)) {
     validateWithSchema(manifest, manSchema, "manifest.json");
 
     if (!manifest.contentVersion) fail("Missing contentVersion in manifest.json");
+    if (expectedVersion && manifest.contentVersion !== expectedVersion) {
+      fail(`Snapshot contentVersion ${manifest.contentVersion} does not match requested version ${expectedVersion}`);
+    }
     if (!manifest.collections) fail("Missing collections in manifest.json");
     console.log(`✓ Manifest content version: ${manifest.contentVersion}`);
     checkedItems++;
@@ -242,7 +424,7 @@ if (existsSync(styleDir)) {
         }
       }
 
-      if (st.cssPath && !existsSync(join(styleDir, dir.name, st.cssPath))) {
+      if (st.cssPath && (!safeContentPath(st.cssPath) || !existsSync(join(styleDir, dir.name, st.cssPath)))) {
         fail(`Style ${dir.name}: cssPath "${st.cssPath}" does not exist beside the manifest`);
       }
     } catch (e) {
@@ -255,8 +437,10 @@ if (existsSync(styleDir)) {
 const resSchema = loadSchema("resource.schema.json");
 const resDir = join(vaultDir, "resources");
 let resourceCount = 0;
+let resourceCategoryCount = 0;
 if (existsSync(resDir)) {
   for (const file of readdirSync(resDir).filter((f) => f.endsWith(".json"))) {
+    resourceCategoryCount++;
     try {
       const list = JSON.parse(readFileSync(join(resDir, file), "utf8"));
       if (!Array.isArray(list)) {
@@ -366,6 +550,47 @@ if (existsSync(inbDir)) {
 
 // Verify counts against manifest collections
 if (manifest && manifest.collections) {
+  if (manifest.collections.inbox && manifest.collections.inbox.count !== inboxCount) {
+    fail(`Inbox count mismatch: manifest says ${manifest.collections.inbox.count}, but found ${inboxCount}`);
+  }
+  const discoveredCounts = { styles: styleCount, resources: resourceCategoryCount, templates: templateCount, patterns: patternCount, skills: skillCount };
+  for (const [section, count] of Object.entries(discoveredCounts)) {
+    const collection = manifest.collections[section];
+    if (!collection && section === "skills" && count === 0) continue;
+    if (!Array.isArray(collection?.items)) {
+      fail(`Missing ${section} item index`);
+      continue;
+    }
+    if (collection.count !== count || collection.items.length !== count) {
+      fail(`${section} count must match both indexed entries and snapshot files (${count})`);
+    }
+    const paths = new Set();
+    const ids = new Set();
+    for (const ref of collection.items) {
+      if (!safeContentPath(ref.path) || !ref.path.startsWith(`${section}/`) || !existsSync(join(vaultDir, ref.path))) {
+        fail(`Invalid or missing ${section} index path: ${ref.path}`);
+        continue;
+      }
+      if (paths.has(ref.path) || ids.has(ref.id)) fail(`Duplicate ${section} index entry: ${ref.id}`);
+      paths.add(ref.path); ids.add(ref.id);
+      try {
+        const asset = JSON.parse(readFileSync(join(vaultDir, ref.path), "utf8"));
+        if (section === "resources") {
+          if (!Array.isArray(asset)) fail(`Indexed resource category is not an array: ${ref.path}`);
+        } else if (asset.id !== ref.id) fail(`Index and asset IDs differ: ${ref.path}`);
+        if (section === "styles" && (!safeContentPath(ref.cssPath) || !ref.cssPath.startsWith("styles/") || !existsSync(join(vaultDir, ref.cssPath)))) {
+          fail(`Invalid or missing indexed style CSS: ${ref.cssPath}`);
+        }
+      } catch (error) { fail(`Indexed asset cannot be read: ${ref.path}: ${error.message}`); }
+    }
+    if (section === "resources") {
+      const categories = collection.categories;
+      if (!Array.isArray(categories) || categories.length !== count
+        || new Set(categories).size !== count || categories.some((id) => !ids.has(id))) {
+        fail("Resource category list differs from category files and index");
+      }
+    }
+  }
   if (manifest.collections.styles && manifest.collections.styles.count !== styleCount) {
     fail(`Style count mismatch: manifest says ${manifest.collections.styles.count}, but found ${styleCount}`);
   }
@@ -384,7 +609,7 @@ if (errors > 0) {
   console.error(`\nValidation failed with ${errors} error(s).`);
   process.exit(1);
 } else {
-  console.log(`\n✨ Vault integrity verified 100% green! (${checkedItems} items checked)`);
+  console.log(`\nVault content validation completed (${checkedItems} items checked).`);
   console.log(`   Styles: ${styleCount}, Resources: ${resourceCount}, Templates: ${templateCount}, Patterns: ${patternCount}, Skills: ${skillCount}`);
   process.exit(0);
 }
